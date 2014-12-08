@@ -21,7 +21,7 @@ psdrf_Xls2Rdata <- function(repdata) {
   ListeFich <- ListeFich[grep(".xls", ListeFich)]
   # ---------------- Initialisation
   Placettes <- data.frame()
-  arbres    <- data.frame()
+  Arbres    <- data.frame()
   Rege      <- data.frame()
   Transect  <- data.frame()
   BMSsup30  <- data.frame()
@@ -39,7 +39,7 @@ psdrf_Xls2Rdata <- function(repdata) {
     TempCycles            <- read.xlsx(file, sheet="Cycles")
     # -------
     Placettes <- rbind(Placettes,TempPlacettes)
-    arbres    <- rbind(arbres,TempArbres)
+    Arbres    <- rbind(Arbres,TempArbres)
     Rege      <- rbind(Rege,TempRege)
     Transect  <- rbind(Transect,TempTransect)
     BMSsup30  <- rbind(BMSsup30,TempBMSsup30)
@@ -50,7 +50,7 @@ psdrf_Xls2Rdata <- function(repdata) {
   # --------------- Sauvegarde
   setwd(rep)
   dir.create("Tables", showWarnings = F)
-  save(Placettes,arbres,Rege,Transect,BMSsup30,Reperes,Cycles,
-                file = "Tables/psdrfDonneesBrutes.Rdata")
+  save(Placettes,Arbres,Rege,Transect,BMSsup30,Reperes,Cycles,
+       file = "Tables/psdrfDonneesBrutes.Rdata")
 
 }
