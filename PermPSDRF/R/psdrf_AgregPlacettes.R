@@ -53,6 +53,8 @@ psdrf_AgregPlacettes <- function() {
   names(psdrfNGVstrate)[5:13] <- Titre
   psdrfNGVcc <- psdrf_AgregMoySdEr(psdrfPlaNGV,"corine_code")
   names(psdrfNGVcc)[5:13] <- Titre
+  psdrfNGVcc <- psdrf_AgregMoySdEr(psdrfPlaNGV,"Groupe1")
+  names(psdrfNGVcc)[5:13] <- Titre
   psdrfNGVcc <- psdrf_AgregMoySdEr(psdrfPlaNGV,"Groupe2")
   names(psdrfNGVcc)[5:13] <- Titre
   # --------- Donnees par essences -------------
