@@ -93,7 +93,10 @@ for (i in 1:length(list)) {
     geom_point(aes(fill=code), alpha=0.5) +
     geom_text(color='black', size=3) +
     xlim(0,400) + ylim(0,MaxDist) + scale_size(range = c(5,20)) + coord_polar() +
-    MyTheme + ggtitle(paste(Nom," - Placette",list[i])) + guides(size=FALSE)
+    MyTheme + ggtitle(paste(Nom," - Placette",list[i])) + guides(size=FALSE) +
+    guides(colour = guide_legend(override.aes = list(size=7,linetype=0))) +
+    guides(shape = guide_legend(override.aes = list(size=7))) +
+    theme(legend.key = element_rect(colour = "white"))
   print(pl)
 }
 @
