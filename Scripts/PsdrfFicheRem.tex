@@ -1,0 +1,4925 @@
+\documentclass[a4paper, landscape]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{colortbl, xcolor}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{fancyvrb}
+\usepackage{rotating}
+\usepackage{multido}
+\usepackage{booktabs}
+
+\voffset -3cm
+\hoffset -2cm
+\oddsidemargin 0cm
+\evensidemargin -0.5cm
+\textwidth 28cm
+\topmargin 0cm
+\textheight 19cm
+\parindent 0cm
+\columnsep 0.7cm
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+\DefineVerbatimEnvironment{Sinput}{Verbatim}{formatcom = {\color[rgb]{0, 0, 0.56}}}
+
+
+
+\renewcommand{\arraystretch}{1.4} % Hauteur des lignes
+\setlength{\tabcolsep}{1pt} % Espace entre trait et texte d'une colonne
+
+
+
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 101 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 1 & 14.1 & 43 & 42 &  &  &  &  &  &  & s1 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 33 & 6.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+3 & HET & 39 & 8.4 & 40 & 43 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHP & 59 & 15.7 & 48 & 49 &  &  &  &  &  &  & db1r1z \\ 
+   \hline
+5 & HET & 61 & 9.4 & 38 & 42 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 79 & 8.4 & 14 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & HET & 105 & 11.8 & 55 & 59 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & P.S & 127 & 8.0 & 36 & 34 &  &  &  &  &  &  &  \\ 
+   \hline
+9 & P.S & 136 & 11.6 & 58 & 55 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHA & 159 & 4.1 & 21 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & CHA & 163 & 3.7 & 20 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & P.S & 194 & 6.3 & 20 &  & 1 & 20.00 & 2 & 1 & f &  & e12 \\ 
+   \hline
+13 & CHA & 198 & 9.7 & 18 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & CHA & 209 & 5.5 & 23 &  &  &  &  &  & t &  &  \\ 
+   \hline
+15 & CHA & 212 & 5.5 & 20 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & P.S & 228 & 7.1 & 38 & 40 &  &  &  &  &  & marqué &  \\ 
+   \hline
+17 & CHP & 344 & 9.2 & 38 & 41 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 355 & 7.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \hline
+19 & HET & 380 & 7.9 & 31 & 30 &  &  &  &  &  & marqué & i1 \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 110 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 10 & 12.1 & 99 & 96 &  &  &  &  &  &  & g1s1 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 10 & 18.1 & 68 &  & 3 & 1.30 & 3 & 4 &  &  & f1p1i1e1 \\ 
+   \hline
+3 & HET & 17 & 6.9 & 68 & 66 &  &  &  &  &  & marqué & g1h1 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHP & 117 & 11.6 & 72 & 68 &  &  &  &  &  &  & s4x2 \\ 
+   \hline
+5 & HET & 118 & 25.1 & 96 & 88 &  &  &  &  &  &  & g1s1 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & CHP & 145 & 7.8 & 50 & 50 &  &  &  &  &  & marqué & x2 \\ 
+   \hline
+7 & CHP & 190 & 11.4 & 60 & 59 &  &  &  &  &  &  & s1x2 \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHS & 241 & 11.9 & 63 & 69 &  &  &  &  &  &  & s1 \\ 
+   \hline
+9 & CHA & 241 & 8.4 & 44 & 45 &  &  &  &  &  & marqué & p1i1s2x1 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHA & 270 & 2.5 & 38 &  & 3 & 0.20 & 4 & 3 &  &  & p1b1l1 \\ 
+   \hline
+11 & CHS & 280 & 10.4 & 66 & 71 &  &  &  &  &  &  & s4 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHS & 309 & 16.6 & 71 & 74 &  &  &  &  &  &  & c2s4x2 \\ 
+   \hline
+13 & HET & 360 & 9.1 & 82 & 85 &  &  &  &  &  & marqué & g1 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & CHS & 387 & 15.0 & 69 & 66 &  &  &  &  &  &  & s2 \\ 
+   \hline
+15 & HET & 390 & 28.7 & 120 & 112 &  &  &  &  &  &  & g1h1a3p3i3c3x1 \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 112 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHA & 33 & 8.3 & 38 & 38 &  &  &  &  &  & penché à 45° & c3b12r12 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & AUG & 33 & 2.2 & 29 &  &  &  &  &  & f & marqué &  \\ 
+   \hline
+3 & CHA & 86 & 5.8 & 16 &  & 2 & 4.00 & 1 & 4 & f & bralant & a2c12ztc \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & AUG & 104 & 6.3 & 29 &  &  &  &  &  & f &  &  \\ 
+   \hline
+5 & AUG & 105 & 3.0 & 12 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & AUG & 109 & 3.5 & 34 & 33 &  &  &  &  &  &  &  \\ 
+   \hline
+7 & CHA & 119 & 9.9 & 21 &  &  &  &  &  & f &  & s1 \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & AUG & 119 & 4.0 & 18 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & CHA & 140 & 10.3 & 50 & 56 &  &  &  &  &  & marqué & df3i3c23b1tc \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & AUG & 222 & 7.6 & 26 &  &  &  &  &  & t &  & r23 \\ 
+   \hline
+11 & AUG & 223 & 6.8 & 24 &  &  &  &  &  & t &  & r2 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHA & 226 & 9.9 & 23 &  & 1 & 3.00 & 2 & 3 & f & bralant & c2r2b1ztc \\ 
+   \hline
+13 & AUG & 235 & 5.0 & 20 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & AUG & 262 & 10.4 & 32 & 38 &  &  &  &  &  &  & r1 \\ 
+   \hline
+15 & AUG & 263 & 2.1 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & AUG & 264 & 9.2 & 15 &  &  &  &  &  & f &  &  \\ 
+   \hline
+17 & CHA & 278 & 11.7 & 40 &  & 2 & 4.00 & 2 & 4 &  &  & c23g2a2 \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & AUG & 291 & 3.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+19 & BOV & 300 & 1.7 & 32 &  & 1 & 8.00 & 1 & 2 &  &  & c2ztc \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & AUG & 300 & 6.6 & 19 &  &  &  &  &  & f &  &  \\ 
+   \hline
+21 & AUG & 300 & 7.0 & 10 &  & 1 & 12.00 & 1 & 2 & f &  & z \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & CHA & 342 & 13.7 & 38 & 44 &  &  &  &  &  &  & b12 \\ 
+   \hline
+23 & AUG & 356 & 5.2 & 24 &  &  &  &  &  & t & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+24 & AUG & 359 & 5.2 & 25 &  & 1 & 15.00 & 2 & 2 & f &  & z \\ 
+   \hline
+25 & AUG & 360 & 4.8 & 32 & 31 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+26 & AUG & 361 & 4.0 & 9 &  &  &  &  &  & t & marqué &  \\ 
+   \hline
+27 & AUG & 364 & 5.9 & 38 & 33 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+28 & AUG & 368 & 5.2 & 32 & 30 &  &  &  &  &  & marqué &  \\ 
+   \hline
+29 & AUG & 370 & 6.0 & 26 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+30 & CHA & 372 & 5.7 & 16 &  &  &  &  &  & f &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 121 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & EPC & 26 & 16.0 & 50 &  & 2 & 7.00 & 1 & 1 &  &  & i12tc \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & EPC & 41 & 11.0 & 40 & 37 &  &  &  &  &  &  & i1 \\ 
+   \hline
+3 & EPC & 90 & 6.0 & 12 &  &  &  &  &  & f &  & di1 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHS & 100 & 12.6 & 61 & 59 &  &  &  &  &  & marqué &  \\ 
+   \hline
+5 & HET & 160 & 27.6 & 83 & 85 &  &  &  &  &  &  & s2b1c1 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & CHA & 161 & 9.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & CHP & 164 & 9.6 & 43 & 46 &  &  &  &  &  &  & x1 \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 178 & 26.8 & 85 & 95 &  &  &  &  &  &  & c1b1 \\ 
+   \hline
+9 & HET & 192 & 10.7 & 56 & 53 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 215 & 33.0 & 115 & 105 &  &  &  &  &  & Diamètres estimés &  \\ 
+   \hline
+11 & HET & 229 & 2.9 & 26 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 229 & 7.4 & 16 &  &  &  &  &  & f &  &  \\ 
+   \hline
+13 & CHP & 233 & 5.3 & 42 & 45 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 242 & 13.5 & 54 & 51 &  &  &  &  &  &  &  \\ 
+   \hline
+15 & HET & 266 & 4.8 & 22 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & HET & 272 & 5.9 & 16 &  &  &  &  &  & f &  &  \\ 
+   \hline
+17 & HET & 278 & 6.9 & 41 & 45 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 311 & 8.0 & 12 &  &  &  &  &  & f &  & c1b1 \\ 
+   \hline
+19 & HET & 339 & 9.4 & 41 & 49 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & HET & 363 & 6.8 & 46 & 44 &  &  &  &  &  & marqué &  \\ 
+   \hline
+21 & CHP & 381 & 7.9 & 47 & 43 &  &  &  &  &  &  & b1s5 \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 123 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHA & 36 & 4.8 & 41 & 39 &  &  &  &  &  & marqué & b1f2 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHA & 76 & 4.8 & 32 & 35 &  &  &  &  &  &  & b1 \\ 
+   \hline
+3 & CHA & 99 & 5.5 & 48 & 43 &  &  &  &  &  & cassé à la base et couché vers l'est & di1c1 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHA & 113 & 2.6 & 41 & 41 &  &  &  &  &  & marqué & b1g1l2 \\ 
+   \hline
+5 & HET & 166 & 5.6 & 15 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 177 & 4.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & HET & 203 & 6.1 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & AUG & 207 & 9.7 & 36 & 37 &  &  &  &  &  &  &  \\ 
+   \hline
+9 & HET & 207 & 7.9 & 24 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 214 & 7.2 & 18 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & AUG & 244 & 11.8 & 36 & 38 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 300 & 18.1 & 67 & 62 &  &  &  &  &  &  & g1b1 \\ 
+   \hline
+13 & AUG & 313 & 10.2 & 35 & 36 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & CHA & 327 & 5.4 & 46 & 45 &  &  &  &  &  & marqué &  \\ 
+   \hline
+15 & HET & 331 & 17.0 & 65 &  & 2 & 5.00 & 2 & 3 &  &  & g1h2a2p12c12b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & CHA & 331 & 5.9 & 14 &  &  &  &  &  & f &  &  \\ 
+   \hline
+17 & CHA & 338 & 5.1 & 21 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 374 & 7.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 130 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHP & 35 & 19.7 & 63 & 56 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHP & 60 & 5.2 & 56 & 56 &  &  &  &  &  & sciure sur le tronc &  \\ 
+   \hline
+3 & HET & 60 & 3.3 & 25 &  &  &  &  &  & f & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 113 & 19.2 & 69 & 68 &  &  &  &  &  & lucane c-v mâle sur tronc & p1c1 \\ 
+   \hline
+5 & HET & 140 & 14.4 & 80 & 75 &  &  &  &  &  &  & i12g1b12 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 160 & 24.4 & 75 & 71 &  &  &  &  &  &  & g1 \\ 
+   \hline
+7 & HET & 165 & 3.2 & 14 &  &  &  &  &  & f & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 217 & 7.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & HET & 234 & 24.8 & 78 & 74 &  &  &  &  &  &  & g1b12 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 237 & 17.7 & 68 & 69 &  &  &  &  &  &  &  \\ 
+   \hline
+11 & HET & 258 & 11.8 & 61 & 69 &  &  &  &  &  &  & c3i2s1x1 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 281 & 16.9 & 64 & 71 &  &  &  &  &  &  & k \\ 
+   \hline
+13 & HET & 287 & 14.2 & 76 & 73 &  &  &  &  &  &  & b2ks1 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 397 & 7.1 & 80 & 79 &  &  &  &  &  & marqué & g1h2i1 \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 132 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHP & 4 & 11.8 & 42 & 45 &  &  &  &  &  &  & r2s2 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHR & 50 & 13.7 & 52 & 51 &  &  &  &  &  &  & s3 \\ 
+   \hline
+3 & CHP & 51 & 8.3 & 36 & 33 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHR & 77 & 11.0 & 48 & 54 &  &  &  &  &  & marqué &  \\ 
+   \hline
+5 & HET & 92 & 7.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & P.S & 165 & 5.5 & 37 & 35 &  &  &  &  &  &  &  \\ 
+   \hline
+7 & P.S & 170 & 8.3 & 42 & 39 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & P.S & 178 & 11.2 & 42 & 39 &  &  &  &  &  &  & r2 \\ 
+   \hline
+9 & EPC & 212 & 19.0 & 64 & 58 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & EPC & 212 & 10.6 & 49 & 50 &  &  &  &  &  &  &  \\ 
+   \hline
+11 & EPC & 257 & 10.4 & 65 & 68 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & P.S & 312 & 7.9 & 34 & 32 &  &  &  &  &  &  &  \\ 
+   \hline
+13 & P.S & 336 & 7.1 & 48 & 44 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & CHP & 356 & 4.7 & 40 & 38 &  &  &  &  &  & marqué & r2 \\ 
+   \hline
+15 & CHR & 393 & 6.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 134 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & FRC & 12 & 7.8 & 29 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHP & 32 & 13.9 & 72 & 68 &  &  &  &  &  &  & s2 \\ 
+   \hline
+3 & CHP & 40 & 14.8 & 50 & 50 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & FRC & 55 & 10.9 & 38 & 37 &  &  &  &  &  &  &  \\ 
+   \hline
+5 & FRC & 55 & 6.5 & 33 & 30 &  &  &  &  &  &  & i2 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & CHA & 109 & 9.0 & 14 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & HET & 132 & 4.4 & 37 & 39 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHA & 133 & 1.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & HET & 139 & 5.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHA & 149 & 9.0 & 24 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & CHA & 162 & 7.3 & 15 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHA & 162 & 8.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \hline
+13 & CHA & 163 & 6.4 & 22 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & CHA & 163 & 5.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \hline
+15 & CHA & 176 & 6.8 & 15 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & CHA & 195 & 5.6 & 13 &  &  &  &  &  & f &  &  \\ 
+   \hline
+17 & HET & 210 & 13.8 & 45 & 48 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 221 & 16.1 & 62 & 65 &  &  &  &  &  &  &  \\ 
+   \hline
+19 & CHA & 238 & 2.4 & 22 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & HET & 241 & 10.1 & 53 & 48 &  &  &  &  &  & marqué &  \\ 
+   \hline
+21 & HET & 242 & 9.8 & 47 & 52 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & CHA & 290 & 2.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+23 & HET & 290 & 9.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+24 & CHA & 320 & 13.8 & 45 & 48 &  &  &  &  &  &  &  \\ 
+   \hline
+25 & CHP & 331 & 20.3 & 70 & 66 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+26 & CHP & 365 & 13.8 & 62 & 67 &  &  &  &  &  &  &  \\ 
+   \hline
+27 & CHP & 371 & 20.1 & 73 & 71 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+28 & CHA & 381 & 6.4 & 18 &  &  &  &  &  & f &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:25 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 136 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHP & 48 & 16.1 & 76 & 73 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 81 & 7.2 & 43 &  & 2 & 12.00 & 3 & 1 &  &  & e12k \\ 
+   \hline
+3 & CHP & 82 & 17.8 & 56 & 53 &  &  &  &  &  &  & l1 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 169 & 5.2 & 34 & 32 &  &  &  &  &  & chablis vivant & d \\ 
+   \hline
+5 & CHP & 170 & 16.3 & 62 & 62 &  &  &  &  &  & marqué & l23 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 190 & 7.9 & 26 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & HET & 213 & 12.9 & 52 & 47 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 243 & 4.0 & 30 & 31 &  &  &  &  &  &  &  \\ 
+   \hline
+9 & HET & 244 & 9.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 301 & 2.2 & 36 & 36 &  &  &  &  &  & marqué &  \\ 
+   \hline
+11 & HET & 307 & 11.4 & 44 & 42 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 342 & 6.0 & 48 & 47 &  &  &  &  &  &  & s1 \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 141 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHP & 18 & 10.2 & 43 & 45 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 21 & 5.9 & 13 &  &  &  &  &  & f &  &  \\ 
+   \hline
+3 & CHA & 36 & 2.7 & 14 &  & 1 & 5.00 & 4 & 2 & f &  & z \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHP & 40 & 15.7 & 36 &  & 1 & 18.00 & 2 & 2 &  &  & a1e123z \\ 
+   \hline
+5 & CHP & 101 & 17.0 & 66 & 56 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & CHA & 123 & 9.7 & 40 & 35 &  &  &  &  &  & marqué &  \\ 
+   \hline
+7 & CHP & 133 & 13.8 & 46 & 46 &  &  &  &  &  &  & x1 \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHA & 196 & 9.2 & 28 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & CHP & 200 & 13.8 & 58 & 49 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 223 & 4.0 & 75 & 77 &  &  &  &  &  & marqué & b1 \\ 
+   \hline
+11 & CHP & 259 & 16.4 & 50 & 49 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHS & 265 & 5.7 & 74 & 74 &  &  &  &  &  &  &  \\ 
+   \hline
+13 & CHP & 300 & 11.9 & 51 & 51 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & CHA & 302 & 2.0 & 18 &  &  &  &  &  & f &  &  \\ 
+   \hline
+15 & HET & 375 & 6.9 & 64 & 61 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 143 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 39 & 15.3 & 74 & 65 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHP & 57 & 9.2 & 31 & 36 &  &  &  &  &  &  &  \\ 
+   \hline
+3 & CHR & 102 & 11.8 & 52 & 53 &  &  &  &  &  & marqué & s2 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHP & 147 & 16.6 & 53 & 57 &  &  &  &  &  &  & x1 \\ 
+   \hline
+5 & CHP & 162 & 3.5 & 33 & 33 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & CHP & 184 & 11.7 & 49 & 47 &  &  &  &  &  &  & x2r2 \\ 
+   \hline
+7 & CHP & 254 & 11.2 & 47 & 45 &  &  &  &  &  &  & s2r2 \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHP & 274 & 8.1 & 38 & 39 &  &  &  &  &  & marqué & x1 \\ 
+   \hline
+9 & CHP & 283 & 11.7 & 41 & 43 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHP & 355 & 13.2 & 60 & 57 &  &  &  &  &  &  & b1 \\ 
+   \hline
+11 & HET & 387 & 12.6 & 67 & 65 &  &  &  &  &  & marqué & b1k \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 145 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 3 & 6.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 44 & 6.6 & 42 & 44 &  &  &  &  &  & marqué & b12g1 \\ 
+   \hline
+3 & FRC & 49 & 4.4 & 33 &  & 1 & 16.00 & 2 & 2 &  & incliné de 35° & e123b2z \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 90 & 14.7 & 47 &  & 1 & 12.00 & 2 & 2 &  &  & a2c2e2z \\ 
+   \hline
+5 & CHA & 103 & 13.5 & 41 & 42 &  &  &  &  &  & couché & dp23 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & CHA & 123 & 8.3 & 26 &  &  &  &  &  & f & penché, marqué & b123 \\ 
+   \hline
+7 & HET & 131 & 7.9 & 20 &  &  &  &  &  & f & penché & b123 \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHA & 175 & 11.1 & 36 & 35 &  &  &  &  &  &  & b1s1ts \\ 
+   \hline
+9 & CHA & 221 & 14.5 & 44 & 44 &  &  &  &  &  &  & l2 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHA & 278 & 9.7 & 34 & 36 &  &  &  &  &  & marqué &  \\ 
+   \hline
+11 & CHP & 363 & 24.1 & 95 & 96 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 374 & 5.0 & 12 &  &  &  &  &  & f &  & tc \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 147 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHP & 29 & 15.5 & 72 & 72 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 78 & 22.0 & 69 & 68 &  &  &  &  &  &  &  \\ 
+   \hline
+3 & CHP & 116 & 12.7 & 65 & 64 &  &  &  &  &  &  & l2 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 126 & 4.3 & 53 & 50 &  &  &  &  &  & marqué & b1 \\ 
+   \hline
+5 & HET & 136 & 6.3 & 26 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & CHP & 154 & 16.2 & 67 & 57 &  &  &  &  &  &  & b1l2 \\ 
+   \hline
+7 & HET & 164 & 13.0 & 48 & 48 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHP & 169 & 21.9 & 77 & 74 &  &  &  &  &  &  & b1l2 \\ 
+   \hline
+9 & HET & 194 & 14.8 & 63 & 62 &  &  &  &  &  &  & b1ts \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHA & 202 & 5.7 & 28 &  &  &  &  &  & f &  & b1l3 \\ 
+   \hline
+11 & HET & 210 & 14.8 & 44 & 46 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHA & 239 & 7.7 & 47 & 42 &  &  &  &  &  &  & b1 \\ 
+   \hline
+13 & CHA & 276 & 15.6 & 45 & 49 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & CHA & 280 & 8.0 & 30 & 31 &  &  &  &  &  &  & b1l3 \\ 
+   \hline
+15 & CHA & 333 & 2.5 & 28 &  &  &  &  &  & t & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & HET & 334 & 15.3 & 50 & 50 &  &  &  &  &  &  & b1 \\ 
+   \hline
+17 & CHA & 336 & 2.9 & 35 & 35 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 341 & 14.6 & 51 & 51 &  &  &  &  &  &  &  \\ 
+   \hline
+19 & CHA & 346 & 3.1 & 44 & 40 &  &  &  &  &  & marqué & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & CHA & 348 & 9.8 & 21 &  & 2 & 3.00 & 2 & 1 & f &  &  \\ 
+   \hline
+21 & CHA & 349 & 10.0 & 30 & 31 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & CHA & 395 & 7.3 & 47 & 45 &  &  &  &  &  &  & b1 \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 150 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 6 & 6.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 8 & 6.3 & 16 &  &  &  &  &  & f &  &  \\ 
+   \hline
+3 & HET & 17 & 9.5 & 28 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 24 & 6.5 & 15 &  &  &  &  &  & f &  &  \\ 
+   \hline
+5 & HET & 30 & 10.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 49 & 2.7 & 17 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & HET & 71 & 9.2 & 15 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 74 & 9.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & HET & 80 & 5.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 89 & 6.0 & 12 &  &  &  &  &  & f & marqué &  \\ 
+   \hline
+11 & HET & 93 & 4.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 100 & 2.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+13 & HET & 102 & 4.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 111 & 4.2 & 14 &  &  &  &  &  & f &  &  \\ 
+   \hline
+15 & HET & 112 & 9.5 & 16 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & HET & 113 & 8.9 & 16 &  &  &  &  &  & f &  &  \\ 
+   \hline
+17 & HET & 144 & 7.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 149 & 5.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+19 & HET & 152 & 9.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & HET & 166 & 9.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+21 & HET & 177 & 5.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & HET & 183 & 5.6 & 24 &  &  &  &  &  & f & marqué &  \\ 
+   \hline
+23 & HET & 183 & 9.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+24 & HET & 185 & 9.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \hline
+25 & HET & 187 & 9.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+26 & HET & 190 & 8.4 & 14 &  &  &  &  &  & f &  &  \\ 
+   \hline
+27 & HET & 190 & 4.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+28 & HET & 190 & 9.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+29 & HET & 200 & 0.4 & 13 &  &  &  &  &  & f & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+30 & HET & 210 & 8.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 150 (suite) &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+31 & HET & 211 & 6.5 & 16 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+32 & HET & 214 & 6.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+33 & HET & 229 & 10.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+34 & HET & 230 & 9.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \hline
+35 & HET & 231 & 10.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+36 & HET & 255 & 6.3 & 16 &  &  &  &  &  & f &  &  \\ 
+   \hline
+37 & HET & 270 & 1.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+38 & HET & 278 & 2.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \hline
+39 & HET & 303 & 5.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+40 & HET & 308 & 7.7 & 15 &  &  &  &  &  & f &  &  \\ 
+   \hline
+41 & HET & 317 & 7.0 & 14 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+42 & HET & 317 & 9.2 & 14 &  &  &  &  &  & f &  &  \\ 
+   \hline
+43 & HET & 317 & 8.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+44 & HET & 319 & 9.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+45 & HET & 324 & 8.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+46 & HET & 328 & 1.0 & 12 &  &  &  &  &  & f & marqué &  \\ 
+   \hline
+47 & HET & 355 & 9.8 & 18 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+48 & HET & 361 & 9.3 & 17 &  &  &  &  &  & f &  &  \\ 
+   \hline
+49 & HET & 361 & 6.7 & 15 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+50 & HET & 365 & 4.5 & 18 &  &  &  &  &  & f & marqué &  \\ 
+   \hline
+51 & HET & 367 & 5.8 & 15 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+52 & HET & 376 & 10.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \hline
+53 & HET & 377 & 7.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+54 & HET & 379 & 9.4 & 13 &  &  &  &  &  & f &  &  \\ 
+   \hline
+55 & HET & 379 & 8.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+56 & HET & 381 & 9.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+57 & HET & 388 & 7.2 & 14 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+58 & HET & 397 & 9.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \hline
+59 & HET & 398 & 6.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 162 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHP & 21 & 7.6 & 43 & 44 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHA & 44 & 9.5 & 25 &  & 1 & 7.00 & 1 & 2 & f &  & f2ztc \\ 
+   \hline
+3 & HET & 51 & 18.3 & 67 & 75 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHA & 90 & 12.4 & 42 & 40 &  &  &  &  &  &  &  \\ 
+   \hline
+5 & HET & 97 & 12.8 & 66 & 72 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 141 & 8.6 & 21 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & CHA & 158 & 9.3 & 14 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 172 & 5.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & CHP & 186 & 9.4 & 45 & 41 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHP & 203 & 12.8 & 65 & 63 &  &  &  &  &  &  &  \\ 
+   \hline
+11 & CHA & 240 & 5.7 & 35 & 34 &  &  &  &  &  & marqué & s2 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHP & 246 & 11.8 & 49 & 49 &  &  &  &  &  &  & r23 \\ 
+   \hline
+13 & CHP & 249 & 9.0 & 43 & 44 &  &  &  &  &  &  & i1 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 310 & 2.7 & 24 &  & 2 & 1.50 & 2 & 2 & f &  & b1 \\ 
+   \hline
+15 & CHP & 312 & 13.9 & 57 & 60 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & CHA & 319 & 11.4 & 32 & 30 &  &  &  &  &  &  &  \\ 
+   \hline
+17 & HET & 329 & 19.2 & 78 & 78 &  &  &  &  &  &  & s2 \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & CHP & 350 & 5.5 & 46 & 37 &  &  &  &  &  & marqué & r23 \\ 
+   \hline
+19 & HET & 359 & 23.0 & 70 & 63 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & CHP & 394 & 11.9 & 73 & 72 &  &  &  &  &  &  & b1s1 \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 201 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHP & 14 & 7.9 & 48 & 43 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHP & 16 & 17.4 & 53 & 49 &  &  &  &  &  &  &  \\ 
+   \hline
+3 & HET & 30 & 7.5 & 35 & 31 &  &  &  &  &  &  & s1 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHP & 41 & 9.1 & 38 &  & 1 & 16.00 & 2 & 1 &  &  & z \\ 
+   \hline
+5 & HET & 82 & 3.7 & 14 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 90 & 20.4 & 84 & 80 &  &  &  &  &  &  &  \\ 
+   \hline
+7 & HET & 98 & 18.3 & 55 & 57 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 99 & 10.7 & 75 & 81 &  &  &  &  &  &  &  \\ 
+   \hline
+9 & HET & 136 & 10.4 & 83 & 84 &  &  &  &  &  & marqué & b1a3dtc \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 154 & 8.1 & 32 & 31 &  &  &  &  &  &  &  \\ 
+   \hline
+11 & HET & 202 & 20.9 & 65 & 59 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 212 & 11.6 & 90 & 86 &  &  &  &  &  &  & b1s3 \\ 
+   \hline
+13 & HET & 245 & 21.1 & 73 & 68 &  &  &  &  &  &  & s1 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 260 & 1.9 & 17 &  &  &  &  &  & f & marqué &  \\ 
+   \hline
+15 & CHP & 262 & 19.4 & 60 & 54 &  &  &  &  &  &  & x1 \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & CHP & 282 & 20.9 & 76 & 62 &  &  &  &  &  &  & s3 \\ 
+   \hline
+17 & HET & 291 & 4.8 & 84 & 82 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & CHP & 331 & 11.8 & 58 & 57 &  &  &  &  &  &  &  \\ 
+   \hline
+19 & CHA & 332 & 14.0 & 43 & 41 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & CHP & 335 & 7.4 & 60 & 62 &  &  &  &  &  &  & dp1i2a2 \\ 
+   \hline
+21 & CHP & 350 & 20.9 & 62 & 66 &  &  &  &  &  &  & x3 \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & CHP & 387 & 15.0 & 50 & 51 &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 203 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+21 & HET & 0 & 22.5 & 82 & 61 &  &  &  &  &  &  & i1p1g1b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+1 & SAM & 48 & 2.1 & 23 &  &  &  &  &  & f & marqué & k \\ 
+   \hline
+2 & SAM & 48 & 4.6 & 15 &  &  &  &  &  & f &  & i1 \\ 
+   \rowcolor[gray]{0.95} \hline
+3 & SAM & 60 & 5.0 & 12 &  & 1 & 5.00 & 2 & 2 & f &  & d2z \\ 
+   \hline
+4 & ERS & 90 & 3.0 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+5 & ERS & 109 & 8.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \hline
+6 & ERS & 138 & 2.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+7 & HET & 159 & 18.6 & 79 & 68 &  &  &  &  &  &  & i2kc2 \\ 
+   \hline
+8 & HET & 175 & 6.5 & 24 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+9 & HET & 184 & 9.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+10 & HET & 185 & 9.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+11 & HET & 186 & 6.6 & 22 &  &  &  &  &  & f &  &  \\ 
+   \hline
+12 & SAM & 222 & 3.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+13 & ERS & 224 & 9.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+14 & SAM & 228 & 7.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+15 & SUR & 251 & 10.0 & 10 &  & 1 & 4.00 & 3 & 2 & f &  &  \\ 
+   \hline
+16 & ERS & 273 & 6.4 & 15 &  &  &  &  &  & f & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+17 & SAM & 347 & 8.0 & 8 &  & 1 & 6.00 & 2 & 2 & f &  & z \\ 
+   \hline
+18 & SAM & 348 & 8.0 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+19 & HET & 368 & 9.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+20 & ERS & 398 & 9.3 & 26 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 205 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 2 & 13.0 & 59 & 58 &  &  &  &  &  &  & i2 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 13 & 11.8 & 72 & 73 &  &  &  &  &  &  & i2 \\ 
+   \hline
+3 & HET & 42 & 8.5 & 75 & 78 &  &  &  &  &  & marqué & l1 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 93 & 15.3 & 52 & 60 &  &  &  &  &  & jumelle & s2h1 \\ 
+   \hline
+5 & HET & 96 & 15.5 & 76 & 70 &  &  &  &  &  & jumelle & s4h1 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 134 & 18.5 & 59 & 51 &  &  &  &  &  &  &  \\ 
+   \hline
+7 & HET & 149 & 4.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 158 & 28.0 & 82 & 78 &  &  &  &  &  &  & s4 \\ 
+   \hline
+9 & HET & 200 & 20.0 & 81 &  & 3 & 1.20 & 3 & 3 &  &  & e1p1f1 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 229 & 17.0 & 76 & 84 &  &  &  &  &  & marqué & k \\ 
+   \hline
+11 & HET & 249 & 7.5 & 65 &  & 2 & 14.00 & 2 & 2 &  &  & a2e2p2h2f2 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 277 & 15.5 & 82 & 88 &  &  &  &  &  &  & s4 \\ 
+   \hline
+13 & HET & 306 & 23.6 & 103 & 90 &  &  &  &  &  & Distance estimée & s5x1 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 312 & 6.1 & 39 & 44 &  &  &  &  &  & marqué &  \\ 
+   \hline
+15 & HET & 342 & 10.5 & 71 & 66 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 207 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & EPC & 10 & 5.0 & 21 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & EPC & 18 & 1.1 & 36 & 34 &  &  &  &  &  & marqué &  \\ 
+   \hline
+3 & EPC & 20 & 7.0 & 13 &  & 1 & 12.00 & 2 & 2 & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & EPC & 24 & 8.4 & 18 &  &  &  &  &  & f &  & i1 \\ 
+   \hline
+5 & EPC & 35 & 3.2 & 21 &  &  &  &  &  & f &  & i12 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & EPC & 52 & 12.9 & 43 & 44 &  &  &  &  &  &  &  \\ 
+   \hline
+7 & EPC & 56 & 8.2 & 14 &  &  &  &  &  & f &  & i1 \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & EPC & 78 & 3.2 & 40 & 38 &  &  &  &  &  &  &  \\ 
+   \hline
+9 & EPC & 96 & 10.9 & 46 & 48 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & EPC & 112 & 1.8 & 17 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & EPC & 121 & 8.5 & 51 & 41 &  &  &  &  &  &  & tm \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & EPC & 146 & 12.3 & 40 & 41 &  &  &  &  &  &  &  \\ 
+   \hline
+13 & EPC & 151 & 8.0 & 32 & 22 &  &  &  &  &  &  & i2 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & EPC & 180 & 9.3 & 38 & 34 &  &  &  &  &  &  &  \\ 
+   \hline
+15 & EPC & 208 & 3.2 & 40 & 38 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & EPC & 210 & 7.5 & 33 & 30 &  &  &  &  &  &  & i1 \\ 
+   \hline
+17 & EPC & 218 & 9.0 & 8 &  & 2 & 4.00 & 2 & 2 & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & EPC & 235 & 10.4 & 45 & 40 &  &  &  &  &  &  &  \\ 
+   \hline
+19 & EPC & 248 & 7.2 & 21 &  &  &  &  &  & f &  & i2 \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & EPC & 250 & 5.2 & 40 & 39 &  &  &  &  &  &  &  \\ 
+   \hline
+21 & EPC & 254 & 3.0 & 9 &  & 1 & 10.00 & 3 & 2 & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & EPC & 266 & 1.1 & 21 &  &  &  &  &  & f &  &  \\ 
+   \hline
+23 & EPC & 267 & 5.3 & 21 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+24 & EPC & 273 & 6.9 & 20 &  &  &  &  &  & f &  &  \\ 
+   \hline
+25 & EPC & 304 & 8.4 & 22 &  &  &  &  &  & f &  & i1 \\ 
+   \rowcolor[gray]{0.95} \hline
+26 & EPC & 322 & 7.2 & 14 &  &  &  &  &  & f &  & d \\ 
+   \hline
+27 & EPC & 340 & 6.7 & 32 & 32 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+28 & EPC & 356 & 9.1 & 37 & 36 &  &  &  &  &  &  & d \\ 
+   \hline
+29 & EPC & 358 & 6.8 & 28 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+30 & EPC & 359 & 2.5 & 23 &  &  &  &  &  & f &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 207 (suite) &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+31 & EPC & 374 & 7.5 & 31 & 27 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+32 & EPC & 376 & 12.3 & 38 & 36 &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 212 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 0 & 10.0 & 22 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 0 & 9.3 & 16 &  &  &  &  &  & f &  &  \\ 
+   \hline
+3 & HET & 1 & 6.2 & 22 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 2 & 9.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+5 & HET & 3 & 8.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 11 & 8.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & HET & 16 & 6.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 17 & 5.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & HET & 35 & 3.0 & 17 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 42 & 8.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & HET & 46 & 3.8 & 20 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 59 & 8.4 & 15 &  &  &  &  &  & f &  &  \\ 
+   \hline
+13 & HET & 61 & 7.6 & 24 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 66 & 5.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+15 & HET & 77 & 7.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & HET & 78 & 8.5 & 16 &  &  &  &  &  & f &  &  \\ 
+   \hline
+17 & HET & 78 & 8.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 102 & 4.5 & 15 &  &  &  &  &  & f &  &  \\ 
+   \hline
+19 & HET & 116 & 5.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & FRC & 117 & 9.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \hline
+21 & HET & 128 & 2.5 & 14 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & HET & 142 & 7.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+23 & HET & 146 & 8.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+24 & HET & 147 & 9.5 & 16 &  &  &  &  &  & f &  &  \\ 
+   \hline
+25 & FRC & 157 & 6.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+26 & FRC & 171 & 5.7 & 15 &  &  &  &  &  & f & marqué &  \\ 
+   \hline
+27 & HET & 179 & 5.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+28 & HET & 191 & 7.8 & 15 &  &  &  &  &  & f &  &  \\ 
+   \hline
+29 & HET & 198 & 9.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+30 & HET & 200 & 9.8 & 17 &  &  &  &  &  & f &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 212 (suite) &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+31 & HET & 217 & 3.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+32 & HET & 224 & 19.3 & 60 & 60 &  &  &  &  &  &  &  \\ 
+   \hline
+33 & HET & 250 & 6.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+34 & HET & 252 & 8.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \hline
+35 & HET & 256 & 9.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+36 & HET & 257 & 4.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+37 & HET & 258 & 9.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+38 & HET & 260 & 9.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+39 & HET & 262 & 15.4 & 75 & 71 &  &  &  &  &  &  & p1i1 \\ 
+   \rowcolor[gray]{0.95} \hline
+40 & MER & 294 & 2.6 & 22 &  &  &  &  &  & f & marqué &  \\ 
+   \hline
+41 & HET & 317 & 6.8 & 14 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+42 & HET & 332 & 8.2 & 17 &  &  &  &  &  & f &  &  \\ 
+   \hline
+43 & HET & 333 & 7.0 & 30 & 30 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+44 & HET & 333 & 5.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+45 & HET & 353 & 7.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+46 & HET & 353 & 5.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+47 & HET & 354 & 7.1 & 15 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+48 & HET & 363 & 5.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+49 & HET & 365 & 2.1 & 19 &  &  &  &  &  & f & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+50 & HET & 381 & 10.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \hline
+51 & HET & 382 & 10.0 & 31 & 31 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+52 & HET & 386 & 5.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+53 & HET & 387 & 5.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 214 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHA & 43 & 7.5 & 28 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHA & 46 & 0.6 & 21 &  &  &  &  &  & f &  &  \\ 
+   \hline
+3 & CHA & 59 & 9.2 & 21 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 76 & 5.3 & 23 &  &  &  &  &  & f &  &  \\ 
+   \hline
+5 & HET & 85 & 6.6 & 48 & 47 &  &  &  &  &  & jumelle marquée & tx \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 85 & 6.8 & 46 & 47 &  &  &  &  &  & jumelle marquée & tx \\ 
+   \hline
+7 & HET & 109 & 28.5 & 102 & 97 &  &  &  &  &  & à côté d'une chandelle & g1i12h2x1s1 \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHA & 148 & 4.0 & 21 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & CHA & 207 & 9.7 & 17 &  &  &  &  &  & f &  & i1 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 228 & 11.0 & 63 & 65 &  &  &  &  &  & marqué & g1 \\ 
+   \hline
+11 & HET & 232 & 14.3 & 56 & 57 &  &  &  &  &  &  & i2s1g1 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHA & 261 & 6.9 & 18 &  &  &  &  &  & f &  &  \\ 
+   \hline
+13 & CHA & 264 & 9.5 & 18 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 350 & 17.0 & 112 & 110 &  &  &  &  &  & marqué & g1h2f2a2i2c12y1k \\ 
+   \hline
+15 & CHA & 355 & 3.6 & 28 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & CHA & 382 & 8.8 & 33 &  & 2 & 3.50 & 3 & 3 &  &  & c2f2e12 \\ 
+   \hline
+17 & CHA & 382 & 9.4 & 26 &  &  &  &  &  & f &  & d \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 221 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 8 & 5.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 34 & 7.6 & 44 & 43 &  &  &  &  &  &  & i2c2 \\ 
+   \hline
+3 & HET & 39 & 2.0 & 11 &  &  &  &  &  & f & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 43 & 3.0 & 11 &  &  &  &  &  & f & marqué &  \\ 
+   \hline
+5 & HET & 45 & 12.5 & 88 & 100 &  &  &  &  &  &  & ds3x4tc \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 55 & 2.8 & 21 &  &  &  &  &  & f & marqué &  \\ 
+   \hline
+7 & HET & 70 & 6.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 77 & 7.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & HET & 80 & 5.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 90 & 8.6 & 13 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & HET & 91 & 13.9 & 82 & 87 &  &  &  &  &  &  & dtc \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 95 & 7.6 & 14 &  &  &  &  &  & f &  &  \\ 
+   \hline
+13 & HET & 140 & 10.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 155 & 20.7 & 65 & 67 &  &  &  &  &  &  &  \\ 
+   \hline
+15 & HET & 163 & 16.2 & 77 & 84 &  &  &  &  &  &  & dc2a2e2tc \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & HET & 163 & 10.6 & 76 & 81 &  &  &  &  &  & marqué & d \\ 
+   \hline
+17 & HET & 215 & 15.7 & 51 & 49 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 234 & 10.4 & 41 &  & 2 & 1.70 & 2 & 3 &  &  & e1 \\ 
+   \hline
+19 & HET & 238 & 7.3 & 24 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & HET & 243 & 22.1 & 84 & 82 &  &  &  &  &  &  & da2c2tc \\ 
+   \hline
+21 & HET & 297 & 7.3 & 77 &  & 1 & 10.00 & 1 & 2 &  & marqué & a2tc \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & HET & 306 & 2.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+23 & CHA & 307 & 7.5 & 44 & 42 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+24 & HET & 363 & 28.8 & 95 & 90 &  &  &  &  &  &  & i2x1 \\ 
+   \hline
+25 & HET & 366 & 15.2 & 62 & 63 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+26 & HET & 375 & 14.6 & 55 &  & 1 & 20.00 & 1 & 2 &  &  & a23 \\ 
+   \hline
+27 & HET & 379 & 4.2 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+28 & HET & 382 & 15.8 & 69 & 64 &  &  &  &  &  &  & dc2tc \\ 
+   \hline
+29 & HET & 395 & 5.8 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+30 & HET & 398 & 9.9 & 15 &  &  &  &  &  & f &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 223 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 18 & 10.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 36 & 10.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+3 & HET & 38 & 6.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 39 & 9.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \hline
+5 & BOV & 72 & 10.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 144 & 10.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & HET & 187 & 14.0 & 71 & 76 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 199 & 9.7 & 66 & 68 &  &  &  &  &  & marqué & tca3y1 \\ 
+   \hline
+9 & HET & 307 & 10.6 & 67 & 69 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 370 & 8.6 & 15 &  &  &  &  &  & f &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 232 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 17 & 4.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 26 & 9.9 & 20 &  &  &  &  &  & f &  &  \\ 
+   \hline
+3 & HET & 32 & 10.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 48 & 8.0 & 8 &  &  &  &  &  & f &  & d \\ 
+   \hline
+5 & HET & 50 & 8.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 56 & 9.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & HET & 62 & 18.7 & 79 & 86 &  &  &  &  &  & marqué & di3a3p3tc \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 64 & 6.4 & 17 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & HET & 87 & 13.8 & 79 &  & 2 & 5.00 & 3 & 3 &  &  & p12a2c12g1z \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 90 & 9.0 & 21 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & HET & 99 & 9.1 & 14 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 105 & 9.3 & 28 &  &  &  &  &  & f &  &  \\ 
+   \hline
+13 & HET & 109 & 5.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 115 & 8.0 & 13 &  &  &  &  &  & f &  &  \\ 
+   \hline
+15 & HET & 116 & 4.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & HET & 122 & 5.0 & 13 &  &  &  &  &  & f &  &  \\ 
+   \hline
+17 & HET & 140 & 4.4 & 26 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 149 & 15.2 & 65 & 64 &  &  &  &  &  & marqué &  \\ 
+   \hline
+19 & HET & 175 & 3.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & HET & 194 & 10.8 & 38 & 40 &  &  &  &  &  &  &  \\ 
+   \hline
+21 & CHA & 200 & 9.3 & 33 & 34 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & HET & 207 & 11.7 & 40 & 41 &  &  &  &  &  &  &  \\ 
+   \hline
+23 & HET & 216 & 6.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+24 & HET & 222 & 4.0 & 28 &  &  &  &  &  & f & marqué &  \\ 
+   \hline
+25 & HET & 246 & 7.0 & 21 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+26 & HET & 250 & 9.6 & 27 &  &  &  &  &  & f &  &  \\ 
+   \hline
+27 & HET & 308 & 6.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+28 & HET & 322 & 3.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+29 & HET & 338 & 5.8 & 16 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+30 & HET & 374 & 8.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 232 (suite) &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+31 & HET & 375 & 8.0 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+32 & HET & 390 & 9.2 & 19 &  &  &  &  &  & f &  &  \\ 
+   \hline
+33 & HET & 394 & 2.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 241 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 35 & 0.3 & 31 & 36 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 80 & 5.4 & 21 &  &  &  &  &  & f &  &  \\ 
+   \hline
+3 & HET & 90 & 6.4 & 15 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 93 & 6.1 & 16 &  &  &  &  &  & f & incliné \& marqué &  \\ 
+   \hline
+5 & HET & 101 & 3.1 & 25 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 146 & 7.8 & 18 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & HET & 150 & 7.5 & 20 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 154 & 5.4 & 20 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & HET & 165 & 4.9 & 14 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 189 & 6.7 & 16 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & HET & 195 & 7.3 & 17 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 195 & 6.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \hline
+13 & HET & 268 & 10.6 & 33 & 30 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 286 & 7.2 & 14 &  &  &  &  &  & f &  &  \\ 
+   \hline
+15 & ERS & 327 & 7.2 & 28 &  &  &  &  &  & t & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & ERS & 328 & 6.7 & 29 &  &  &  &  &  & t & marqué &  \\ 
+   \hline
+17 & HET & 359 & 6.8 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 359 & 6.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 252 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & BOV & 20 & 2.9 & 17 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 25 & 8.0 & 13 &  &  &  &  &  & f &  &  \\ 
+   \hline
+3 & HET & 40 & 6.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & BOV & 47 & 4.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+5 & HET & 52 & 2.0 & 11 &  &  &  &  &  & f & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 77 & 6.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & HET & 107 & 8.0 & 8 &  &  &  &  &  & f & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 218 & 10.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & HET & 290 & 9.0 & 11 &  &  &  &  &  & f & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 341 & 4.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & HET & 369 & 9.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 388 & 10.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 261 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 10 & 8.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 45 & 9.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+3 & HET & 51 & 7.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 76 & 12.5 & 62 & 63 &  &  &  &  &  & visité par N. Gouix le 25/5/2009 & a3c3g1ts \\ 
+   \hline
+5 & HET & 99 & 0.5 & 64 & 59 &  &  &  &  &  & marqué & a3ts \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 101 & 20.5 & 73 & 72 &  &  &  &  &  &  & de23a23ts \\ 
+   \hline
+7 & HET & 111 & 15.3 & 56 & 58 &  &  &  &  &  &  & di2ts \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 147 & 9.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & HET & 154 & 10.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 156 & 9.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & CHA & 192 & 8.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 240 & 10.4 & 70 & 70 &  &  &  &  &  & marqué & a3e3ts \\ 
+   \hline
+13 & HET & 265 & 18.5 & 56 & 54 &  &  &  &  &  &  & i2tc \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 300 & 6.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+15 & HET & 320 & 7.9 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & HET & 330 & 5.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+17 & HET & 333 & 7.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 341 & 7.1 & 14 &  &  &  &  &  & f &  &  \\ 
+   \hline
+19 & HET & 343 & 8.1 & 14 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & HET & 346 & 7.9 & 14 &  &  &  &  &  & f &  &  \\ 
+   \hline
+21 & HET & 347 & 9.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & HET & 348 & 12.3 & 38 & 36 &  &  &  &  &  & chablis vivant & dc23s5x2ts \\ 
+   \hline
+23 & HET & 371 & 9.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+24 & HET & 373 & 8.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+25 & HET & 382 & 9.0 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+26 & HET & 388 & 4.6 & 14 &  &  &  &  &  & f &  &  \\ 
+   \hline
+27 & HET & 393 & 8.8 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+28 & HET & 397 & 7.4 & 13 &  &  &  &  &  & f &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 310 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 2 & 15.3 & 49 & 50 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 19 & 9.1 & 39 & 40 &  &  &  &  &  & marqué &  \\ 
+   \hline
+3 & HET & 42 & 15.8 & 49 & 49 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 61 & 10.0 & 36 & 37 &  &  &  &  &  &  &  \\ 
+   \hline
+5 & HET & 110 & 14.2 & 47 & 46 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 150 & 2.1 & 66 & 63 &  &  &  &  &  & marqué & b1 \\ 
+   \hline
+7 & HET & 166 & 3.5 & 15 &  &  &  &  &  & f &  & tc \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 260 & 8.1 & 45 & 45 &  &  &  &  &  &  &  \\ 
+   \hline
+9 & HET & 277 & 11.9 & 47 & 48 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 300 & 3.4 & 52 & 54 &  &  &  &  &  & marqué & b1 \\ 
+   \hline
+11 & HET & 320 & 14.3 & 59 & 53 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 355 & 18.8 & 58 & 55 &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 312 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHP & 6 & 25.4 & 77 & 78 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHP & 11 & 8.0 & 50 & 51 &  &  &  &  &  &  & b1l3s1 \\ 
+   \hline
+3 & CHA & 46 & 2.9 & 14 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHA & 72 & 5.8 & 24 &  &  &  &  &  & f &  & b1 \\ 
+   \hline
+5 & FRC & 90 & 14.8 & 46 & 45 &  &  &  &  &  &  & b1g1 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & CHA & 104 & 11.7 & 35 & 35 &  &  &  &  &  &  & b1 \\ 
+   \hline
+7 & CHA & 139 & 7.1 & 14 &  &  &  &  &  & f &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHA & 141 & 7.6 & 20 &  &  &  &  &  & f &  & b1 \\ 
+   \hline
+9 & CHA & 152 & 6.9 & 34 & 34 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHP & 182 & 4.3 & 55 & 55 &  &  &  &  &  &  & b1 \\ 
+   \hline
+11 & CHA & 196 & 6.6 & 15 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHP & 205 & 11.7 & 49 & 49 &  &  &  &  &  &  & b1c2x1s2 \\ 
+   \hline
+13 & FRC & 306 & 1.1 & 21 &  &  &  &  &  & f &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & CHP & 330 & 12.1 & 55 & 51 &  &  &  &  &  &  & b1 \\ 
+   \hline
+15 & CHA & 334 & 9.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & CHA & 337 & 11.4 & 35 & 33 &  &  &  &  &  &  & b1 \\ 
+   \hline
+17 & FRC & 371 & 9.0 & 30 & 32 &  &  &  &  &  &  & i2 \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 321 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHP & 5 & 5.5 & 61 & 58 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHA & 8 & 5.3 & 28 &  &  &  &  &  & f & soudé au N°2 &  \\ 
+   \hline
+3 & HET & 19 & 9.6 & 20 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHP & 20 & 18.4 & 82 & 86 &  &  &  &  &  &  &  \\ 
+   \hline
+5 & HET & 175 & 16.3 & 56 & 56 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 214 & 13.2 & 42 & 42 &  &  &  &  &  &  &  \\ 
+   \hline
+7 & CHA & 241 & 0.9 & 49 & 48 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHA & 259 & 12.6 & 39 & 51 &  &  &  &  &  & marqué & b1 \\ 
+   \hline
+9 & CHA & 260 & 12.6 & 34 & 31 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHA & 260 & 13.0 & 30 & 36 &  &  &  &  &  & marqué & b1 \\ 
+   \hline
+11 & HET & 266 & 2.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & AUBE & 306 & 8.4 & 20 &  & 1 & 9.00 & 2 & 2 & f &  & e1s2z \\ 
+   \hline
+13 & CHA & 320 & 4.9 & 17 &  &  &  &  &  & t &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & CHA & 322 & 4.9 & 29 &  &  &  &  &  & t &  & b1 \\ 
+   \hline
+15 & CHA & 326 & 4.9 & 25 &  &  &  &  &  & t &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & CHP & 359 & 18.5 & 53 & 51 &  &  &  &  &  &  &  \\ 
+   \hline
+17 & CHP & 378 & 21.8 & 72 & 69 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & CHP & 385 & 10.0 & 64 & 65 &  &  &  &  &  &  & i1b1 \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 330 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 92 & 8.9 & 17 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 94 & 5.8 & 22 &  &  &  &  &  & f &  & i1 \\ 
+   \hline
+3 & HET & 99 & 3.1 & 39 & 40 &  &  &  &  &  & marqué & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 140 & 8.8 & 36 & 37 &  &  &  &  &  &  &  \\ 
+   \hline
+5 & HET & 172 & 13.9 & 44 & 43 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 191 & 10.8 & 46 & 47 &  &  &  &  &  & marqué &  \\ 
+   \hline
+7 & HET & 277 & 16.3 & 36 &  & 2 & 10.00 & 2 & 2 &  &  & a2c2e2b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 296 & 4.9 & 48 & 49 &  &  &  &  &  & marqué & s1 \\ 
+   \hline
+9 & HET & 311 & 9.2 & 15 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 325 & 10.2 & 34 & 35 &  &  &  &  &  &  &  \\ 
+   \hline
+11 & HET & 354 & 4.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 370 & 7.2 & 18 &  &  &  &  &  & f & au sol & d \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 332 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 10 & 17.6 & 53 & 49 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 42 & 12.0 & 60 & 60 &  &  &  &  &  &  &  \\ 
+   \hline
+3 & HET & 131 & 7.2 & 27 &  &  &  &  &  & f & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 233 & 16.8 & 58 & 57 &  &  &  &  &  &  & i2 \\ 
+   \hline
+5 & HET & 243 & 6.2 & 42 & 39 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & CHA & 271 & 4.5 & 26 &  &  &  &  &  & f &  & f1 \\ 
+   \hline
+7 & HET & 290 & 12.8 & 52 & 54 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 308 & 9.2 & 22 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & HET & 347 & 15.5 & 68 & 60 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHA & 374 & 9.9 & 26 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & CHP & 377 & 8.1 & 68 & 65 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHA & 392 & 10.4 & 31 & 31 &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 405 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHA & 5 & 7.8 & 16 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHP & 50 & 16.7 & 60 &  & 1 & 12.00 & 2 & 2 &  &  & e23b1a23c3s3x2 \\ 
+   \hline
+3 & CHA & 98 & 6.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 111 & 5.2 & 33 & 32 &  &  &  &  &  & marqué &  \\ 
+   \hline
+5 & HET & 129 & 6.0 & 30 & 30 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & NOI & 130 & 10.0 & 12 &  & 1 & 7.00 & 1 & 2 & t &  &  \\ 
+   \hline
+7 & CHP & 132 & 17.3 & 79 & 84 &  &  &  &  &  &  & db1 \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & NOI & 132 & 10.0 & 10 &  & 1 & 2.00 & 2 & 3 & t &  &  \\ 
+   \hline
+9 & NOI & 152 & 7.9 & 14 &  & 1 & 2.50 & 1 & 2 & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & NOI & 156 & 9.0 & 11 &  & 1 & 6.00 & 1 & 2 & t &  & a2 \\ 
+   \hline
+11 & NOI & 159 & 8.0 & 11 &  & 1 & 6.00 & 1 & 2 & t & Phalène? sur l'écorce &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & NOI & 161 & 8.1 & 14 &  & 1 & 6.00 & 1 & 2 & t &  &  \\ 
+   \hline
+13 & NOI & 222 & 9.0 & 13 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & NOI & 222 & 8.0 & 12 &  & 1 & 3.00 & 2 & 2 & t &  & c2e2 \\ 
+   \hline
+15 & NOI & 222 & 8.0 & 12 &  & 1 & 4.00 & 1 & 2 & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & NOI & 222 & 8.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \hline
+17 & NOI & 222 & 9.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & CHP & 266 & 20.0 & 84 & 82 &  &  &  &  &  &  & ds9x1i2 \\ 
+   \hline
+19 & HET & 267 & 6.6 & 23 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & CHA & 293 & 10.1 & 34 & 32 &  &  &  &  &  &  &  \\ 
+   \hline
+21 & POM & 350 & 9.0 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & CHA & 388 & 6.6 & 38 & 34 &  &  &  &  &  &  &  \\ 
+   \hline
+23 & CHA & 393 & 6.0 & 16 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+24 & CHA & 395 & 6.3 & 40 & 45 &  &  &  &  &  & marqué &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 412 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHS & 1 & 16.2 & 79 & 74 &  &  &  &  &  &  & s1b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 53 & 9.1 & 67 & 73 &  &  &  &  &  &  & b1g1 \\ 
+   \hline
+3 & CHS & 56 & 17.8 & 75 & 77 &  &  &  &  &  &  & g1 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 63 & 8.2 & 65 & 69 &  &  &  &  &  & marqué & b1 \\ 
+   \hline
+5 & CHS & 95 & 15.8 & 50 & 52 &  &  &  &  &  &  & b1s1 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 99 & 25.3 & 86 & 95 &  &  &  &  &  &  & b1s1 \\ 
+   \hline
+7 & HET & 145 & 7.0 & 31 & 32 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHS & 148 & 11.4 & 62 & 63 &  &  &  &  &  &  &  \\ 
+   \hline
+9 & CHS & 169 & 8.4 & 37 & 38 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHS & 178 & 21.1 & 66 & 67 &  &  &  &  &  &  &  \\ 
+   \hline
+11 & HET & 180 & 16.1 & 60 & 54 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHS & 234 & 11.1 & 66 & 65 &  &  &  &  &  & marqué & b1 \\ 
+   \hline
+13 & HET & 289 & 6.8 & 66 & 68 &  &  &  &  &  &  & x1b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 294 & 23.8 & 89 & 90 &  &  &  &  &  &  & b1g1 \\ 
+   \hline
+15 & CHS & 302 & 11.2 & 57 & 55 &  &  &  &  &  &  & x1b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & CHS & 331 & 14.2 & 63 & 61 &  &  &  &  &  &  & b1l2x1 \\ 
+   \hline
+17 & CHS & 336 & 4.8 & 71 & 76 &  &  &  &  &  & marqué & s1x1b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & CHA & 349 & 6.1 & 17 &  &  &  &  &  & f &  &  \\ 
+   \hline
+19 & CHS & 366 & 12.7 & 55 & 45 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 414 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHA & 3 & 9.1 & 18 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 9 & 6.7 & 45 & 40 &  &  &  &  &  &  &  \\ 
+   \hline
+3 & CHA & 35 & 8.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 76 & 14.2 & 80 & 85 &  &  &  &  &  &  &  \\ 
+   \hline
+5 & HET & 125 & 1.6 & 19 &  &  &  &  &  & f & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 190 & 19.4 & 81 & 74 &  &  &  &  &  &  & tcdg1c2 \\ 
+   \hline
+7 & HET & 190 & 3.0 & 9 &  &  &  &  &  & f & tordu &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHA & 195 & 7.2 & 18 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & CHA & 209 & 6.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHA & 217 & 7.2 & 15 &  &  &  &  &  & f &  & i1 \\ 
+   \hline
+11 & HET & 221 & 4.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHA & 241 & 9.0 & 10 &  & 1 & 7.00 & 2 & 2 & f &  & e2 \\ 
+   \hline
+13 & CHA & 245 & 5.4 & 28 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 252 & 9.8 & 51 & 54 &  &  &  &  &  &  & s3 \\ 
+   \hline
+15 & HET & 253 & 6.5 & 40 & 38 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & HET & 275 & 11.0 & 51 & 53 &  &  &  &  &  &  &  \\ 
+   \hline
+17 & HET & 292 & 8.5 & 35 & 40 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 316 & 4.0 & 30 & 36 &  &  &  &  &  & marqué &  \\ 
+   \hline
+19 & CHA & 330 & 9.4 & 18 &  & 1 & 10.00 & 3 & 2 & f &  & a2e12 \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & HET & 375 & 9.5 & 38 & 35 &  &  &  &  &  &  &  \\ 
+   \hline
+21 & HET & 389 & 24.7 & 76 & 76 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & HET & 396 & 7.3 & 39 & 34 &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 416 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & EPC & 33 & 4.3 & 32 & 30 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & EPC & 37 & 6.6 & 17 &  & 2 & 2.50 & 2 & 2 & f &  &  \\ 
+   \hline
+3 & EPC & 69 & 10.7 & 32 & 34 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & EPC & 140 & 9.1 & 33 & 30 &  &  &  &  &  &  &  \\ 
+   \hline
+5 & EPC & 140 & 5.0 & 28 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & EPC & 165 & 5.3 & 32 & 30 &  &  &  &  &  & marqué &  \\ 
+   \hline
+7 & EPC & 180 & 9.9 & 24 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & EPC & 196 & 14.7 & 47 & 45 &  &  &  &  &  &  &  \\ 
+   \hline
+9 & EPC & 212 & 8.9 & 26 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & EPC & 231 & 16.8 & 41 &  & 2 & 8.00 & 2 & 2 &  &  & e2 \\ 
+   \hline
+11 & EPC & 262 & 6.3 & 29 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & EPC & 267 & 12.4 & 40 & 38 &  &  &  &  &  &  &  \\ 
+   \hline
+13 & EPC & 267 & 4.6 & 33 & 33 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & EPC & 281 & 7.1 & 27 &  &  &  &  &  & f &  &  \\ 
+   \hline
+15 & EPC & 305 & 10.0 & 30 & 30 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & EPC & 306 & 4.6 & 39 & 38 &  &  &  &  &  &  &  \\ 
+   \hline
+17 & EPC & 360 & 7.0 & 31 & 34 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & EPC & 381 & 1.6 & 35 & 36 &  &  &  &  &  &  &  \\ 
+   \hline
+19 & EPC & 389 & 4.1 & 15 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & EPC & 395 & 9.5 & 32 & 36 &  &  &  &  &  &  & i1 \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 421 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 7 & 3.1 & 28 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHS & 43 & 7.8 & 97 & 97 &  &  &  &  &  & marqué & s4x2 \\ 
+   \hline
+3 & CHS & 53 & 13.7 & 63 &  & 2 & 5.00 & 2 & 2 &  &  & a12z \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 58 & 3.4 & 35 & 35 &  &  &  &  &  &  & b1 \\ 
+   \hline
+5 & HET & 67 & 8.2 & 21 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 121 & 4.2 & 22 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & HET & 123 & 12.8 & 39 & 38 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHP & 128 & 15.5 & 52 & 53 &  &  &  &  &  &  & x1 \\ 
+   \hline
+9 & CHS & 129 & 20.0 & 86 & 92 &  &  &  &  &  &  & b1s1 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHP & 174 & 8.5 & 57 & 58 &  &  &  &  &  & marqué & s1x1 \\ 
+   \hline
+11 & CHS & 190 & 13.6 & 60 & 60 &  &  &  &  &  &  & x1 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHS & 231 & 10.3 & 41 & 41 &  &  &  &  &  &  &  \\ 
+   \hline
+13 & CHP & 240 & 8.3 & 46 & 46 &  &  &  &  &  &  & d \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 254 & 9.9 & 25 &  &  &  &  &  & f &  &  \\ 
+   \hline
+15 & HET & 274 & 8.0 & 28 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & CHS & 275 & 15.7 & 55 & 53 &  &  &  &  &  &  & s2 \\ 
+   \hline
+17 & HET & 287 & 16.8 & 57 & 60 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 303 & 12.0 & 54 & 62 &  &  &  &  &  &  & b1 \\ 
+   \hline
+19 & HET & 308 & 3.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & CHS & 313 & 7.2 & 62 & 61 &  &  &  &  &  &  & x1 \\ 
+   \hline
+21 & CHS & 332 & 5.2 & 74 & 74 &  &  &  &  &  & marqué & s5x3 \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 423 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHS & 3 & 21.7 & 79 & 70 &  &  &  &  &  &  & i2a2h2 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 12 & 25.3 & 79 & 76 &  &  &  &  &  &  & g1 \\ 
+   \hline
+3 & CHP & 53 & 23.1 & 80 & 84 &  &  &  &  &  &  & s3 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHA & 62 & 7.6 & 24 &  &  &  &  &  & f &  & i1 \\ 
+   \hline
+5 & CHS & 91 & 16.0 & 53 & 53 &  &  &  &  &  & brogneux & s2x1 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 99 & 15.3 & 55 & 56 &  &  &  &  &  &  &  \\ 
+   \hline
+7 & CHS & 102 & 23.2 & 65 & 71 &  &  &  &  &  &  & k \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 115 & 5.1 & 70 & 69 &  &  &  &  &  & marqué & g1s1 \\ 
+   \hline
+9 & HET & 144 & 11.6 & 72 & 71 &  &  &  &  &  & graphitis & k \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHS & 172 & 21.5 & 71 & 70 &  &  &  &  &  &  & x1i2 \\ 
+   \hline
+11 & HET & 209 & 12.8 & 68 & 70 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 216 & 17.4 & 56 & 52 &  &  &  &  &  &  &  \\ 
+   \hline
+13 & HET & 228 & 26.1 & 84 & 81 &  &  &  &  &  &  & g1b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 239 & 17.3 & 58 & 56 &  &  &  &  &  &  & b1 \\ 
+   \hline
+15 & HET & 255 & 20.3 & 71 & 71 &  &  &  &  &  &  & g1 \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & HET & 256 & 6.7 & 62 & 60 &  &  &  &  &  & marqué & i2 \\ 
+   \hline
+17 & HET & 288 & 16.7 & 64 & 68 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 314 & 10.0 & 86 & 83 &  &  &  &  &  &  & k \\ 
+   \hline
+19 & HET & 329 & 10.5 & 56 & 57 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & HET & 344 & 8.0 & 49 & 53 &  &  &  &  &  &  &  \\ 
+   \hline
+21 & HET & 360 & 2.4 & 41 & 38 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 425 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHP & 11 & 9.0 & 30 & 30 &  &  &  &  &  &  & s2 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & EPC & 36 & 2.8 & 33 & 30 &  &  &  &  &  &  & i2x2 \\ 
+   \hline
+3 & CHP & 44 & 7.9 & 39 & 40 &  &  &  &  &  &  & s3 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHP & 83 & 10.7 & 44 & 43 &  &  &  &  &  & marqué & s3x1 \\ 
+   \hline
+5 & EPC & 104 & 13.2 & 38 & 42 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & EPC & 122 & 12.9 & 36 & 35 &  &  &  &  &  &  &  \\ 
+   \hline
+7 & EPC & 135 & 1.0 & 13 &  & 1 & 15.00 & 2 & 1 & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & EPC & 142 & 9.6 & 14 &  & 1 & 9.00 & 2 & 1 & f &  &  \\ 
+   \hline
+9 & EPC & 198 & 4.3 & 39 & 35 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & EPC & 207 & 8.3 & 37 & 34 &  &  &  &  &  &  &  \\ 
+   \hline
+11 & EPC & 217 & 2.5 & 40 & 40 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & EPC & 255 & 9.6 & 38 & 36 &  &  &  &  &  &  &  \\ 
+   \hline
+13 & EPC & 273 & 8.0 & 42 & 47 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & EPC & 360 & 2.8 & 34 & 32 &  &  &  &  &  & marqué &  \\ 
+   \hline
+15 & EPC & 376 & 6.6 & 17 &  & 1 & 12.00 & 2 & 1 & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & EPC & 383 & 7.7 & 38 & 37 &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 427 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHA & 0 & 1.5 & 38 & 35 &  &  &  &  &  & penché &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & ERS & 8 & 8.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+3 & HET & 21 & 17.6 & 54 & 52 &  &  &  &  &  &  & k \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 63 & 13.9 & 68 & 58 &  &  &  &  &  &  &  \\ 
+   \hline
+5 & HET & 75 & 7.3 & 56 & 50 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 86 & 22.2 & 90 & 88 &  &  &  &  &  &  & kb1 \\ 
+   \hline
+7 & HET & 95 & 17.1 & 74 & 69 &  &  &  &  &  &  & k \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 124 & 15.1 & 53 & 53 &  &  &  &  &  &  & g1 \\ 
+   \hline
+9 & HET & 157 & 22.5 & 67 & 67 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 176 & 8.6 & 63 & 62 &  &  &  &  &  &  & b1 \\ 
+   \hline
+11 & HET & 178 & 6.0 & 66 & 65 &  &  &  &  &  & marqué & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 189 & 20.1 & 75 & 75 &  &  &  &  &  &  & ks1 \\ 
+   \hline
+13 & HET & 251 & 9.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 264 & 18.5 & 68 & 70 &  &  &  &  &  &  &  \\ 
+   \hline
+15 & HET & 279 & 22.6 & 92 & 89 &  &  &  &  &  &  & g1b12l2 \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & HET & 296 & 10.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+17 & CHP & 319 & 11.9 & 67 & 67 &  &  &  &  &  & marqué & g1l23 \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & ERS & 349 & 8.6 & 19 &  &  &  &  &  & f &  &  \\ 
+   \hline
+19 & HET & 358 & 11.8 & 47 &  & 2 & 2.00 & 4 & 4 &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 432 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHP & 9 & 10.7 & 42 & 46 &  &  &  &  &  & marqué & i1 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 19 & 4.0 & 16 &  &  &  &  &  & f &  &  \\ 
+   \hline
+3 & CHP & 21 & 14.5 & 51 & 53 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 31 & 9.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+5 & HET & 36 & 10.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 42 & 3.8 & 19 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & HET & 73 & 20.9 & 74 & 76 &  &  &  &  &  &  & g1i2b2 \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 82 & 8.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & HET & 104 & 6.0 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 163 & 3.9 & 16 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & CHA & 192 & 5.7 & 20 &  &  &  &  &  & f &  & i2 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHP & 210 & 18.2 & 61 & 60 &  &  &  &  &  &  & b1 \\ 
+   \hline
+13 & HET & 233 & 10.8 & 35 &  & 2 & 5.00 & 2 & 2 &  &  & a12f2h2c12 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 249 & 13.3 & 69 & 75 &  &  &  &  &  &  & dg1b1c2tc \\ 
+   \hline
+15 & CHP & 257 & 4.4 & 45 & 44 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & HET & 262 & 18.7 & 56 &  & 1 & 20.00 & 2 & 2 &  &  & h2e123c123a123b1zx4 \\ 
+   \hline
+17 & HET & 272 & 17.1 & 52 & 57 &  &  &  &  &  &  & s2k \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 290 & 10.5 & 60 & 61 &  &  &  &  &  &  & b1 \\ 
+   \hline
+19 & CHP & 352 & 10.9 & 56 & 55 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & CHP & 377 & 11.8 & 41 & 41 &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 434 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & EPC & 11 & 2.8 & 26 &  &  &  &  &  & f & marqué & i2 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & EPC & 25 & 14.2 & 43 & 43 &  &  &  &  &  &  & tc \\ 
+   \hline
+3 & P.L & 53 & 7.4 & 46 & 46 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & EPC & 83 & 4.0 & 30 & 31 &  &  &  &  &  & marqué &  \\ 
+   \hline
+5 & EPC & 103 & 8.2 & 28 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & EPC & 118 & 9.6 & 31 & 34 &  &  &  &  &  &  &  \\ 
+   \hline
+7 & P.L & 191 & 11.9 & 40 & 41 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & EPC & 197 & 8.0 & 30 & 36 &  &  &  &  &  &  & i2 \\ 
+   \hline
+9 & P.L & 208 & 10.3 & 40 & 40 &  &  &  &  &  &  & d \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & P.L & 237 & 10.3 & 38 & 39 &  &  &  &  &  &  &  \\ 
+   \hline
+11 & EPC & 242 & 2.2 & 44 & 47 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & EPC & 261 & 12.0 & 39 & 43 &  &  &  &  &  &  & i2 \\ 
+   \hline
+13 & EPC & 296 & 8.3 & 28 &  & 3 & 1.30 & 3 & 2 & f &  & e1 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & P.L & 333 & 11.1 & 37 & 37 &  &  &  &  &  &  &  \\ 
+   \hline
+15 & P.L & 352 & 8.3 & 36 & 36 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & EPC & 366 & 14.2 & 36 &  & 2 & 10.00 & 2 & 2 &  &  & a2 \\ 
+   \hline
+17 & P.L & 367 & 7.3 & 32 & 32 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & P.L & 389 & 4.6 & 36 & 34 &  &  &  &  &  &  &  \\ 
+   \hline
+19 & P.L & 397 & 10.7 & 44 & 40 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 436 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHP & 22 & 15.4 & 72 & 66 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHP & 36 & 11.6 & 56 & 57 &  &  &  &  &  &  &  \\ 
+   \hline
+3 & HET & 66 & 14.3 & 74 & 76 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHP & 93 & 7.0 & 42 &  & 1 & 20.00 & 2 & 1 &  &  & a123 \\ 
+   \hline
+5 & HET & 98 & 11.2 & 72 & 70 &  &  &  &  &  &  & g1b1s1 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & CHP & 123 & 19.0 & 87 & 83 &  &  &  &  &  &  & s1x1 \\ 
+   \hline
+7 & CHP & 139 & 7.6 & 53 & 54 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHP & 146 & 10.8 & 64 & 62 &  &  &  &  &  &  & l23 \\ 
+   \hline
+9 & CHP & 152 & 16.4 & 62 & 64 &  &  &  &  &  &  & l23 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 171 & 6.3 & 25 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & CHA & 210 & 8.9 & 35 & 33 &  &  &  &  &  &  & l3 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHA & 214 & 8.3 & 19 &  &  &  &  &  & f &  &  \\ 
+   \hline
+13 & CHA & 217 & 5.8 & 15 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & CHA & 217 & 5.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \hline
+15 & CHA & 230 & 6.3 & 28 &  &  &  &  &  & f & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & PEB & 241 & 15.8 & 59 & 57 &  &  &  &  &  &  &  \\ 
+   \hline
+17 & CHA & 326 & 2.6 & 29 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & CHP & 367 & 2.4 & 70 & 71 &  &  &  &  &  & marqué & x1 \\ 
+   \hline
+19 & CHA & 372 & 15.2 & 50 & 53 &  &  &  &  &  &  & g1k \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & CHP & 393 & 16.6 & 66 & 61 &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:26 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 441 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 18 & 12.8 & 36 & 38 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 62 & 11.8 & 55 & 56 &  &  &  &  &  &  & tm \\ 
+   \hline
+3 & BOV & 88 & 10.1 & 31 &  & 2 & 4.00 & 3 & 3 &  &  & a2c2 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 111 & 12.1 & 44 & 43 &  &  &  &  &  & marqué &  \\ 
+   \hline
+5 & HET & 196 & 7.9 & 67 & 60 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 298 & 5.9 & 45 & 46 &  &  &  &  &  &  & b1 \\ 
+   \hline
+7 & HET & 301 & 10.9 & 42 & 42 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 315 & 16.2 & 57 & 53 &  &  &  &  &  &  &  \\ 
+   \hline
+9 & HET & 326 & 1.2 & 61 & 62 &  &  &  &  &  & marqué & i2 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 360 & 2.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & HET & 376 & 6.3 & 17 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 378 & 7.3 & 41 & 40 &  &  &  &  &  &  &  \\ 
+   \hline
+13 & HET & 381 & 9.6 & 18 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 383 & 14.0 & 62 & 62 &  &  &  &  &  &  & s1 \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 443 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHS & 53 & 6.6 & 48 & 48 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHS & 60 & 17.2 & 55 & 56 &  &  &  &  &  &  &  \\ 
+   \hline
+3 & CHS & 93 & 16.5 & 50 & 48 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHS & 113 & 12.4 & 47 & 41 &  &  &  &  &  &  &  \\ 
+   \hline
+5 & CHS & 131 & 6.7 & 73 & 73 &  &  &  &  &  & marqué & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & CHS & 137 & 18.5 & 56 & 54 &  &  &  &  &  &  &  \\ 
+   \hline
+7 & CHS & 150 & 10.1 & 66 & 68 &  &  &  &  &  &  & x2tm \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHS & 158 & 19.6 & 44 &  & 1 & 16.00 & 2 & 1 &  &  & e23a23z \\ 
+   \hline
+9 & CHS & 189 & 24.7 & 70 & 75 &  &  &  &  &  &  & s1x4l2 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHS & 199 & 5.9 & 50 &  & 1 & 20.00 & 2 & 1 &  &  & b1 \\ 
+   \hline
+11 & CHS & 201 & 16.6 & 48 &  & 1 & 14.00 & 2 & 1 &  &  & e123a2h2z \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHP & 214 & 9.7 & 44 & 42 &  &  &  &  &  &  &  \\ 
+   \hline
+13 & CHS & 225 & 18.1 & 68 &  & 1 & 18.00 & 2 & 1 &  &  & x3a23e3 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & CHP & 229 & 11.9 & 45 & 47 &  &  &  &  &  &  &  \\ 
+   \hline
+15 & CHP & 238 & 21.3 & 69 & 71 &  &  &  &  &  &  & x5 \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & CHS & 284 & 6.6 & 64 & 69 &  &  &  &  &  &  &  \\ 
+   \hline
+17 & CHS & 287 & 8.3 & 46 & 48 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & EPC & 298 & 9.5 & 32 & 33 &  &  &  &  &  &  & tc \\ 
+   \hline
+19 & CHS & 330 & 5.8 & 61 & 56 &  &  &  &  &  & marqué & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & CHE & 340 & 4.4 & 34 &  & 1 & 18.00 & 2 & 1 &  & encroué dans N°15 & e123 \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 445 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 17 & 9.2 & 48 & 45 &  &  &  &  &  &  & i1 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 24 & 5.7 & 46 & 47 &  &  &  &  &  &  &  \\ 
+   \hline
+3 & HET & 68 & 9.9 & 71 & 75 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 72 & 10.7 & 67 & 75 &  &  &  &  &  & marqué & k \\ 
+   \hline
+5 & HET & 103 & 13.8 & 44 & 44 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 128 & 15.3 & 50 & 48 &  &  &  &  &  &  &  \\ 
+   \hline
+7 & HET & 143 & 20.6 & 86 & 82 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 146 & 11.8 & 48 & 47 &  &  &  &  &  &  &  \\ 
+   \hline
+9 & HET & 149 & 3.6 & 73 & 68 &  &  &  &  &  & marqué & s1 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHP & 165 & 11.8 & 82 & 92 &  &  &  &  &  &  & g1s3 \\ 
+   \hline
+11 & BOV & 217 & 8.7 & 19 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 237 & 16.9 & 56 & 51 &  &  &  &  &  &  & g1 \\ 
+   \hline
+13 & HET & 323 & 13.0 & 80 & 84 &  &  &  &  &  &  & g1 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 330 & 19.8 & 71 & 66 &  &  &  &  &  &  &  \\ 
+   \hline
+15 & HET & 331 & 15.1 & 52 & 51 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & HET & 349 & 6.5 & 52 & 48 &  &  &  &  &  & marqué &  \\ 
+   \hline
+17 & HET & 397 & 7.3 & 63 & 62 &  &  &  &  &  &  & k \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 447 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & AUG & 69 & 8.8 & 27 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & AUG & 129 & 7.0 & 12 &  &  &  &  &  & t & à terre &  \\ 
+   \hline
+3 & AUG & 130 & 8.9 & 20 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & AUG & 130 & 9.0 & 8 &  & 2 & 2.00 & 1 & 2 & t &  &  \\ 
+   \hline
+5 & AUG & 146 & 7.0 & 12 &  & 1 & 10.00 & 1 & 2 & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & PEB & 190 & 10.7 & 39 & 37 &  &  &  &  &  &  &  \\ 
+   \hline
+7 & FRC & 201 & 5.7 & 48 & 43 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHP & 253 & 8.7 & 44 & 42 &  &  &  &  &  & marqué & x1b1i1 \\ 
+   \hline
+9 & NOI & 287 & 4.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & AUG & 296 & 6.2 & 14 &  &  &  &  &  & f &  & i1 \\ 
+   \hline
+11 & CHP & 306 & 11.6 & 46 & 47 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & AUG & 309 & 7.0 & 30 & 30 &  &  &  &  &  &  &  \\ 
+   \hline
+13 & NOI & 325 & 3.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & ERS & 332 & 5.0 & 10 &  &  &  &  &  & f &  & i1 \\ 
+   \hline
+15 & FRC & 340 & 6.2 & 33 & 33 &  &  &  &  &  & marqué & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & AUG & 386 & 5.1 & 34 & 34 &  &  &  &  &  & marqué &  \\ 
+   \hline
+17 & AUG & 386 & 5.2 & 29 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 454 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & NOI & 30 & 9.0 & 11 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & NOI & 30 & 9.0 & 10 &  &  &  &  &  & t &  &  \\ 
+   \hline
+3 & PEB & 130 & 15.9 & 52 & 56 &  &  &  &  &  & marqué & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & PEB & 154 & 20.7 & 71 & 73 &  &  &  &  &  & marqué & b1x1 \\ 
+   \hline
+5 & NOI & 164 & 7.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & NOI & 164 & 7.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \hline
+7 & PEB & 175 & 18.3 & 63 & 64 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & BOV & 183 & 7.5 & 24 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & BOV & 189 & 9.0 & 26 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & NOI & 192 & 9.0 & 9 &  &  &  &  &  & t &  &  \\ 
+   \hline
+11 & NOI & 192 & 9.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & BOV & 193 & 7.7 & 27 &  &  &  &  &  & f &  &  \\ 
+   \hline
+13 & NOI & 205 & 4.0 & 9 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & NOI & 205 & 4.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \hline
+15 & PEB & 211 & 32.3 & 92 & 102 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & PEB & 301 & 7.0 & 30 & 33 &  &  &  &  &  &  &  \\ 
+   \hline
+17 & PEB & 302 & 13.2 & 77 &  & 1 & 14.00 & 1 & 2 &  &  & a2c2tc \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & AUG & 320 & 3.6 & 35 & 33 &  &  &  &  &  &  &  \\ 
+   \hline
+19 & AUG & 325 & 3.1 & 32 & 31 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & PEB & 342 & 3.4 & 56 & 54 &  &  &  &  &  & marqué &  \\ 
+   \hline
+21 & PEN & 357 & 12.5 & 57 &  & 2 & 8.00 & 1 & 2 &  &  & c2 \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & PEB & 381 & 14.3 & 61 & 61 &  &  &  &  &  &  &  \\ 
+   \hline
+23 & CHA & 391 & 9.2 & 14 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+24 & CHA & 394 & 8.8 & 33 & 36 &  &  &  &  &  & marqué &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 456 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & ERS & 4 & 9.5 & 20 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & BOV & 23 & 13.8 & 39 & 47 &  &  &  &  &  &  & b1 \\ 
+   \hline
+3 & NOI & 37 & 4.0 & 9 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & NOI & 40 & 4.0 & 12 &  &  &  &  &  & t &  &  \\ 
+   \hline
+5 & NOI & 43 & 3.0 & 10 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & NOI & 44 & 4.0 & 9 &  & 1 & 3.00 & 1 & 2 & t &  &  \\ 
+   \hline
+7 & ERS & 55 & 9.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & PEB & 68 & 8.4 & 38 & 35 &  &  &  &  &  &  & dx1 \\ 
+   \hline
+9 & PEB & 124 & 2.1 & 56 & 55 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & PEB & 137 & 8.9 & 66 & 66 &  &  &  &  &  &  & x2s2 \\ 
+   \hline
+11 & ERS & 170 & 5.0 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & ERS & 175 & 4.2 & 20 &  &  &  &  &  & f &  &  \\ 
+   \hline
+13 & ERS & 180 & 4.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 188 & 20.5 & 74 & 80 &  &  &  &  &  & marqué & tm \\ 
+   \hline
+15 & ERS & 235 & 7.0 & 26 &  &  &  &  &  & f &  & tm \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & FRC & 243 & 9.6 & 26 &  &  &  &  &  & f &  & h1i1 \\ 
+   \hline
+17 & CHP & 245 & 9.2 & 38 & 34 &  &  &  &  &  &  & s2x1b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & ERS & 246 & 3.0 & 12 &  &  &  &  &  & t &  &  \\ 
+   \hline
+19 & ERS & 255 & 2.7 & 19 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & CHP & 271 & 7.5 & 41 & 46 &  &  &  &  &  & marqué & tcs3 \\ 
+   \hline
+21 & BOV & 356 & 5.8 & 21 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & NOI & 369 & 5.0 & 10 &  &  &  &  &  & t &  &  \\ 
+   \hline
+23 & FRC & 392 & 5.8 & 27 &  &  &  &  &  & f & marqué & b1i1 \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 463 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 21 & 14.1 & 41 & 42 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 97 & 5.5 & 74 & 68 &  &  &  &  &  & marqué & tmtci2f2 \\ 
+   \hline
+3 & HET & 151 & 11.2 & 37 & 39 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & HET & 151 & 11.2 & 36 & 40 &  &  &  &  &  &  &  \\ 
+   \hline
+5 & HET & 151 & 11.2 & 35 & 31 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 151 & 11.2 & 35 & 28 &  &  &  &  &  &  &  \\ 
+   \hline
+7 & HET & 168 & 3.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & FRC & 176 & 8.6 & 35 & 33 &  &  &  &  &  & marqué &  \\ 
+   \hline
+9 & HET & 184 & 9.0 & 19 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & BOV & 190 & 4.5 & 28 &  & 3 & 0.80 & 2 & 3 & f &  & b1a1g1 \\ 
+   \hline
+11 & NOI & 219 & 8.0 & 10 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & BOV & 226 & 7.9 & 31 & 32 &  &  &  &  &  &  &  \\ 
+   \hline
+13 & NOI & 240 & 6.0 & 11 &  & 1 & 8.00 & 2 & 1 & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 348 & 9.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \hline
+15 & HET & 354 & 7.8 & 17 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & HET & 362 & 8.2 & 23 &  &  &  &  &  & f & marqué &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 465 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & FRC & 23 & 8.0 & 9 &  &  &  &  &  & t &  & i2 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & FRC & 24 & 8.5 & 53 & 55 &  &  &  &  &  &  & b1 \\ 
+   \hline
+3 & ERS & 56 & 10.4 & 38 & 46 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & NOI & 60 & 7.0 & 13 &  &  &  &  &  & t &  &  \\ 
+   \hline
+5 & CHP & 98 & 12.3 & 74 & 73 &  &  &  &  &  & marqué & h2 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & NOI & 126 & 6.0 & 9 &  &  &  &  &  & t &  &  \\ 
+   \hline
+7 & CHP & 137 & 28.7 & 96 & 101 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 175 & 2.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & HET & 196 & 9.5 & 14 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & ERS & 210 & 13.7 & 44 & 47 &  &  &  &  &  &  &  \\ 
+   \hline
+11 & NOI & 219 & 10.0 & 11 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 232 & 9.7 & 16 &  &  &  &  &  & f &  &  \\ 
+   \hline
+13 & ERS & 233 & 12.1 & 66 & 64 &  &  &  &  &  & marqué & b1kx1 \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 243 & 4.0 & 13 &  &  &  &  &  & f &  &  \\ 
+   \hline
+15 & ERS & 268 & 15.7 & 56 & 54 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & ERS & 298 & 9.0 & 10 &  &  &  &  &  & t &  &  \\ 
+   \hline
+17 & ERS & 299 & 9.3 & 18 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & ERS & 299 & 9.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \hline
+19 & ERS & 328 & 10.8 & 33 & 35 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & AUG & 340 & 13.2 & 79 & 50 &  &  &  &  &  &  & h1b1tm \\ 
+   \hline
+21 & NOI & 364 & 3.0 & 9 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & ERS & 376 & 7.0 & 31 & 31 &  &  &  &  &  &  &  \\ 
+   \hline
+23 & ERS & 376 & 7.2 & 28 &  &  &  &  &  & t &  & k \\ 
+   \rowcolor[gray]{0.95} \hline
+24 & ERS & 376 & 7.2 & 25 &  &  &  &  &  & t &  &  \\ 
+   \hline
+25 & ERS & 384 & 4.0 & 30 & 28 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 467 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 3 & 12.5 & 50 & 49 &  &  &  &  &  & marqué & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & NOI & 32 & 9.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \hline
+3 & NOI & 32 & 9.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & FRC & 44 & 14.1 & 61 & 62 &  &  &  &  &  &  &  \\ 
+   \hline
+5 & PEB & 44 & 13.0 & 56 & 60 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & PEB & 53 & 8.8 & 47 & 50 &  &  &  &  &  &  & dx1 \\ 
+   \hline
+7 & FRC & 80 & 1.0 & 52 & 50 &  &  &  &  &  & marqué & b1l23 \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & FRC & 149 & 12.2 & 38 & 39 &  &  &  &  &  &  & l23 \\ 
+   \hline
+9 & FRC & 204 & 4.9 & 43 & 47 &  &  &  &  &  &  & l23 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 235 & 19.3 & 66 & 61 &  &  &  &  &  &  & x1 \\ 
+   \hline
+11 & FRC & 293 & 12.7 & 50 & 49 &  &  &  &  &  & marqué & b1s1 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & AUG & 304 & 18.7 & 59 & 57 &  &  &  &  &  &  &  \\ 
+   \hline
+13 & CHA & 366 & 6.3 & 23 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & CHA & 372 & 7.8 & 36 & 36 &  &  &  &  &  &  &  \\ 
+   \hline
+15 & PEB & 374 & 16.7 & 60 & 60 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 474 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & AUG & 20 & 11.9 & 41 & 44 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & FRC & 20 & 4.4 & 15 &  &  &  &  &  & f &  &  \\ 
+   \hline
+3 & FRC & 20 & 5.0 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHA & 28 & 6.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+5 & NOI & 35 & 10.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & BOV & 47 & 18.0 & 53 &  & 2 & 1.70 & 2 & 3 &  &  & a1b1 \\ 
+   \hline
+7 & AUBE & 70 & 7.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHP & 75 & 8.4 & 100 & 96 &  &  &  &  &  & marqué & g1b1x4 \\ 
+   \hline
+9 & FRC & 105 & 11.7 & 34 & 36 &  &  &  &  &  &  & b12 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & FRC & 112 & 5.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+11 & AUG & 145 & 4.9 & 36 & 36 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & AUG & 155 & 4.6 & 33 & 34 &  &  &  &  &  & marqué & b1 \\ 
+   \hline
+13 & NOI & 158 & 9.0 & 12 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & NOI & 160 & 9.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \hline
+15 & NOI & 161 & 9.0 & 10 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & FRC & 186 & 19.9 & 68 & 74 &  &  &  &  &  &  & b1 \\ 
+   \hline
+17 & NOI & 190 & 3.0 & 10 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & NOI & 190 & 3.0 & 10 &  & 2 & 1.50 & 2 & 3 & t &  &  \\ 
+   \hline
+19 & NOI & 192 & 9.0 & 9 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & FRC & 241 & 13.5 & 51 & 46 &  &  &  &  &  &  &  \\ 
+   \hline
+21 & FRC & 250 & 15.4 & 59 & 58 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & FRC & 268 & 16.9 & 52 & 54 &  &  &  &  &  &  &  \\ 
+   \hline
+23 & FRC & 291 & 16.0 & 70 & 68 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+24 & FRC & 306 & 11.4 & 39 & 40 &  &  &  &  &  &  &  \\ 
+   \hline
+25 & HET & 326 & 9.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+26 & AUG & 331 & 3.7 & 34 & 33 &  &  &  &  &  & marqué & b1 \\ 
+   \hline
+27 & AUG & 333 & 9.4 & 38 & 36 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+28 & AUG & 333 & 9.0 & 30 & 32 &  &  &  &  &  &  &  \\ 
+   \hline
+29 & NOI & 336 & 8.0 & 9 &  & 1 & 5.00 & 2 & 2 & t &  & e2 \\ 
+   \rowcolor[gray]{0.95} \hline
+30 & AUG & 358 & 12.2 & 37 & 36 &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 474 (suite) &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+31 & NOI & 373 & 9.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+32 & NOI & 374 & 9.0 & 9 &  & 2 & 2.00 & 1 & 2 & t &  &  \\ 
+   \hline
+33 & AUG & 381 & 8.6 & 18 &  &  &  &  &  & f &  & g1ts \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 476 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHA & 1 & 4.3 & 14 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & ERS & 4 & 10.4 & 40 &  & 1 & 12.00 & 2 & 1 &  &  & e2b1 \\ 
+   \hline
+3 & CHP & 31 & 24.7 & 90 & 85 &  &  &  &  &  & marqué & x2s2g1b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & FRC & 116 & 20.7 & 68 & 70 &  &  &  &  &  &  & b1 \\ 
+   \hline
+5 & CHP & 124 & 15.6 & 46 & 49 &  &  &  &  &  &  & x2 \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & AUBE & 140 & 8.0 & 16 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & NOI & 192 & 4.0 & 9 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHA & 201 & 12.1 & 46 & 50 &  &  &  &  &  &  &  \\ 
+   \hline
+9 & ERS & 252 & 15.0 & 42 &  & 1 & 15.00 & 3 & 2 &  &  & e23x2s4 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & PEB & 282 & 28.7 & 101 & 101 &  &  &  &  &  &  & x2 \\ 
+   \hline
+11 & BOV & 295 & 16.4 & 55 & 54 &  &  &  &  &  &  & h1k \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHP & 360 & 9.3 & 80 & 70 &  &  &  &  &  & marqué & b12x3g1 \\ 
+   \hline
+13 & NOI & 373 & 8.0 & 11 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 485 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & CHP & 3 & 10.1 & 97 & 100 &  &  &  &  &  & marqué & dx4b1a2c1 \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & CHP & 34 & 16.4 & 64 & 67 &  &  &  &  &  &  & b12x1h3 \\ 
+   \hline
+3 & CHA & 70 & 7.0 & 13 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & CHA & 122 & 10.8 & 35 & 37 &  &  &  &  &  &  &  \\ 
+   \hline
+5 & CHA & 126 & 9.3 & 21 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & CHP & 146 & 13.8 & 35 & 58 &  &  &  &  &  & incliné \& brogneux & b1 \\ 
+   \hline
+7 & CHA & 159 & 11.9 & 36 & 36 &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHP & 186 & 16.8 & 57 & 59 &  &  &  &  &  &  & b1i1 \\ 
+   \hline
+9 & CHP & 203 & 5.9 & 72 & 72 &  &  &  &  &  & marqué & s1x2 \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHP & 207 & 17.0 & 78 & 80 &  &  &  &  &  &  & b1i1 \\ 
+   \hline
+11 & CHA & 264 & 9.2 & 41 & 41 &  &  &  &  &  & enlacé \& marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & CHA & 264 & 9.0 & 31 & 31 &  &  &  &  &  & enlacé \& marqué & f2 \\ 
+   \hline
+13 & CHA & 264 & 9.3 & 27 &  &  &  &  &  & t & enlacé \& marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & CHA & 380 & 8.9 & 25 &  &  &  &  &  & f &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 494 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & NOI & 1 & 5.0 & 11 &  & 1 & 4.00 & 1 & 1 & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & NOI & 1 & 5.0 & 8 &  &  &  &  &  & t &  &  \\ 
+   \hline
+3 & NOI & 10 & 10.0 & 12 &  &  &  &  &  & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & NOI & 11 & 10.0 & 11 &  & 1 & 6.00 & 1 & 1 & t &  &  \\ 
+   \hline
+5 & NOI & 11 & 10.0 & 10 &  & 1 & 6.00 & 1 & 1 & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & PEB & 64 & 1.0 & 50 &  & 1 & 20.00 & 1 & 2 &  &  & i2x2 \\ 
+   \hline
+7 & AUBE & 101 & 6.0 & 13 &  &  &  &  &  & f &  & tm \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & CHA & 119 & 10.9 & 35 & 36 &  &  &  &  &  &  &  \\ 
+   \hline
+9 & FRC & 123 & 9.6 & 48 & 51 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & CHP & 151 & 6.9 & 42 & 45 &  &  &  &  &  & marqué &  \\ 
+   \hline
+11 & HET & 163 & 9.1 & 55 & 54 &  &  &  &  &  &  & b1 \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & FRC & 194 & 12.9 & 69 & 66 &  &  &  &  &  & marqué & b1i2k \\ 
+   \hline
+13 & AUG & 205 & 8.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & NOI & 205 & 4.0 & 11 &  &  &  &  &  & t &  &  \\ 
+   \hline
+15 & PEB & 230 & 6.2 & 60 &  & 2 & 9.00 & 1 & 2 &  &  & a12c12h2 \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & AUG & 251 & 6.3 & 37 & 35 &  &  &  &  &  &  &  \\ 
+   \hline
+17 & CHP & 388 & 9.7 & 41 & 40 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & CHP & 392 & 12.6 & 43 & 45 &  &  &  &  &  &  & x1 \\ 
+   \hline
+19 & NOI & 398 & 5.0 & 11 &  & 1 & 5.00 & 1 & 1 & t &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\begin{tabular}{p{10cm}p{10cm}p{8cm}}
+  RB Grands Monts & PSDRF : Fiche de Remesure & Date \\ 
+  Placette : 496 &  & Opérateurs \\ 
+   &  &  \\ 
+  \end{tabular}
+
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Wed Nov 19 11:19:27 2014
+\scalebox{0.9}{
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{7.5cm}|p{5cm}|}
+  \hline
+Num & Ess & Azim & Dist & Diam1 & Diam2 & Type & Haut & StadeE & StadeD & Taillis & Observation & CodeEcol \\ 
+  \hline
+1 & HET & 15 & 8.6 & 35 & 33 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+2 & HET & 31 & 12.0 & 36 & 33 &  &  &  &  &  &  &  \\ 
+   \hline
+3 & HET & 80 & 7.2 & 21 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+4 & IND & 92 & 2.8 & 36 &  & 2 & 1.40 & 4 & 5 &  &  &  \\ 
+   \hline
+5 & HET & 100 & 3.3 & 38 & 38 &  &  &  &  &  & marqué &  \\ 
+   \rowcolor[gray]{0.95} \hline
+6 & HET & 105 & 4.0 & 28 &  &  &  &  &  & f &  &  \\ 
+   \hline
+7 & HET & 106 & 3.6 & 24 &  &  &  &  &  & f & couché &  \\ 
+   \rowcolor[gray]{0.95} \hline
+8 & HET & 159 & 8.0 & 12 &  &  &  &  &  & f &  &  \\ 
+   \hline
+9 & HET & 173 & 7.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+10 & HET & 206 & 12.7 & 48 & 48 &  &  &  &  &  & couché & dc2 \\ 
+   \hline
+11 & HET & 208 & 8.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+12 & HET & 210 & 9.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+13 & HET & 214 & 9.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+14 & HET & 220 & 10.0 & 10 &  &  &  &  &  & f &  &  \\ 
+   \hline
+15 & HET & 226 & 8.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+16 & ERS & 272 & 9.2 & 19 &  &  &  &  &  & f &  &  \\ 
+   \hline
+17 & HET & 272 & 9.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+18 & HET & 279 & 6.8 & 17 &  &  &  &  &  & f & marqué &  \\ 
+   \hline
+19 & HET & 322 & 8.1 & 15 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+20 & HET & 325 & 7.0 & 9 &  &  &  &  &  & f &  & i1 \\ 
+   \hline
+21 & HET & 335 & 5.9 & 14 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+22 & HET & 346 & 9.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \hline
+23 & HET & 346 & 9.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+24 & HET & 380 & 7.0 & 11 &  &  &  &  &  & f &  &  \\ 
+   \hline
+25 & HET & 385 & 7.0 & 9 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+26 & HET & 391 & 9.0 & 13 &  &  &  &  &  & f &  &  \\ 
+   \hline
+27 & HET & 395 & 10.0 & 8 &  &  &  &  &  & f &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \rowcolor[gray]{0.95} \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+   \hline
+\end{tabular}
+}
+
+
+\newpage
+
+\end{document}

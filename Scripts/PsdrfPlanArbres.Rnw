@@ -1,0 +1,102 @@
+\documentclass[a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{fancyvrb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{pgfsys}
+\usepackage{keyval}
+\usepackage{subfig}
+\usepackage{eurosym}
+
+\voffset -2cm
+\hoffset 0cm
+\oddsidemargin 0cm
+\evensidemargin -0.5cm
+\textwidth 17cm
+\topmargin 1cm
+\textheight 24cm
+\parindent 0cm
+\columnsep 0.7cm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+<<OptionsGenerales, include=FALSE>>=
+opts_chunk$set(concordance=T,include=T,tidy=F, warning=F, comment=F, error=F)
+opts_chunk$set(size='normalsize')
+opts_chunk$set(fig.path='Figures/', dev='pdf')
+opts_chunk$set(fig.align='center',fig.show='hold')
+options(width=45)
+opts_knit$set(eval.after = 'fig.cap') # evaluate fig.cap after the chunk
+par(mar=c(0,0,0,0))
+@
+
+<<Librairies, echo=FALSE, warning=F, error=F, comment=F, message=F >>=
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(tcltk)
+@
+
+<<Initialisation, echo=FALSE, warning=F, error=F, comment=F, message=F >>=
+# -------Import des donnees ------
+rep <- tclvalue(tkchooseDirectory()) ; setwd(rep) # Permet de choisir le répertoire de travail
+load("Tables/psdrfDonneesBrutes.Rdata")
+load("Tables/psdrfCodes.Rdata")
+Liste <- unique(arbres$NumDisp)
+Choix <- tk_select.list(Liste, multiple = F, title = "Choisir une réserve")
+# -------Extraction ------
+Nom <- Reserves$Nom[which(Reserves$NumDisp==Choix)]
+t1 <- subset(arbres, NumDisp==Choix, select=-1)
+t1 <- subset(t1, Cycle==max(t1$Cycle), select=-16)
+t1 <- t1[order(t1$NumPlac, t1$azimut),]
+# -------Création population ------
+# t1$Type <- "vivant"
+# t1$Type[which(is.na(t1$bark_stage))] <- "vivant"
+# t1$Type[which(t1$typo==1 & !is.na(t1$bark_stage))] <- "mort"
+# t1$Type[which(t1$typo==2 & !is.na(t1$bark_stage))] <- "volis"
+# t1$Type[which(t1$typo==3 & !is.na(t1$bark_stage))] <- "souche"
+# t1$Type[which(is.na(t1$bark_stage))] <- 21
+t1$Type <- 21
+t1$Type[which(t1$typo==1 & !is.na(t1$bark_stage))] <- 22
+t1$Type[which(t1$typo==2 & !is.na(t1$bark_stage))] <- 24
+t1$Type[which(t1$typo==3 & !is.na(t1$bark_stage))] <- 25
+# ------------- Formats
+MyTheme <-  theme_bw() +
+  theme(axis.text.x  = element_text(size=8),
+        axis.title.x  = element_text(size=9),
+        axis.title.y  = element_text(size=9),
+        axis.text.y  = element_text(size=8),
+        plot.margin = unit(c(0.1,0.1,0.1,0.1), "cm"))
+@
+
+\begin{document}
+
+<<PlanArbres, echo=FALSE, fig.height=9, fig.show='asis', fig.pos='h'>>=
+list <- unique(t1$NumPlac)
+for (i in 1:length(list)) {
+  #   i=1
+  p <- t1[t1$NumPlac==list[i],]
+#   p$NumArbre <- 1:dim(p)[1]
+  MaxDist <- floor(max(p$distance)/5+1.5)*5
+#   shapes <- c("vivant" = 21,"mort" = 22,"volis" = 24, "souche" = 25)
+  pl <- ggplot(data=p, aes(y=distance, x=azimut, shape=factor(Type), color=code, size=dbh1, label=NumArbre)) +
+    scale_shape_manual(name = "Population",labels = c("vivant", "mort", "volis", "souche"),
+                     values = c(21, 22, 24, 25)) +
+    geom_point(aes(fill=code), alpha=0.5) +
+    geom_text(color='black', size=3) +
+    xlim(0,400) + ylim(0,MaxDist) + scale_size(range = c(5,20)) + coord_polar() +
+    MyTheme + ggtitle(paste(Nom," - Placette",list[i])) + guides(size=FALSE)
+  print(pl)
+}
+@
+
+
+\end{document}

@@ -1,0 +1,105 @@
+\documentclass[a4paper, landscape]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{colortbl, xcolor}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{fancyvrb}
+\usepackage{rotating}
+\usepackage{multido}
+\usepackage{booktabs}
+
+\voffset -3cm
+\hoffset -2cm
+\oddsidemargin 0cm
+\evensidemargin -0.5cm
+\textwidth 28cm
+\topmargin 0cm
+\textheight 19cm
+\parindent 0cm
+\columnsep 0.7cm
+
+\begin{document}
+\DefineVerbatimEnvironment{Sinput}{Verbatim}{formatcom = {\color[rgb]{0, 0, 0.56}}}
+
+<<Preparation, echo=F>>=
+library(xtable)
+library(tcltk)
+# ------------------------------------------- Paramètres
+ech = 0.9 # permet de changer l'échelle du tableau de données
+nblig = 30 # nombres de lignes du tableau par page
+# ------------------------ Choix de la réserve et import ----------
+rep <- tclvalue(tkchooseDirectory()) ; setwd(rep) # Permet de choisir le répertoire de travail
+load("Tables/psdrfDonneesBrutes.Rdata")
+load("Tables/psdrfCodes.Rdata")
+Liste <- unique(arbres$NumDisp)
+Choix <- tk_select.list(Liste, multiple = F, title = "Choisir une réserve")
+# ------------------------ Extraction ----------
+Nom <- Reserves$Nom[which(Reserves$NumDisp==Choix)]
+t1 <- subset(arbres, NumDisp==Choix, select=-1)
+t1 <- subset(t1, Cycle==max(t1$Cycle), select=-16)
+names(t1)[3:15] <- c("Num","Ess","Azim","Dist","Diam1","Diam2","Type","Haut","StadeE","StadeD","Taillis","Observation","CodeEcol")
+# ------------------------------------------- Extraction et organisation
+t1$Cycle <- NULL
+t1$Haut[which(t1$Haut==0)] <- NA
+t1 <- t1[order(t1$NumPlac,t1$Azim), ]
+ListPlac <- unique(t1$NumPlac)
+n <- length(ListPlac)
+# dernierNum <- tapply(t$Num,t$Plac,max)
+@
+
+\renewcommand{\arraystretch}{1.4} % Hauteur des lignes
+\setlength{\tabcolsep}{1pt} % Espace entre trait et texte d'une colonne
+
+<<Entete, echo=FALSE>>=
+# ------------------------------------------- Préparation de l'entête
+titre <- data.frame(info1 = c(NA,"Placette",NA),
+                    milieu = c("PSDRF : Fiche de Remesure",NA,NA),
+                    text2 = c("Date","Opérateurs",NA))
+titre$info1 <- as.character(titre$info1)
+titre[1,1] <- Nom
+@
+
+
+<<Impression, echo=F, results='asis', fig.pos="H", comment=F, error=F, size='scriptsize'>>=
+df <- t1[1:nblig,-1]
+df[,] <- NA
+rws <- seq(1, nblig, by = 2)
+col <- rep("\\rowcolor[gray]{0.95}", length(rws))
+for (i in 1:n) {
+  # -------------- Extraction placette
+  tab <- subset(t1, NumPlac==ListPlac[i], select=-1)
+  nb <- dim(tab)[1]
+  tab <- rbind(tab,df) # ---- Insertion de lignes vides
+  nbtot <- dim(tab)[1]
+  # -------------- Remplissage entête
+  titre[2,1] <- paste("Placette",ListPlac[i],sep=" : ")
+  for (j in 1:(floor(nb/nblig-0.001)+1)) {
+    temp <- tab[1:nblig,]
+    tab <- tab[((nblig*j)+1):nbtot,]
+#     if (nb < nblig*j) temp[nb-(j-1)*nblig+1,1] <- dernierNum[i]+1 # Ecriture du numéro du nouvel arbre
+    if (j > 1.01)  titre[2,1] <- paste(titre[2,1],"(suite)")
+
+    # -------------- Impression entête
+    format1 <-c("p{1cm}","p{10cm}","p{10cm}","p{8cm}")
+    print(xtable(titre, align= format1), include.rownames=F,
+        include.colnames=F, floating=F, table.placement="!t", hline.after=NULL)
+    cat("\n")
+    # -------------- Impression Données
+    format2 <- c("|p{1cm}","|p{1cm}","|p{2cm}",rep("|p{1.6cm}",4),
+                 rep("|p{1.5cm}",5),"|p{7.5cm}","|p{5cm}|")
+    print(xtable(temp, align=format2, digits=c(rep(0,4),1,rep(0,3),2,rep(0,5))),
+          add.to.row = list(pos = as.list(rws), command = col),
+          scalebox= ech, include.rownames=F, floating=F, hline.after=c(-1:nblig))
+    cat("\n")
+  }
+}
+
+@
+\newpage
+
+\end{document}

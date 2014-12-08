@@ -1,0 +1,22 @@
+Package: PermPSDRF
+Title: Base PSDRF - Traitement placettes permanentes
+Version: 1.0
+Date: 2014-11-05
+Authors@R: person("Max", "Bruciamacchie", email =
+    "max.bruciamacchie@agroparistech.fr", role = c("aut", "cre"))
+Maintainer: Bruciamacchie Max <max.bruciamacchie@agroparistech.fr>
+Description: Differentes fonctions necessaires a la valorisation du protocole
+    dendrometrique de suivi des espaces proteges
+Depends:
+    R (>= 3.1.1)
+License: GPL-2
+LazyData: true
+Imports:
+    doBy (>= 4.5-11),
+    openxlsx (>= 2.2.1),
+    reshape2 (>= 1.4),
+    rgdal (>= 0.9-1),
+    sp (>= 1.0-15),
+    stringr (>= 0.6.2),
+    tcltk (>= 3.1.1),
+    maptools (>= 0.8-30),

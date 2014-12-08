@@ -1,0 +1,233 @@
+---
+output: html_document
+---
+
+
+```{r Chargement, echo=F}
+# ----- Library
+library(reshape2)
+library(ggplot2)
+library(openxlsx)
+library(tcltk)
+# setwd("/Users/maxbruciamacchie/Desktop/PSDRF/Data/Export")
+file <- paste0("../Data/Export/",disp)
+TempPlacettes         <- read.xlsx(file, sheet="Placettes")
+TempArbres            <- read.xlsx(file, sheet="Arbres")
+TempRege              <- read.xlsx(file, sheet="Rege")
+TempTransect          <- read.xlsx(file, sheet="Transect")
+TempBMSsup30          <- read.xlsx(file, sheet="BMSsup30")
+TempReperes           <- read.xlsx(file, sheet="Reperes")
+TempCycles            <- read.xlsx(file, sheet="Cycles")
+```
+
+# Vérification des données brutes de la réserve 
+`r disp`
+
+#### Réserve
+```{r Verif_Reserve, echo=F, comment=NA}
+Test = 0
+Num  <- unique(TempPlacettes$NumDisp)
+Liste <- setdiff(Num, Reserves$NumDisp)
+if (length(Liste) > 0) {
+  cat("Pensez à mettre à jour la liste des réserves")
+}
+Num1 <- unique(TempArbres$NumDisp)
+if (length(unique(c(Num,Num1))) > 1) {
+  cat("Le numéro de dispositif dans la feuille Arbres est différent de celui dans la feuille Placettes")
+  Test=1}
+Num1 <- unique(TempBMSsup30$NumDisp)
+if (length(unique(c(Num,Num1))) > 1) {
+  cat("Le numéro de dispositif dans la feuille BMSsup30 est différent de celui dans la feuille Placettes")
+  Test=1}
+Num1 <- unique(TempCycles$NumDisp)
+if (length(unique(c(Num,Num1))) > 1) {
+  cat("Le numéro de dispositif dans la feuille Cycles est différent de celui dans la feuille Placettes")
+  Test=1}
+Num1 <- unique(TempRege$NumDisp)
+if (length(unique(c(Num,Num1))) > 1) {
+  cat("Le numéro de dispositif dans la feuille Rege est différent de celui dans la feuille Placettes")
+  Test=1}
+Num1 <- unique(TempReperes$NumDisp)
+if (length(unique(c(Num,Num1))) > 1) {
+  cat("Le numéro de dispositif dans la feuille Reperes est différent de celui dans la feuille Placettes")
+  Test=1}
+Num1 <- unique(TempTransect$NumDisp)
+if (length(unique(c(Num,Num1))) > 1) {
+  cat("Le numéro de dispositif dans la feuille Transect est différent de celui dans la feuille Placettes")
+  Test=1}
+if (Test ==0) {cat("Pas d'anomalie détectée")}
+```
+
+#### Placettes
+```{r Verif_Placettes, echo=F, fig.height=3, fig.width=4, comment=NA}
+if (sum(is.na(TempPlacettes[,1:2]))>0) {
+  cat("Problème ! Données absentes dans les colonnes NumDisp et NumPlac qui sont des clés pour les fusions")
+}
+cat(paste("Nombre de placettes :",dim(TempPlacettes)[1]))
+cat(paste("Valeurs extrêmes des pentes :",min(TempPlacettes$slope),"-",max(TempPlacettes$slope)))
+cat(paste("Valeurs extrêmes des expositions :",min(TempPlacettes$exp),"-",max(TempPlacettes$exp)))
+cat("Nombre de placettes par poids")
+table(TempPlacettes$poids)
+```
+ 
+#### Arbres
+```{r Verif_Arbres, echo=F, fig.height=3, fig.width=4, comment=NA}
+if (sum(is.na(TempArbres[,1:4]))>0) {
+  cat("Problème ! Données absentes dans les colonnes NumDisp, NumPlac, Cycle, NumArbre qui sont des clés pour les fusions")
+}
+cat(paste("Nombre d'arbres :",dim(TempArbres)[1]))
+cat(paste("Valeurs extrêmes des azimuts :",min(TempArbres$azimut),"-",max(TempArbres$azimut)))
+cat(paste("Valeurs extrêmes des distances :",min(TempArbres$distance),"-",max(TempArbres$distance)))
+cat(paste("Valeurs extrêmes des dbh1 :",min(TempArbres$dbh1),"-",max(TempArbres$dbh1)))
+cat(paste("Valeurs extrêmes des dbh2 :",min(TempArbres$dbh2),"-",max(TempArbres$dbh2)))
+cat(paste("Valeurs extrêmes des hauteurs :",min(TempArbres$height, na.rm=T),"-",max(TempArbres$height, na.rm=T)))
+cat("Fréquence des stades d'écorce")
+table(TempArbres$bark_stage)
+cat("Fréquence des stades de dureté")
+table(TempArbres$rot_stage)
+Liste <- setdiff(unique(TempArbres$code), unique(CodeEssence$code))
+if (length(Liste) > 0) {
+  cat(paste("Les essences suivantes ne font pas partie des codes essences retenues :", Liste,"\n"))
+}
+Liste <- setdiff(unique(TempArbres$NumPlac), unique(TempPlacettes$NumPlac))
+if (length(Liste) > 0) {
+  cat(paste("Les placettes suivantes ne font pas partie de la liste des placettes :", Liste))
+}
+```
+
+#### Cycles
+```{r Verif_Cycles, echo=F, fig.height=3, fig.width=4, comment=NA}
+if (sum(is.na(TempPlacettes[,1:3]))>0) {
+  cat("Problème ! Données absentes dans les colonnes NumDisp, NumPlac et Cycle qui sont des clés pour les fusions")
+}
+cat(paste("Nombre de placettes :",dim(TempCycles)[1]))
+cat("Fréquence des coefficients relascopiques")
+table(TempCycles$relasco)
+Liste <- setdiff(unique(TempCycles$NumPlac), unique(TempPlacettes$NumPlac))
+if (length(Liste) > 0) {
+  cat(paste("Les placettes suivantes ne font pas partie de la liste des placettes :", Liste))
+}
+```
+
+#### BMSsup30
+```{r Verif_BMSsup30, echo=F, fig.height=3, fig.width=4, comment=NA}
+if (sum(is.na(TempBMSsup30[,1:3]))>0) {
+  cat("Problème ! Données absentes dans les colonnes NumDisp, NumPlac et Cycle qui sont des clés pour les fusions")
+}
+cat(paste("Nombre de billon de bois mort au sol supérieur à 30 cm :",dim(TempBMSsup30)[1]))
+Liste <- setdiff(unique(TempCycles$code), unique(CodeEssence$code))
+if (length(Liste) > 0) {
+  cat(paste("Les essences suivantes ne font pas partie des codes essences retenues :", Liste))
+}
+Liste <- setdiff(unique(TempBMSsup30$NumPlac), unique(TempPlacettes$NumPlac))
+if (length(Liste) > 0) {
+  cat(paste("Les placettes suivantes ne font pas partie de la liste des placettes :", Liste))
+}
+cat(paste("Valeurs extrêmes de base_diam :",
+            min(TempBMSsup30$base_diam, na.rm=T),"-",max(TempBMSsup30$base_diam, na.rm=T)))
+cat(paste("Valeurs extrêmes de top_diam :",
+            min(TempBMSsup30$top_diam, na.rm=T),"-",max(TempBMSsup30$top_diam, na.rm=T)))
+cat(paste("Valeurs extrêmes de mid_diam :",
+            min(TempBMSsup30$mid_diam, na.rm=T),"-",max(TempBMSsup30$mid_diam, na.rm=T)))
+cat(paste("Valeurs extrêmes de length :",
+            min(TempBMSsup30$length, na.rm=T),"-",max(TempBMSsup30$length, na.rm=T)))
+cat(paste("Valeurs extrêmes de contact :",
+            min(TempBMSsup30$contact, na.rm=T),"-",max(TempBMSsup30$contact, na.rm=T)))
+cat("Fréquence des stades d'écorce")
+table(TempBMSsup30$bark_stage)
+cat("Fréquence des stades de dureté")
+table(TempBMSsup30$rot_stage)
+```
+
+
+#### Régénération
+```{r Verif_Rege, echo=F, fig.height=3, fig.width=4, comment=NA}
+if (sum(is.na(TempRege[,1:4]))>0) {
+  cat("Problème ! Données absentes dans les colonnes NumDisp, NumPlac, Cycle et subplot qui sont des clés pour les fusions")
+}
+cat(paste("Nombre de lignes de la base Rege :",dim(TempRege)[1]))
+cat("Fréquence des sous-placettes")
+table(TempRege$subplot)
+Liste <- setdiff(unique(TempRege$code), unique(CodeEssence$code))
+if (length(Liste) > 0) {
+  cat(paste0("L'essence ", Liste, " ne fait pas partie des essences retenues :","\n"))
+}
+Liste <- setdiff(unique(TempRege$NumPlac), unique(TempPlacettes$NumPlac))
+if (length(Liste) > 0) {
+  cat(paste("Les placettes suivantes ne font pas partie de la liste des placettes :", Liste))
+}
+cat(paste("Valeurs extrêmes de class1 :",min(TempRege$class1),"-",max(TempRege$class2)))
+cat(paste("Valeurs extrêmes de class2 :",min(TempRege$class2),"-",max(TempRege$class2)))
+cat(paste("Valeurs extrêmes de class3 :",min(TempRege$class3),"-",max(TempRege$class3)))
+cat(paste("Valeurs extrêmes de recouv :",min(TempRege$seed_cover),"-",max(TempRege$seed_cover)))
+
+
+```
+
+
+#### Repères
+```{r Verif_Reperes, echo=F, fig.height=3, fig.width=4, comment=NA}
+if (dim(TempReperes)[1] > 0) {
+  if (sum(is.na(TempReperes[,1:2]))>0) {
+    cat("Problème ! Données absentes dans les colonnes NumDisp et NumPlac qui sont des clés pour les fusions")
+    }
+  cat(paste("Nombre de lignes de la base reperes :",dim(TempReperes)[1],"\n"))
+  Liste <- setdiff(unique(TempReperes$NumPlac), unique(TempPlacettes$NumPlac))
+  if (length(Liste) > 0) {
+    cat(paste("Les placettes suivantes ne font pas partie de la liste des placettes :", Liste))
+    }
+  cat(paste("Valeurs extrêmes de azimut :",min(TempReperes$azimut),"-",max(TempReperes$azimut),"\n"))
+  cat(paste("Valeurs extrêmes de distance :",min(TempReperes$distance),"-",max(TempReperes$distance)))
+  cat(paste("Valeurs extrêmes de diam :",min(TempReperes$Diam),"-",max(TempReperes$Diam)))
+} else {cat("Le fichier Reperes est vide")}
+```
+
+
+#### Transect
+```{r Verif_Transect, echo=F, fig.height=3, fig.width=4, comment=NA}
+if (sum(is.na(TempTransect[,1:3]))>0) {
+  cat("Problème ! Données absentes dans les colonnes NumDisp, NumPlac et Cycle qui sont des clés pour les fusions")
+}
+cat(paste("Nombre de lignes de la base Transect :",dim(TempTransect)[1]))
+Liste <- setdiff(unique(TempTransect$code), unique(CodeEssence$code))
+if (length(Liste) > 0) {
+  cat(paste("Les essences suivantes ne font pas partie des codes essences retenues :", Liste))
+}
+Liste <- setdiff(unique(TempTransect$NumPlac), unique(TempPlacettes$NumPlac))
+if (length(Liste) > 0) {
+  cat(paste("Les placettes suivantes ne font pas partie de la liste des placettes :", Liste))
+}
+cat(paste("Valeurs extrêmes de diam :",
+            min(TempTransect$diam, na.rm=T),"-",max(TempTransect$diam, na.rm=T)))
+cat(paste("Valeurs extrêmes de angle :",
+            min(TempTransect$angle, na.rm=T),"-",max(TempTransect$angle, na.rm=T)))
+cat("Fréquence des stades d'écorce")
+table(TempTransect$bark_stage)
+cat("Fréquence des stades de dureté")
+table(TempTransect$rot_stage)
+```
+
+# Cohérences
+
+### Essences
+Liste des essences non présentes dans la base CodeEssence
+```{r, echo=F, comment=NA} 
+VerifEss <- setdiff(unique(TempArbres$code), CodeEssence$code)
+if (length(VerifEss) == 0) {
+  cat("Aucune")
+} else {(VerifEss)}
+
+```
+
+### Tarifs
+
+```{r, echo=F, comment=NA} 
+if (sum(duplicated(Tarifs[,1:2])) >0) {
+  cat("Problème important : doublon dans le fichier des numéros de tarifs")
+} else {cat("Pas de doublon dans le fichier des numéros de tarifs")}
+
+```
+
+
+
+

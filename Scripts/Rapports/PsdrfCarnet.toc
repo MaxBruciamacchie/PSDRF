@@ -1,0 +1,44 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}Pr\IeC {\'e}sentation du site}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}G\IeC {\'e}n\IeC {\'e}ralit\IeC {\'e}s}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Renseignements administratifs}{1}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Contacts}{1}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Carte de localisation}{2}{subsection.1.1.3}
+\contentsline {subsection}{\numberline {1.1.4}Milieux}{2}{subsection.1.1.4}
+\contentsline {subsection}{\numberline {1.1.5}Echantillonnage}{2}{subsection.1.1.5}
+\contentsline {subsubsection}{Strat\IeC {\'e}gie}{2}{section*.5}
+\contentsline {subsubsection}{Nombre d'individus \IeC {\'e}chantillonn\IeC {\'e}s}{2}{section*.7}
+\contentsline {section}{\numberline {1.2}Tableaux de synth\IeC {\`e}se}{2}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Arbres vivants}{2}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Bois morts}{3}{subsection.1.2.2}
+\contentsline {section}{\numberline {1.3}Cartes th\IeC {\'e}matiques}{3}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Localisation des placettes}{3}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Bois vivant}{3}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Bois mort}{3}{subsection.1.3.3}
+\contentsline {chapter}{\numberline {2}Bois vivant}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Histogrammes}{9}{section.2.1}
+\contentsline {section}{\numberline {2.2}Composition}{9}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Biodiversit\IeC {\'e}}{9}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Importance relative}{9}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Composition et structure}{11}{subsection.2.2.3}
+\contentsline {chapter}{\numberline {3}Bois mort}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}R\IeC {\'e}partition par stade de d\IeC {\'e}composition}{13}{section.3.1}
+\contentsline {section}{\numberline {3.2}R\IeC {\'e}partition du bois mort sur pied par type}{13}{section.3.2}
+\contentsline {section}{\numberline {3.3}Ratio bois mort sur bois vivant}{13}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Par classe de diam\IeC {\`e}tre}{13}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}R\IeC {\'e}partition du volume}{13}{subsection.3.3.2}
+\contentsline {subsubsection}{Total}{13}{section*.23}
+\contentsline {chapter}{\numberline {4}Codes \IeC {\'e}cologiques}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}microhabitats}{17}{section.4.1}
+\contentsline {section}{\numberline {4.2}\IeC {\'E}tat de conservation}{17}{section.4.2}
+\contentsline {chapter}{\numberline {5}Renouvellement}{19}{chapter.5}
+\contentsline {section}{\numberline {5.1}R\IeC {\'e}g\IeC {\'e}n\IeC {\'e}ration}{19}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Par stade de d\IeC {\'e}veloppement}{19}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Abroutissement}{19}{subsection.5.1.2}
+\contentsline {chapter}{\numberline {6}Annexes}{21}{chapter.6}
+\contentsline {section}{\numberline {6.1}Analyse de l'\IeC {\'e}chantillon}{21}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Ad\IeC {\'e}quation \IeC {\'e}chantillon/protocole}{21}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Richesse en esp\IeC {\`e}ces ligneuses}{21}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.2}Tarifs de cubage retenus par l'op\IeC {\'e}rateur}{21}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Tarifs de cubage volume g\IeC {\'e}om\IeC {\'e}trique bois fort tige}{21}{subsection.6.2.1}
+\contentsline {section}{\numberline {6.3}Plans de localisation des arbres}{21}{section.6.3}

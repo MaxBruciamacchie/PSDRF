@@ -1,0 +1,494 @@
+---
+title: "SUIVI DENDROMÉTRIQUE DES ESPACES PROTÉGÉS"
+output: html_document
+---
+
+```{r Librairies, echo=F, warning=F, error=F, comment=F, message=F}
+library(xtable)
+library(ggplot2)
+library(reshape2)
+library(plyr)
+library(scales)
+library(doBy)
+library(grid)
+library(gridExtra)
+library(maptools)
+library(rgdal)
+library(raster)
+library(tcltk)
+library(rgeos)
+library(RgoogleMaps)
+library(PBSmapping)
+library(PermPSDRF)
+library(knitr)
+library(mapplots)
+library(ggmap)
+```
+
+```{r Imports, echo=F, warning=F, comment=NA, results='hide'}
+rep <- tclvalue(tkchooseDirectory(title="Choix du répertoire de travail")) ; setwd(rep)
+load("Tables/psdrfCodes.Rdata")
+load("Tables/psdrfDonneesBrutes.Rdata")
+load("Tables/psdrfTablesBrutes.RData")
+load("Tables/psdrfTablesElaborees.RData")
+load("Tables/psdrfTablesElaboreesPlac.RData")
+
+rep="SIG/Vecteurs/"
+data(ser)
+placettes <- readOGR(dsn=rep, layer="PsdrfPlacettes")
+limite <- readOGR(dsn=rep, layer="Perimetre")
+```
+
+```{r Formats, echo=F}
+MyTheme <-  theme_bw() +
+  theme(axis.text.x  = element_text(size=8),
+        axis.title.x  = element_text(size=9),
+        axis.title.y  = element_text(size=9),
+        axis.text.y  = element_text(size=8),
+        plot.margin = unit(c(0.1,0.1,0,0), "cm"))
+MyTheme2 <- theme_bw() +
+  theme(axis.text.x = element_blank(),
+        axis.title.x = element_blank(),
+        axis.text.y  = element_text(size=8),
+        axis.title.y  = element_text(size=9),
+        legend.title = element_text(size=9),
+        legend.text = element_text(size=8),
+        plot.margin = unit(c(0.1,0.1,0.1,0.1), "cm"))
+MyTheme3 <- theme_bw() +
+  theme(axis.text.x = element_blank(),
+        axis.text.x  = element_text(size=8),
+        axis.title.x  = element_text(size=9),
+        axis.text.y  = element_text(size=8),
+        plot.margin = unit(c(0.1,0.1,0.1,0.1), "cm"))
+par(mar=c(0,0,0,0))
+```
+
+```{r Extraction, echo=F, warning=F, error=F, comment=NA, message=F, results='hide'}
+Liste <- Reserves$Nom
+NomDisp <- tk_select.list(as.character(Liste), multiple = FALSE, title = "Choisir une réserve")
+Choix <- Reserves[which(Reserves$Nom==NomDisp), 1]
+PlacEnTour       <- subset(Placettes, NumDisp==Choix)
+ArbresEnTour     <- subset(Arbres, NumDisp==Choix)
+limiteTour       <- subset(limite, NumDisp==Choix)
+CyclesTour       <- subset(Cycles, NumDisp==Choix)
+BMPEnTour        <- subset(BMP, NumDisp==Choix)
+BMSsup30EnTour   <- subset(BMSsup30, NumDisp==Choix)
+BMSlineEnTour    <- subset(BMSline, NumDisp==Choix)
+RegeEnTour       <- subset(Rege, NumDisp==Choix)
+psdrfBMdispEnTour  <- subset(psdrfBMdisp, NumDisp==Choix, select=c(3:8,14:18))
+
+List1 <- gIntersects(limiteTour, ser, byid = T)
+ser <- ser[List1[,1],]
+List2 <- gIntersects(limiteTour, placettes, byid = T)
+placettes <- placettes[List2[,1],]
+
+NbPlac <- dim(PlacEnTour)[1]
+NbArb <- dim(ArbresEnTour)[1]
+TableAngle <- as.data.frame(table(CyclesTour$relasco))
+Angle <- vector()
+for (i in 1:dim(TableAngle)[1]) {
+  Angle <- c(Angle, paste0(as.numeric(as.character(TableAngle[i,1]))," (",
+                           as.numeric(as.character(TableAngle[i,2])),")"))
+}
+```
+#### Dispositif n°`r Choix` : `r NomDisp`
+
+## Présentation du site
+### Généralités
+
+#### Renseignements administratifs
+Nom :  `r NomDisp`  
+Commune(s):   
+Département(s):   
+Région(s):   
+Pays : & France  
+
+```{r TabStatuts, echo=F, results='html'}
+tab <- data.frame(Statut1=c(Reserves$codernf[which(Reserves$NumDisp==Choix)],
+                            Reserves$Surface[which(Reserves$NumDisp==Choix)],
+                            Reserves$DateCreation[which(Reserves$NumDisp==Choix)]))
+rownames(tab) <- c("Code INPN","Surface","Date création")
+
+kable(tab, format = "markdown", caption = "Statuts de protection.",
+      digits=c(0,0),label = "Statuts", caption.placement = "top", size="\\footnotesize")
+```
+
+
+#### Contacts
+Organisme :  
+Gestionnaire :   
+Nom :   
+Prénom :   
+Adresse :   
+   
+Tel. :   
+Email :   
+
+#### Carte de localisation
+La carte située en figure \ref{fig:PlanLoc} présente la réserve sur un fond Google.  
+```{r PlanLoc, echo=F}
+l_wgs84 <- spTransform(limiteTour, CRS("+init=epsg:4326"))
+shp <- SpatialPolygons2PolySet(l_wgs84)
+bb <- qbbox(lat = shp[,"Y"], lon = shp[,"X"])
+MyMap <- GetMap.bbox(bb$lonR, bb$latR, destfile = "DC.png",zoom=12, maptype= "terrain")
+PlotPolysOnStaticMap(MyMap, shp, lwd=.5, col = 'red', add = F)
+```
+
+#### Milieux
+La figure \ref{fig:CarteSER} fournit la localisation de la réserve dans sa sylvoécorégion.  
+```{r CarteSER, echo=F, fig.height=4,  fig.pos='h', fig.cap="Localisation de la réserve dans sa sylvoécorégion."}
+plot(ser, col="lightgrey")
+plot(placettes, col='red', add=T)
+```
+
+Habitats :  
+GRECO : &  
+Sylvoécorégions : `r ser$NomSER`  
+Altitude min :  
+Altitude max :  
+
+#### Echantillonnage
+##### Stratégie
+
+Installé en `r Reserves[which(Reserves$NumDisp==Choix), "DateIni"]`, le dispositif a fait l’objet de `r max(Cycles$Cycle[which(Cycles$NumDisp==Choix)])` cycle(s) de mesure. 
+
+La réserve a été divisée en strates. Le tableau \ref{Echantillonnage} résume les principaux paramètres de l'échantillonnage. 
+```{r TabStrates, echo=F, results='asis'}
+tab <- data.frame(Strate1=c(NA, NA, NbPlac, NbArb, round(NbArb/NbPlac,1), NA, Angle, NA))
+
+rownames(tab) <- c("Nom/raison","Surface","Nombre de placettes","Nombre d’arbres",
+                   "Nombre moyen d’arbres par placette","Densité du maillage",
+                   "Angle relascopique","Diamètre de précomptage pour l'angle fixe")
+
+kable(tab, format = "markdown", caption = "Principaux paramètres de l'échantillonnage par strate.",
+      digits=c(0,0),label = "Echantillonnage", caption.placement = "top", size="\\footnotesize")
+```
+
+##### Nombre d'individus échantillonnés
+- `r dim(ArbresEnTour)[1]` arbres morts sur pied ;
+- `r dim(BMPEnTour)[1]` billons au sol de diam sup à 30 cm ;
+- `r dim(BMSlineEnTour)[1]` billons au sol de diam inf à 30 cm ;
+- `r dim(RegeEnTour)[1]` relevés de régénération ;
+
+La figure \ref{fig:DiamDist} située en annexe permet de vérifier si l'échantillon est en accord avec le protocole. Elle permet  de détecter les arbres limites.   
+
+Le tableau \ref{Tarifs} également situé en annexe rappelle les tarifs de cubage retenus par l'opérateur. Le tableau XXX fournit quand à lui le tarif de cubage volume géométrique bois fort tige obtenu à partir de la base de données de l'IFN.
+
+### Tableaux de synthèse
+#### Arbres vivants
+Le tableau \ref{Dendro} fournit les principales caractéristiques dendrométriques (volume, surface terrière et nombre de tiges à l'hectare) des arbres vivants, accompagnées de leur coefficient de variation et précision.
+
+```{r Dendro, echo=F, results='asis', fig.pos="H", comment=F}
+tab <- subset(psdrfNGVdisp, NumDisp==Choix, select=-c(1,2))
+Dec <- c(rep(0,3),1,0,rep(1,6),0)
+
+kable(tab, caption = "Principales caratéristiques dendrométriques, ainsi que leur précision.",
+      digits=Dec,label = "Dendro", caption.placement = "top")
+```
+
+La figure \ref{fig:GraphDendro} complète le tableau \ref{Dendro} en illustrant la variabilité des données. 
+```{r GraphDendro, echo=F, fig.pos='H', size='footnotesize', fig.width=1.1, fig.height=2, fig.cap="Variabilité des principales caractéristiques dendrométriques"}
+tab <- subset(psdrfPlaNGV, NumDisp==Choix, select=4:6)
+ggplot(tab, aes(x=factor(0), y=Nha)) + geom_violin(fill = "grey90") + labs(x="Nha", y="") + MyTheme3
+ggplot(tab, aes(x=factor(0), y=Gha)) + geom_violin(fill = "grey90") + labs(x="Gha", y="") + MyTheme3
+ggplot(tab, aes(x=factor(0), y=Vha)) + geom_violin(fill = "grey90") + labs(x="Vha", y="") + MyTheme3
+```
+
+Le tableau \ref{Structure} fournit la répartition des principales caractéristiques dendrométriques (volume, surface terrière et nombre de tiges à l'hectare) des arbres vivants par catégories de diamètre, accompagnée de leur coefficient de variation et précision.  
+
+```{r Structure, echo=F, results='asis', fig.pos="H", comment=F}
+tab <- subset(psdrfNGVdispCat, NumDisp==Choix, select=3:13)
+Dec <- c(rep(0,4),1,0,rep(1,6))
+
+kable(tab, caption = "Analyse de la structure des peuplements. Valeurs moyennes et précisions associées à l'échelle de la réserve.",digits=Dec ,label = "Structure", caption.placement = "top", size="\\footnotesize")
+```
+
+#### Bois morts
+Le tableau \ref{BoisMort} fournit l'importance globale du bois mort, ainsi que sa répartition en 4 grandes classes. Les moyennes sont accompagnées de leur précision. La légende du tableau est la suivante :  
+VSinf = volume au sol inférieur à 30cm,  
+VSsup = volume au sol supérieur à 30cm,  
+VPinf = volume sur pied inférieur à 30cm,  
+VPsup = volume sur pied supérieur à 30cm  
+
+```{r BoisMort, echo=F, results='asis', fig.pos='H'}
+tab <- psdrfBMdispEnTour
+Dec <- c(rep(0,2),rep(1,10))
+names(tab) <- c("Cycle","VSinf","VSsup","VPinf","VPsup","VT","VSinf_er","VSsup_er","VPinf_er","VPsup_er","VT_er")
+
+kable(tab, caption = "Importance et type de bois mort.",
+      digits=Dec,label = "BoisMort", caption.placement = "top")
+```
+
+La figure \ref{fig:GraphBMT} complète le tableau \ref{BoisMort} en illustrant la variabilité des données.  
+```{r GraphBMT, echo=F, fig.pos='H', size='footnotesize', include=T, fig.width=1.1, fig.height=2.5, fig.cap="Variabilité des types de bois mort"}
+tab <- subset(psdrfPlaBM, NumDisp==Choix)
+ggplot(tab, aes(x=factor(0), y=VSinf)) + geom_violin(fill = "grey90") + labs(x="VSinf", y="") + MyTheme3
+ggplot(tab, aes(x=factor(0), y=VSsup)) + geom_violin(fill = "grey90") + labs(x="VSsup", y="") + MyTheme3
+ggplot(tab, aes(x=factor(0), y=VPinf)) + geom_violin(fill = "grey90") + labs(x="VPinf", y="") + MyTheme3
+ggplot(tab, aes(x=factor(0), y=VPsup)) + geom_violin(fill = "grey90") + labs(x="VPsup", y="") + MyTheme3
+ggplot(tab, aes(x=factor(0), y=VhaBMT)) + geom_violin(fill = "grey90") + labs(x="VhaBMT", y="") + MyTheme3
+```
+
+### Cartes thématiques
+
+#### Bois vivant
+La figure \ref{fig:CartePlacettes} permet de localiser les placettes au sein du périmètre de la réserve. Elle fournit également la répartition du volume à l'hectare.  
+```{r CartePlacettes, echo=F, fig.height=6,  fig.pos='H', fig.cap="Périmètre et localisation des placettes. Répartition du volume à l'hectare."}
+ech=100
+plot(limiteTour)
+plot(placettes, pch=19, cex=placettes@data$Vha/ech, add=T, col=rgb(0,1,0, 0.5))
+```
+
+#### Bois mort
+
+La figure \ref{fig:CarteVolBMP} permet de visualiser la répartition totale du bois mort. 
+
+```{r CarteVolBMT, echo=F, fig.pos='H', fig.cap="Cartographie du volume total de bois mort au sol.", message=F}
+tab <- data.frame(X=placettes$coords.x1, Y=placettes$coords.x2)
+tab <- cbind(tab, placettes@data[,22:26])
+tab.m <- melt(tab, id=c("X","Y"))
+perim <- fortify(limiteTour)
+ggplot(tab, aes(x=X, y=Y, size=VhaBMT/50)) + geom_point() + coord_equal() + theme_bw() + 
+  geom_polygon(aes(x = long, y = lat, group = group), data = perim, 
+               color='black', fill = 'lightblue', alpha = .1, size = .3) + theme_nothing()
+#   theme(axis.text = element_blank(), axis.title=element_blank()) 
+```
+
+
+```{r CarteVolBM, echo=F, fig.pos='H', fig.height=8, fig.cap="Répartition spatiale des types de bois mort."}
+plot(limiteTour)
+col <- c('lightblue','darkblue','orange','red')
+draw.pie(z=as.matrix(placettes@data[,22:25]), x=placettes@coords[,1], y=placettes@coords[,2], radius=50, col=col)
+legend.pie("topleft",labels=c("Sinf","Ssup","Pinf","Psup"), radius=50, bty="n", 
+           col=col,cex=0.8, label.dist=1.3, inset=0.1)
+```
+
+
+## Bois vivant
+
+### Histogrammes
+La figure \ref{fig:Classe} permet de visualiser les histogrammes en volume et en nombre de tiges par classe de diamètre.
+
+```{r Classe, echo=F, fig.pos='H', fig.height=2.5, fig.width=3.2, fig.cap= "Répartition du matériel vivant sur pied par classe de diamètre."}
+tab <- subset(psdrfHistDisp, NumDisp==Choix)
+som <- round(sum(tab$MoyVha),0)
+X <- max(tab$Classe)-20
+Y <- max(tab$MoyVha)-10
+ggplot(tab, aes(x=Classe, y=MoyVha)) + geom_bar(stat = "identity", fill="grey") + theme_bw() +
+  theme(axis.text.x = element_text(size=8), axis.title.x=element_text(size=9),
+        axis.text.y = element_text(size=8), axis.title.y=element_text(size=9)) +
+  annotate("text", label = paste("Vha =",som, " m3"), x = X, y = Y, size = 3) +
+  labs(x="Diam", y="Vha")
+
+ggplot(tab, aes(x=Classe, y=MoyNha)) + geom_bar(stat = "identity", fill="grey") + theme_bw() +
+theme(axis.text.x = element_text(size=8), axis.title.x=element_text(size=9),
+        axis.text.y = element_text(size=8), axis.title.y=element_text(size=9)) +
+  labs(x="Diam", y="Nha")
+```
+
+### Composition
+
+#### Biodiversité
+```{r Biodiversite, echo=F}
+t1 <- summaryBy(Vha ~ code, data=ArbresEnTour, FUN=sum, keep.names=T)
+t2 <- summaryBy(seed_cover + class1 + class2 + class3 ~ code, data=RegeEnTour, FUN=sum, keep.names=T)
+tab <- merge(t1,t2, by="code", all=T)
+tab <- merge(tab, CodeEssence[,c("code","libelle")], by="code", all.x=T, sort=F)
+ListEss     <- tab[order(tab$libelle), -1]
+names(ListEss)[1] <- "Arbres"
+```
+
+
+Le dispositif possède au total `r length(unique(ListEss[,1]))` espèces sous forme de semis, de brins de taillis ou d'arbres de franc-pied. La figure \ref{fig:CompoGlobal} donne une image de l'importance des essences dans chacun des stades de vie de l'arbre. Elle fournit la composition en pourcentage du volume pour les arbres (diamètre supérieur à 7,5cm) du recouvrement pour les semis inférieur à 50 cm de haut, et du nombre de tiges pour les différentes classes (class1, class2, class3) de semis de hauteur supérieure à 50 cm. Lorsqu'une classe de semis est absente, elle n'est pas représentée.  
+Cette figure \ref{fig:CompoGlobal} est une représentation visuelle de l'indice de biodiversité de Shannon.  
+
+```{r CompoGlobal, echo=F, fig.height=5, fig.cap="Importance des essences selon les différents stades de vie de l'arbre.", error=F, comment=F, warning=F, message=F}
+if (sum(ListEss$class3, na.rm=T)==0) {ListEss$class3 <- NULL}
+if (sum(ListEss$class2, na.rm=T)==0) {ListEss$class2 <- NULL}
+if (sum(ListEss$class1, na.rm=T)==0) {ListEss$class1 <- NULL}
+ListEss.m <- melt(ListEss, id="libelle")
+ListEss.m <- ddply(ListEss.m, .(variable), transform, rescale = rescale(value))
+ggplot(ListEss.m, aes(variable, libelle)) + geom_tile(aes(fill = rescale),
+    	colour = "white") + scale_fill_gradient(low = "white", high = "black") + theme_bw() + labs(x = NULL, y=NULL) +
+      theme(axis.text.x  = element_text(size=9), axis.text.y  = element_text(size=9))
+```
+
+#### Importance relative
+La figure \ref{fig:Compo} illustre l'importance relative des différentes essences. Elle est constituée de 2 graphiques :  
+- Celui de gauche fournit l'importance des différentes essences en nombre de tige (Nha), volume (Vha).  
+- Celui de droite fournit la répartition en nombre de tiges par classes de diamètre des différentes essences.  
+
+```{r Compo, echo=F, fig.width=9, fig.height=4, fig.cap="Importance relative des différentes essences.", fig.keep='last', fig.pos="htdp"}
+Ess <- summaryBy(Nha + Vha ~ EssRegPar, data=ArbresEnTour, FUN=sum, keep.names=T)
+Ess.m <- melt(Ess, id="EssRegPar")
+p1 <- ggplot(Ess.m, aes(x=variable, y=value, fill=EssRegPar)) +
+    	geom_bar(stat='identity', position='fill') +  coord_polar(theta = "y") +
+			scale_x_discrete("") + theme(legend.position="bottom") + theme_bw() +
+      theme(axis.title.y=element_blank())
+Ess <- summaryBy(Nha ~ EssRegPar + Classe, data=ArbresEnTour, FUN=sum, keep.names=T)
+Ess$Nha <- Ess$Nha/NbPlac
+p2 <- ggplot(Ess, aes(x=Classe, y=Nha, fill=EssRegPar)) + geom_bar(stat='identity', position='fill') +
+			guides(fill=F) + theme_bw()
+grid.arrange(p1, p2, ncol=2)
+```
+
+#### Composition et structure
+La figure \ref{fig:Compo} illustre  
+
+```{r CompoNG, echo=F, fig.pos='h', fig.width=9, fig.height=6, fig.cap="Composition en essence en nombre de tige et en surface terrière, de manière absolue ou relative."}
+tab <- subset(psdrfNGVdispCatEssRegPar, NumDisp==Choix)
+names(tab)[6:8] <- c("Vha","Gha","Nha")
+p1 <- ggplot(tab, aes(Cat, Nha, fill=EssRegPar)) + geom_bar(stat="identity", position="stack") +
+  labs(x = NULL) + guides(fill=FALSE) + theme_bw()
+p2 <- ggplot(tab, aes(Cat, Nha, fill=EssRegPar)) + geom_bar(stat="identity", position="fill") +
+  labs(x = NULL) + theme(legend.position = "none") + theme_bw()
+
+p3 <- ggplot(tab, aes(Cat, Vha, fill=EssRegPar)) + geom_bar(stat="identity", position="stack")+ guides(fill=FALSE) + theme_bw()
+p4 <- ggplot(tab, aes(Cat, Vha, fill=EssRegPar)) + geom_bar(stat="identity", position="fill") + theme_bw()
+grid.arrange(p1, p2, p3, p4, ncol=2)
+```
+
+
+## Bois mort
+
+### Répartition par stade de décomposition
+
+La figure \ref{fig:BMStades} fournit l'importance du bois mort exprimée en volume, par grande catégorie de dimension et par stade de décomposition.  
+```{r BMStades, echo=F, fig.pos='H', fig.width=3.5, fig.height=3, fig.cap= "Importance du bois mort par stades de décomposition."}
+tab <- subset(psdrfBMdispStadeD, NumDisp==Choix)
+ggplot(tab, aes(x=Type, y=MoyVha, fill=StadeD)) + geom_bar(stat = "identity", position='stack') + MyTheme2 +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) + labs(y="Vha")
+tab <- subset(psdrfBMdispStadeE, NumDisp==Choix)
+ggplot(tab, aes(x=Type, y=MoyVha, fill=StadeE)) + geom_bar(stat = "identity", position='stack') + MyTheme2 +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) + labs(y="Vha")
+```
+
+### Répartition du bois mort sur pied par type
+
+```{r BMPtypo, echo=F, fig.pos='H', fig.height=3, fig.cap= "Répartition du bois mort sur pied par type"}
+tab <- subset(psdrfBMPdispTypo, NumDisp==Choix)
+ggplot(tab, aes(x=Classe, y=MoyVha, fill=libelle)) + geom_bar(stat = "identity", position='stack') +
+  scale_fill_grey() + MyTheme
+```
+
+### Ratio bois mort sur bois vivant
+
+#### Par classe de diamètre
+
+```{r Ratio, echo=F, size='footnotesize', fig.pos='H', fig.height=3, fig.cap= "Importance relative du bois mort par classes de diamètre."}
+t1 <- subset(psdrfBMPdispClasse, NumDisp==Choix, select=c(1,3,4,5))
+t1$Type <- "BMP"
+t2 <- subset(psdrfBMSdispClasse, NumDisp==Choix, select=c(1,3,4,5))
+t2$Type <- "BMS"
+t3 <- subset(psdrfHistDisp, NumDisp==Choix, select=c(1,3,4,5))
+t3$Type <- "Vivant"
+tab <- rbind(t1,t2,t3)
+names(tab)[4] <- "Vha"
+
+r <- round((sum(t1$MoyVha)+sum(t2$MoyVha))/sum(t3$MoyVha)*100,1)
+X <- max(tab$Classe)-10
+Y <- max(tab$Vha)-10
+ggplot(tab, aes(x=Classe, y=Vha, fill=Type)) + geom_bar(stat = "identity", position='stack') +
+  scale_fill_grey() + MyTheme + annotate("text", label = paste("ratio =",r,"%"), x = X, y = Y, size = 4)
+```
+
+#### Répartition du volume
+
+```{r RepVol, echo=F, fig.height=3, fig.pos='h', fig.cap="Répartition du volume"}
+t1 <- subset(psdrfBMdisp, NumDisp==Choix, select=c(1,3:7))
+names(t1)[3:6] <- c("VSinf","VSsup","VPinf","VPsup")
+t2 <- subset(psdrfNGVdisp, NumDisp==Choix, select=c(1,3:4))
+tab <- merge(t1,t2, by=c("NumDisp","Cycle"))
+tab <- melt(tab, id=c("NumDisp","Cycle"))
+ggplot(tab, aes(x = "", y = value, fill = variable)) +
+  geom_bar(width = 1, stat = "identity") +
+   coord_polar(theta="y") +
+  scale_fill_grey("",start = 0.1, end = 0.9) + theme_bw()
+```
+
+## Codes écologiques
+
+### microhabitats
+Hist : N  ou N arbres porteurs microhabitats (sous ensemble position)  
+
+Hist : N microhabitats ou N arbres porteurs microhabitats (vitalité)  
+
+Graph : Note écologique/essence/cat diamètre  
+
+Graph : camemberts essences / hist (Ncodes/ha/essence) /codes regroupés  
+
+
+### État de conservation
+
+Tableau essences autochtones / allochtones
+
+
+## Renouvellement
+
+### Régénération
+
+#### Par stade de développement
+
+```{r Rege1, echo=F, size='footnotesize', include=T, fig.pos='h', fig.height=2.5, fig.cap= "Régénération par stade de développement."}
+tab <- subset(psdrfRegeDispEssRegPar, NumDisp==Choix, select=3:8)
+names(tab)[3:6] <- c("Recouv","Classe1","Classe2","Classe3")
+tab$Recouv <- tab$Recouv*50 # On suppose que 5000 semis classe1 = recouv complet
+tab.m <- melt(tab, id=c("Cycle", "EssRegPar"))
+ggplot(tab.m, aes(x=variable, y=value, fill=EssRegPar)) + geom_bar(stat = "identity", position='stack') + theme_bw()
+```
+
+#### Abroutissement
+```{r Abroutissement, echo=F, fig.pos='H', fig.height=2, fig.width=4, fig.cap= "Abroutissement."}
+t1 <- subset(Rege, NumDisp==Choix, select=c("seed_cover","browsing","code","class1"))
+t1$browsing <- ifelse(t1$browsing=="f","oui","non")
+t1 <- summaryBy(seed_cover + class1 ~ browsing, data=t1, FUN=sum, keep.names=T)
+t1.m <- melt(t1, id="browsing")
+ggplot(t1.m, aes(x=variable, y=value, fill=browsing)) + geom_bar(stat = "identity", position='fill',colour="black") +
+  scale_fill_manual(values=c("white", "black")) + theme_bw()
+```
+
+
+## Annexes
+
+### Analyse de l'échantillon
+
+#### Adéquation échantillon/protocole
+```{r DiamDist, echo=F, fig.height=3.5, fig.pos='h', fig.cap= "Vérification de l'échantillon."}
+tab <- subset(ArbresEnTour, select=c("distance","dbh1","Diam"))
+tab$Type <- ifelse(tab$Diam <17.5,"Perches","Arbres")
+t1 <- subset(BMPEnTour, select=c("distance","dbh1","Diam"))
+t1$Type <- "BMP"
+tab <- rbind(tab,t1)
+Angle <- unique(CyclesTour$relasco)
+p <- ggplot(tab, aes(distance, dbh1, colour=Type)) + geom_point(alpha=0.5) + theme_bw()
+p <- p + geom_hline(yintercept=c(7.5,30), colour="blue", linetype=2, size=0.5)
+p <- p + geom_abline(intercept = 0, slope = Angle, colour="blue")
+p + geom_vline(xintercept=c(10,20), colour="blue", linetype=2, size=0.5) +
+  theme(axis.text.x = element_text(size=9), axis.title.x = element_text(size=10),
+        axis.text.x = element_text(size=9), axis.title.y = element_text(size=10),
+        legend.text = element_text(size = 9))
+```
+
+#### Richesse en espèces ligneuses
+```{r Bootstrap, echo=F, fig.height=3, fig.pos='h', fig.cap= "Qualité de l'estimation de la richesse en espèce en fonction du nombre de placette."}
+ListPlot <- unique(ArbresEnTour$NumPlac)
+NB=20
+res <- vector(length=NB)
+t2 <- data.frame()
+
+for (l in length(ListPlot):10) {
+# l=10
+for (ind in 1:NB){
+  Ech = sample(ListPlot, l, replace=F)
+  tab <- subset(ArbresEnTour, NumPlac %in% Ech)
+  res[ind] <- length(unique(tab$code))
+}
+  t1 <- data.frame(NbEss = res)
+  t1$Taille <- l
+  t2 <- rbind(t2,t1)
+}
+
+ggplot(t2, aes(x=Taille, y=NbEss)) + geom_jitter(alpha=0.5, position = position_jitter(height = 0)) +
+  geom_smooth(method='loess') + MyTheme
+```
+

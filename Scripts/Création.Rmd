@@ -1,0 +1,56 @@
+---
+title: "Creation d'un Package"
+output: html_document
+---
+
+
+#### Libraries nécessaires
+
+```{r Installation, eval=F}
+install.packages(c("devtools", "roxygen2", "testthat", "knitr"))
+library(devtools)
+has_devel()
+```
+
+La dernière commande teste si vous possédez tous les outils nécessaires. La réponse doit être TRUE. Si ce n’est pas le cas :  
+- On Windows, download and install Rtools. NB: this is not an R package!  
+- On Mac, make sure you have either XCode (available for free in the App Store) or the “Command Line Tools for Xcode”. NB: you’ll need to have an Apple ID (available for free).  
+- On Linux, make sure you’ve installed not only R, but also the R development tools. For example, on ubuntu (and debian) you need to install the r-base-dev package.  
+
+
+#### Création de l’architecture en dossier/ sous-dossiers
+
+```{r, eval=F}
+devtools::create("~/Desktop/Package/PermPSDRF")
+```
+La commande précédente crée un dossier dénommé PermPSDRF situé sur le bureau dans le dossier Package et contenant 4 éléments  
+- An RStudio project file, pkgname.Rproj.  
+- An R/ directory.  
+- A basic DESCRIPTION file.  
+- A basic NAMESPACE file.  
+
+To get started with your new package in RStudio, double-click the package.Rproj  
+
+
+#### Stockage des data
+```{r, eval=F}
+setwd("~/Documents/GeoData/FRA_adm")
+dept <- readOGR(dsn=".", layer="Dept25")
+setwd("~/Desktop/Package")
+ser <- readOGR(dsn="SIG/Vecteurs", layer="ser25_l93")
+setwd("PermPSDRF")
+devtools::use_data(ser,dept, overwrite = T)
+```
+
+
+```{r}
+devtools::load_all()
+```
+
+
+#### Conventions
+If you’re planning on submitting your package to CRAN, you must use only ASCII characters in your .R files. Il faut pour cela utiliser la fonction stri_escape_unicode qui se trouve dans le package stringi 
+```{r}
+cat(stringi::stri_escape_unicode("surface terrière"))
+```
+
