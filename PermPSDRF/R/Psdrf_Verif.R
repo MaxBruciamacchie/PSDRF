@@ -24,21 +24,14 @@ psdrf_Verif <- function(repdata, format=0){
   outputdir="../Out/Verif/"
   template = "Template/psdrf_Verif.Rmd"
   ListeFormat <- list("html","docx","pdf") # ou c("html","docx","pdf") ?
-  setwd(DirData)
-  format <- tk_select.list(as.character(ListeFormat),multiple=F,title = "Choix du format de fichier")
+  setwd(repdata)
+  extent <- tk_select.list(as.character(ListeFormat),multiple=F,title = "Choix du format de fichier")
   Liste <- list.files()
   ListDisp <- tk_select.list(as.character(Liste), multiple = T, title = "Choisir une ou plusieurs réserves")
   setwd(rep)
   # -------------- Edition des rapports
   # disp = ListDisp[1]  disp2 = ListDisp[2]
-  if (format==0) {
-    extent = "html"
-  } else if (format==1) {
-    extent = "pdf"
-  }  else if (format==2) {
-    extent = "docx"
-  }
-  for (disp in ListDisp){
+   for (disp in ListDisp){
     tryCatch(render(input = template,
                     output_format = output_format(knitr = knitr_options(),
                                                   pandoc = pandoc_options(to = extent)),
