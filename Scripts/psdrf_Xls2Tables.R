@@ -30,9 +30,12 @@ load("Tables/psdrfCodes.Rdata")
 psdrf_Calculs()
 # --------------- Aggregation par placettes
 load("Tables/psdrfTablesBrutes.Rdata")
+load("Tables/psdrfCodes.Rdata") #Attention df CodeEssence nécessaire dans AgregArbres()
 psdrf_AgregArbres()
 # --------------- creation des tables foret, massif, ...
 load("Tables/psdrfTablesElaboreesPlac.RData")
+load("Tables/psdrfDonneesBrutes.Rdata")
+load("Tables/psdrfCodes.Rdata") #Attention df CodeEssence nécessaire dans AgregPlacettes()
 psdrf_AgregPlacettes()
 ########################## Sorties plus élaborées ######################
 # --------------- Shapes par placettes

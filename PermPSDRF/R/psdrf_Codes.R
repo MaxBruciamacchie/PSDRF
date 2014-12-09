@@ -12,9 +12,8 @@
 #' @export
 psdrf_Codes <- function() {
   rep <- getwd()
-
-  file <- tk_choose.files(caption = "Choix fichier codes", filters=matrix(c(".xls",".xlsx"),1,2, byrow = T))
-  setwd(dirname(file))
+  file <- tk_choose.files(caption = "Choix fichier codes",
+                          filters=matrix(c(".xls",".xlsx"),1,2, byrow = T))
   CodeDurete     <- read.xlsx(file, sheet="CodeDurete")
   CodeEcologie   <- read.xlsx(file, sheet="CodeEcologie")
   CodeEcorce     <- read.xlsx(file, sheet="CodeEcorce")
@@ -22,14 +21,14 @@ psdrf_Codes <- function() {
   CodeTypoArbres <- read.xlsx(file, sheet="CodeTypoArbres")
   Reserves       <- read.xlsx(file, sheet="Reserves")
   Tarifs         <- read.xlsx(file, sheet="Tarifs")
+  TarifsIFN      <- read.xlsx(file, sheet="TarifsIFN")
   Tiers          <- read.xlsx(file, sheet="Tiers")
   Communes       <- read.xlsx(file, sheet="Communes")
   EssReg         <- read.xlsx(file, sheet="EssReg")
   Cat            <- read.xlsx(file, sheet="Cat")
   # --------------- Sauvegarde
-  setwd(rep)
   dir.create("Tables", showWarnings = F)
-  save(Tiers,CodeEcorce,CodeEcologie,CodeEssence,CodeDurete,Reserves,Tarifs,CodeTypoArbres,Communes,EssReg,Cat,
-                file = "Tables/psdrfCodes.Rdata")
+  save(Tiers,CodeEcorce,CodeEcologie,CodeEssence,CodeDurete,Reserves,Tarifs,TarifsIFN,
+       CodeTypoArbres,Communes,EssReg,Cat,
+       file = "Tables/psdrfCodes.Rdata")
 }
-

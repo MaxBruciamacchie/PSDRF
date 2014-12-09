@@ -23,35 +23,25 @@ psdrf_Verif <- function(repdata, format=0){
   dir.create("Out/Verif", showWarnings = F)
   outputdir="../Out/Verif/"
   template = "Template/psdrf_Verif.Rmd"
-#   setwd(tclvalue(tkchooseDirectory(title="Choisir le répertoire de stockage des données")))
+  ListeFormat <- list("html","docx","pdf") # ou c("html","docx","pdf") ?
   setwd(repdata)
+  extent <- tk_select.list(as.character(ListeFormat),multiple=F,title = "Choix du format de fichier")
   Liste <- list.files()
   ListDisp <- tk_select.list(as.character(Liste), multiple = T, title = "Choisir une ou plusieurs réserves")
   setwd(rep)
   # -------------- Edition des rapports
   # disp = ListDisp[1]  disp2 = ListDisp[2]
-  if (format==0) {
-    formatout = "html_document"
-    extent = "html"
-  } else if (format==1) {
-    formatout = "pdf_document"
-    extent = "pdf"
-  }  else if (format==2) {
-    formatout = "word_document"
-    extent = "docx"
-  }
-  for (disp in ListDisp){
+   for (disp in ListDisp){
     tryCatch(render(input = template,
                     output_format = output_format(knitr = knitr_options(),
                                                   pandoc = pandoc_options(to = extent)),
                     output_dir = outputdir,
                     output_file = paste0(file_path_sans_ext(disp),".",extent),
                     encoding="UTF-8"),
-#              Rqe : marche pour word et html mais pas pour pdf.
-#              Bricolage : revenir à l'écriture précédente lorsque extent=pdf...
-#              Ok encoding résoud le problème des accents. Reste la question de pdf...
-#             +suppression des warnings
+             #              Rqe : marche pour word et html mais pas pour pdf.
+             #              Bricolage : revenir à l'écriture précédente lorsque extent=pdf...
+             #              Ok encoding résoud le problème des accents. Reste la question de pdf...
+             #             +suppression des warnings
              finally= print(paste("Edition du rapport de vérification du dispositif :", file_path_sans_ext(disp))))
   }
 }
-
