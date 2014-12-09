@@ -222,10 +222,42 @@ if (length(VerifEss) == 0) {
 ### Tarifs
 
 ```{r, echo=F, comment=NA} 
-if (sum(duplicated(Tarifs[,1:2])) >0) {
-  cat("Problème important : doublon dans le fichier des numéros de tarifs")
-} else {cat("Pas de doublon dans le fichier des numéros de tarifs")}
+#Vérif doublons
+if (sum(duplicated(TarifsIGN[1:100,1:2])) >0) {
+  cat("Problème important : doublon dans le fichier des numéros de tarifs IGN")
+} else {cat("Pas de doublon dans le fichier des numéros de tarifs IGN")}
+#Vérif présence de vides dans les NumDisp et les essences :
+if (sum(colSums(is.na(TarifsIGN[,1:2])))>0) {
+  print("Il y des numéros de dispositifs et/ou des noms d'essences vides")
+}
 
+#Vérif liste des essences présentes dans Tarifs mais non présentes dans Tarifs IGN :
+
+# a <- Tarifs[1:5,1:2] b <- Tarifs[1:4,1:2]
+
+# setdiff(Tarifs[,1:2],TarifsIGN[,1:2]) #Mais si on a des tarifs en trop dans IGN ? + verification que pas de vides dans les colonnes Essences et dispositifs ?
+
+VerifTarifs <- paste0(Tarifs[,1],Tarifs[,2]) #VerifTarifs <- paste0(a[,1],a[,2])
+VerifTarifsIGN <- paste0(TarifsIGN[,1],TarifsIGN[,2]) #VerifTarifsIGN <- paste0(b[,1],b[,2])
+diffTarifs <- setdiff(VerifTarifs,VerifTarifsIGN)
+if (length(diffTarifs)>0) {
+  print("Il manque des essences renseignées dans la feuille Tarifs et pas dans la feuille TarifsIGN :")
+  Tarifs[VerifTarifs==diffTarifs,1:2] # a[VerifTarifs==diffTarifs,1:2]
+}
+
+# #Vérif que toutes les essences ont un tarif renseigné : #b <- Tarifs[1:5,]
+# if (sum(colSums(is.na(TarifsIGN))[3:4])>0){ #b[2,3] <- NA     b[3,4] <- NA       sum(colSums(is.na(b))[3:4])>0
+#   print("Il manque des valeurs de Tarifs IGN :")
+#   
+
+if (sum(is.na(TarifsIGN[,3]))>0) { #Vérification des types de Tarif
+  print("Il manque des types de tarifs IGN :") 
+  TarifsIGN[is.na(TarifsIGN[,3]),] #b[is.na(b[,3]),]
+  }
+if (sum(is.na(TarifsIGN[,4]))>0) { #b[2,3] <- NA     #Vérification des numéros de Tarif
+  print("Il manque des numéros de tarifs IGN :")
+  TarifsIGN[is.na(TarifsIGN[,4]),] #b[is.na(b[,4]),]
+  }
 ```
 
 
