@@ -225,9 +225,13 @@ if (length(VerifEss) == 0) {
 if (sum(duplicated(Tarifs[,1:2])) >0) {
   cat("Problème important : doublon dans le fichier des numéros de tarifs")
 } else {cat("Pas de doublon dans le fichier des numéros de tarifs")}
-
 ```
 
+liste des essences n'ayant pas de tarifs IFN
+```{r, echo=F, comment=NA}
+b <- Tarifs[which(is.na(Tarifs$TypeTarifIFN)),]
+unique(b$NumDisp)
+```
 
 
 

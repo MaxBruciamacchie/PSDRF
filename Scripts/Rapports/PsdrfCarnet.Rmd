@@ -137,8 +137,12 @@ PlotPolysOnStaticMap(MyMap, shp, lwd=.5, col = 'red', add = F)
 #### Milieux
 La figure \ref{fig:CarteSER} fournit la localisation de la réserve dans sa sylvoécorégion.  
 ```{r CarteSER, echo=F, fig.height=4,  fig.pos='h', fig.cap="Localisation de la réserve dans sa sylvoécorégion."}
+par(mfrow=c(1,2))
+plot(France)
+plot(ser, col="lightgrey", add=T)
 plot(ser, col="lightgrey")
 plot(placettes, col='red', add=T)
+par(mfrow=c(1,1))
 ```
 
 Habitats :  
@@ -337,7 +341,7 @@ La figure \ref{fig:Compo} illustre
 
 ```{r CompoNG, echo=F, fig.pos='h', fig.width=9, fig.height=6, fig.cap="Composition en essence en nombre de tige et en surface terrière, de manière absolue ou relative."}
 tab <- subset(psdrfNGVdispCatEssRegPar, NumDisp==Choix)
-names(tab)[6:8] <- c("Vha","Gha","Nha")
+names(tab)[7:9] <- c("Vha","Gha","Nha")
 p1 <- ggplot(tab, aes(Cat, Nha, fill=EssRegPar)) + geom_bar(stat="identity", position="stack") +
   labs(x = NULL) + guides(fill=FALSE) + theme_bw()
 p2 <- ggplot(tab, aes(Cat, Nha, fill=EssRegPar)) + geom_bar(stat="identity", position="fill") +
@@ -376,11 +380,11 @@ ggplot(tab, aes(x=Classe, y=MoyVha, fill=libelle)) + geom_bar(stat = "identity",
 #### Par classe de diamètre
 
 ```{r Ratio, echo=F, size='footnotesize', fig.pos='H', fig.height=3, fig.cap= "Importance relative du bois mort par classes de diamètre."}
-t1 <- subset(psdrfBMPdispClasse, NumDisp==Choix, select=c(1,3,4,5))
+t1 <- subset(psdrfBMPdispClasse, NumDisp==Choix, select=c(2,4:6))
 t1$Type <- "BMP"
-t2 <- subset(psdrfBMSdispClasse, NumDisp==Choix, select=c(1,3,4,5))
+t2 <- subset(psdrfBMSdispClasse, NumDisp==Choix, select=c(2,4:6))
 t2$Type <- "BMS"
-t3 <- subset(psdrfHistDisp, NumDisp==Choix, select=c(1,3,4,5))
+t3 <- subset(psdrfHistDisp, NumDisp==Choix, select=c(2,4:6))
 t3$Type <- "Vivant"
 tab <- rbind(t1,t2,t3)
 names(tab)[4] <- "Vha"
@@ -389,15 +393,15 @@ r <- round((sum(t1$MoyVha)+sum(t2$MoyVha))/sum(t3$MoyVha)*100,1)
 X <- max(tab$Classe)-10
 Y <- max(tab$Vha)-10
 ggplot(tab, aes(x=Classe, y=Vha, fill=Type)) + geom_bar(stat = "identity", position='stack') +
-  scale_fill_grey() + MyTheme + annotate("text", label = paste("ratio =",r,"%"), x = X, y = Y, size = 4)
+  scale_fill_grey(start=0, end=0.9) + MyTheme + annotate("text", label = paste("ratio =",r,"%"), x = X, y = Y, size = 4)
 ```
 
 #### Répartition du volume
 
 ```{r RepVol, echo=F, fig.height=3, fig.pos='h', fig.cap="Répartition du volume"}
-t1 <- subset(psdrfBMdisp, NumDisp==Choix, select=c(1,3:7))
+t1 <- subset(psdrfBMdisp, NumDisp==Choix, select=c(2,4:8))
 names(t1)[3:6] <- c("VSinf","VSsup","VPinf","VPsup")
-t2 <- subset(psdrfNGVdisp, NumDisp==Choix, select=c(1,3:4))
+t2 <- subset(psdrfNGVdisp, NumDisp==Choix, select=c(2,4:5))
 tab <- merge(t1,t2, by=c("NumDisp","Cycle"))
 tab <- melt(tab, id=c("NumDisp","Cycle"))
 ggplot(tab, aes(x = "", y = value, fill = variable)) +
@@ -430,7 +434,7 @@ Tableau essences autochtones / allochtones
 #### Par stade de développement
 
 ```{r Rege1, echo=F, size='footnotesize', include=T, fig.pos='h', fig.height=2.5, fig.cap= "Régénération par stade de développement."}
-tab <- subset(psdrfRegeDispEssRegPar, NumDisp==Choix, select=3:8)
+tab <- subset(psdrfRegeDispEssRegPar, NumDisp==Choix, select=4:9)
 names(tab)[3:6] <- c("Recouv","Classe1","Classe2","Classe3")
 tab$Recouv <- tab$Recouv*50 # On suppose que 5000 semis classe1 = recouv complet
 tab.m <- melt(tab, id=c("Cycle", "EssRegPar"))

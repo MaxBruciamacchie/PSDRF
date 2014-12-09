@@ -52,9 +52,14 @@ Arbres$Gha <- Arbres$g*Arbres$Poids
 # Calcul du volume
 Arbres <- merge(Arbres, Tarifs, by = c("NumDisp","code"), all.x=T, sort=F)
 ######################### A supprimer des que base complète #########################
-Arbres$TypeTarif[which(is.na(Arbres$TypeTarif))] <- "SchL"
-Arbres$NumTarif[which(is.na(Arbres$NumTarif))] <- 6
-####################################################################################
+pos <- which(is.na(Arbres$TypeTarif))
+if (length(pos) >0) {
+  Arbres$TypeTarif[pos] <- "SchL"
+  Arbres$NumTarif[which(is.na(Arbres$NumTarif))] <- 6
+}
+
+################### Calcul du volume gestionnaire ###################################
+print("Calcul du volume gestionnaire")
 Arbres$V <- NA
 pos <- which(Arbres$TypeTarif=="SchR")
 if (length(pos) > 0) {
@@ -72,7 +77,24 @@ Arbres$V[which(Arbres$V<0)] <- 0
 Arbres$Vha <- Arbres$V*Arbres$Poids
 Arbres$typo <- NULL
 Arbres$Nha    <- Arbres$Poids; Arbres$Poids  <- NULL
-print("Calcul des données à l'hectare")
+
+################### Calcul du volume gestionnaire ###################################
+print("Calcul du volume géométrique bois fort tige")
+Arbres$VIFN <- NA
+pos <- which(Arbres$TypeTarifIFN=="SchR")
+if (length(pos) > 0) {
+  Arbres$VIFN[pos] <- 5/70000*(8+Arbres$NumTarifIFN[pos])*(Arbres$Diam[pos]-5)*(Arbres$Diam[pos]-10)}
+pos <- which(Arbres$TypeTarifIFN=="SchI")
+if (length(pos) > 0) {
+  Arbres$VIFN[pos] <- 5/80000*(8+Arbres$NumTarifIFN[pos])*(Arbres$Diam[pos]-2.5)*(Arbres$Diam[pos]-7.5)}
+pos <- which(Arbres$TypeTarifIFN=="SchL")
+if (length(pos) > 0) {
+  Arbres$VIFN[pos] <- 5/90000*(8+Arbres$NumTarifIFN[pos])*(Arbres$Diam[pos]-5)*Arbres$Diam[pos]}
+pos <- which(Arbres$TypeTarifIFN=="SchTL")
+if (length(pos) > 0) {
+  Arbres$VIFN[pos] <-  5/101250*(8+Arbres$NumTarifIFN[pos])*Arbres$Diam[pos]^2}
+Arbres$VIFN[which(Arbres$VIFN<0)] <- 0
+Arbres$VhaIFN <- Arbres$VIFN*Arbres$Nha # Pas gênant si il y a des NA
 
 Arbres <- merge(Arbres, CodeEssence[,c(2,4)], by="code", all.x=T)
 Arbres <- merge(Arbres, EssReg, by=c("NumDisp","code"), all.x=T)
@@ -80,6 +102,7 @@ pos <- which(is.na(Arbres$EssRegPar))
 Arbres$EssRegPar[pos] <- Arbres$EssReg[pos]
 
 # ------- Bois mort sur pied ---------------------------
+print("Calcul des variables de bois mort sur pied")
 t <- t[which(!is.na(t$bark_stage)),]
 pos <- which(is.na(t$dbh2) | t$dbh2==0)
 t$Diam[pos]    <- t$dbh1[pos]
@@ -92,9 +115,9 @@ t$Vol     <- ifelse(is.na(t$height), 8*t$g, pi/40000*(t$Diam-(t$height/2-1.3))^2
 t$Gha     <- t$g * t$Nha
 t$Vha     <- t$Vol * t$Nha
 BMP <- t
-print("Calcul des variables de bois mort sur pied")
 
 # ------- Bois mort au sol ---------------------------
+print("Calcul des variables de bois mort au sol")
 # ----- Echantillonnage lineaire
 t   <- merge(Transect, CodeDurete[,c("code","libelle")], by.x="rot_stage", by.y="code", all.x=T, sort=F)
 t   <- merge(t, CodeEcorce[,c("code","libelle")], by.x="bark_stage", by.y="code", all.x=T, sort=F)
@@ -131,7 +154,7 @@ t$Vha[pos] <- pi/240000*(t$base_diam[pos]^2+t$top_diam[pos]^2 + 4*t$mid_diam[pos
 t$Classe[pos] <- floor((t$base_diam[pos]+t$top_diam[pos]+t$base_diam[pos])/3/5+0.5)*5
 
 BMSsup30 <- t
-print("Calcul des variables de bois mort au sol")
+
 
 # ------- Table Rege  ------
 Rege$seed_cover[is.na(Rege$seed_cover)] <- 0

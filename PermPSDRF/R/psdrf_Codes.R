@@ -32,4 +32,3 @@ psdrf_Codes <- function() {
   save(Tiers,CodeEcorce,CodeEcologie,CodeEssence,CodeDurete,Reserves,Tarifs,CodeTypoArbres,Communes,EssReg,Cat,
                 file = "Tables/psdrfCodes.Rdata")
 }
-

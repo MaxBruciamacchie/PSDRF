@@ -3,24 +3,19 @@
 \alias{psdrf_Verif}
 \title{Vérification des données brutes de chaque dispositif.}
 \usage{
-psdrf_Verif(repdata, format = 0)
+psdrf_Verif(repdata, modif = F)
 }
 \arguments{
 \item{repdata}{= répertoire contenant les données}
 
-\item{format}{paramètre permettant de fixer le format du fichier en sortie.}
+\item{modif}{= argument permettant de modifier le format du rapport. Une boîte de dialogue permet de choisir
+le format de sortie parmi les 3 suivants : .html, .pdf, .doc.}
 }
 \value{
-Edition d'un rapport par dispositif
+Edition d'un rapport par dispositif.
 }
 \description{
 La fonction permet de sélectionner un ou plusieurs dispositifs et d'éditer un rapport aux formats html, pdf ou doc.
-}
-\details{
-Le format de sortie sera  \cr
-du .html si le paramètre vaut 0 (valeur par défaut),  \cr
-du .pdf si le format est égal à 1,  \cr
-du .doc si format est égal à 2
 }
 \author{
 Bruciamacchie Max

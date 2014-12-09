@@ -52,5 +52,4 @@ psdrf_Xls2Rdata <- function(repdata) {
   dir.create("Tables", showWarnings = F)
   save(Placettes,arbres,Rege,Transect,BMSsup30,Reperes,Cycles,
                 file = "Tables/psdrfDonneesBrutes.Rdata")
-
 }

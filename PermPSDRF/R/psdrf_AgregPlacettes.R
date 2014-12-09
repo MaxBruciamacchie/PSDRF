@@ -12,7 +12,7 @@
 #' @export
 psdrf_AgregPlacettes <- function() {
   ############################ Fonction calcul de moyenne et d'ecart-type pour un tableau et un regroupement donnés
-  psdrf_AgregMoySdEr <- function(df, Regroup="Strate", var.sup=NULL, debut=4, ncol=3) {
+  psdrf_AgregMoySdEr <- function(df, Regroup="Strate", var.sup=NULL, debut=4, ncol=4) {
     if (Regroup=="RB") {Placettes$RB <- Placettes$NumDisp}
     t1 <- subset(Placettes, select=c(Regroup,"NumDisp","NumPlac","poids"))
     names(t1)[1] <- "Regroup"
@@ -46,17 +46,17 @@ psdrf_AgregPlacettes <- function() {
   }
 
   # ---------- Agregation dendrométrie ----------
-  Titre <- c("Vha","Gha","Nha","Vha_cv","Gha_cv","Nha_cv","Vha_er","Gha_er","Nha_er")
+  Titre <- c("Vha","VhaIFN","Gha","Nha","Vha_cv","VhaIFN_cv","Gha_cv","Nha_cv","Vha_er","VhaIFN_er","Gha_er","Nha_er")
   psdrfNGVdisp <- psdrf_AgregMoySdEr(psdrfPlaNGV,"RB")
-  names(psdrfNGVdisp)[5:13] <- Titre
+  names(psdrfNGVdisp)[5:16] <- Titre
   psdrfNGVstrate <- psdrf_AgregMoySdEr(psdrfPlaNGV,"Strate")
-  names(psdrfNGVstrate)[5:13] <- Titre
+  names(psdrfNGVstrate)[5:16] <- Titre
   psdrfNGVcc <- psdrf_AgregMoySdEr(psdrfPlaNGV,"corine_code")
-  names(psdrfNGVcc)[5:13] <- Titre
-  psdrfNGVcc <- psdrf_AgregMoySdEr(psdrfPlaNGV,"Groupe1")
-  names(psdrfNGVcc)[5:13] <- Titre
-  psdrfNGVcc <- psdrf_AgregMoySdEr(psdrfPlaNGV,"Groupe2")
-  names(psdrfNGVcc)[5:13] <- Titre
+  names(psdrfNGVcc)[5:16] <- Titre
+  psdrfNGVGroupe1 <- psdrf_AgregMoySdEr(psdrfPlaNGV,"Groupe1")
+  names(psdrfNGVGroupe1)[5:16] <- Titre
+  psdrfNGVGroupe2 <- psdrf_AgregMoySdEr(psdrfPlaNGV,"Groupe2")
+  names(psdrfNGVGroupe2)[5:16] <- Titre
   # --------- Donnees par essences -------------
   psdrfNGVdispEssReg      <- psdrf_AgregMoySdEr(psdrfPlaArbresEssReg, Regroup="RB", var.sup="EssReg")
   psdrfNGVstrateEssReg    <- psdrf_AgregMoySdEr(psdrfPlaArbresEssReg, Regroup="Strate", var.sup="EssReg")
@@ -84,6 +84,7 @@ psdrf_AgregPlacettes <- function() {
   psdrfRegeDispEssRegPar <- psdrf_AgregMoySdEr(psdrfPlaRegeEssRegPar, Regroup="RB", ncol=4, var.sup="EssRegPar")
   # --------- Sauvegarde -------
   save(psdrfNGVdisp,psdrfNGVstrate,psdrfNGVcc,
+       psdrfNGVGroupe1,psdrfNGVGroupe2,
        psdrfNGVdispEss,psdrfNGVdispEssReg,psdrfNGVdispEssRegPar,
        psdrfNGVstrateEssReg,psdrfNGVstrateEssRegPar,
        psdrfNGVdispCat,psdrfNGVdispCatEssReg,psdrfNGVdispCatEssRegPar,
