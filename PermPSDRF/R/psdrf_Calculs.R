@@ -9,8 +9,8 @@
 #' @author Bruciamacchie Max
 #' @export
 psdrf_Calculs <- function() {
-# ------- Table arbres  ------
-t      <- arbres
+# ------- Table Arbres  ------
+t      <- Arbres
 t$X    <- t$distance*sin(t$azimut/200*pi)
 t$Y    <- t$distance*cos(t$azimut/200*pi)
 pos <- which(is.na(t$dbh2) | t$dbh2==0)
@@ -52,9 +52,10 @@ Arbres$Gha <- Arbres$g*Arbres$Poids
 # Calcul du volume
 Arbres <- merge(Arbres, Tarifs, by = c("NumDisp","code"), all.x=T, sort=F)
 ######################### A supprimer des que base complète #########################
-Arbres$TypeTarif[which(is.na(Arbres$TypeTarif))] <- "SchL"
+Arbres$TypeTarif[which(is.na(Arbres$TypeTarif))] <- "SchL" #Attention erreur si pas de NA
 Arbres$NumTarif[which(is.na(Arbres$NumTarif))] <- 6
 ####################################################################################
+#Volume tarif gestionnaire
 Arbres$V <- NA
 pos <- which(Arbres$TypeTarif=="SchR")
 if (length(pos) > 0) {
@@ -70,6 +71,29 @@ if (length(pos) > 0) {
   Arbres$V[pos] <-  5/101250*(8+Arbres$NumTarif[pos])*Arbres$Diam[pos]^2}
 Arbres$V[which(Arbres$V<0)] <- 0
 Arbres$Vha <- Arbres$V*Arbres$Poids
+
+# Volume Tarif IFN
+Arbres$VIFN <- NA
+pos <- which(Arbres$TypeTarifIFN=="SchR")
+if (length(pos) > 0) {
+  Arbres$VIFN[pos] <- 5/70000*(8+Arbres$NumTarifIFN[pos])*(Arbres$Diam[pos]-5)*(Arbres$Diam[pos]-10)}
+pos <- which(Arbres$TypeTarifIFN=="SchI")
+if (length(pos) > 0) {
+  Arbres$VIFN[pos] <- 5/80000*(8+Arbres$NumTarifIFN[pos])*(Arbres$Diam[pos]-2.5)*(Arbres$Diam[pos]-7.5)}
+pos <- which(Arbres$TypeTarifIFN=="SchL")
+if (length(pos) > 0) {
+  Arbres$VIFN[pos] <- 5/90000*(8+Arbres$NumTarifIFN[pos])*(Arbres$Diam[pos]-5)*Arbres$Diam[pos]}
+pos <- which(Arbres$TypeTarifIFN=="SchTL")
+if (length(pos) > 0) {
+  Arbres$VIFN[pos] <-  5/101250*(8+Arbres$NumTarifIFN[pos])*Arbres$Diam[pos]^2}
+# if (sum(colSums(is.na(a<-Arbres[,c("TypeTarifIFN","NumTarifIFN")]))))    #Rqe: VIFN déjà vide par défaut
+# pos <- which(is.na(Arbres$TypeTarifIFN) | is.na(Arbres$NumTarifIFN))
+# if (length(pos)>0) {
+#   Arbres$VIFN[pos] <- NA
+# }
+Arbres$VIFN[which(Arbres$VIFN<0)] <- 0
+Arbres$VhaIFN <- Arbres$VIFN*Arbres$Poids #Pas gênant si il y a des NA
+
 Arbres$typo <- NULL
 Arbres$Nha    <- Arbres$Poids; Arbres$Poids  <- NULL
 print("Calcul des données à l'hectare")
