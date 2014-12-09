@@ -51,9 +51,10 @@ Arbres$g <- pi*Arbres$dbh1^2/40000
 Arbres$Gha <- Arbres$g*Arbres$Poids
 # Calcul du volume
 Arbres <- merge(Arbres, Tarifs, by = c("NumDisp","code"), all.x=T, sort=F)
+Arbres <- merge(Arbres, TarifsIFN, by = c("NumDisp","code"), all.x=T, sort=F)
 ######################### A supprimer des que base complète #########################
-Arbres$TypeTarif[which(is.na(Arbres$TypeTarif))] <- "SchL" #Attention erreur si pas de NA
-Arbres$NumTarif[which(is.na(Arbres$NumTarif))] <- 6
+# Arbres$TypeTarif[which(is.na(Arbres$TypeTarif))] <- "SchL" #Attention erreur si pas de NA
+# Arbres$NumTarif[which(is.na(Arbres$NumTarif))] <- 6
 ####################################################################################
 #Volume tarif gestionnaire
 Arbres$V <- NA
