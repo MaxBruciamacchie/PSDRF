@@ -116,31 +116,31 @@ psdrf_AgregArbres <- function() {
   print("Bois mort total")
   # -------------- Bois vivant (volume et surface terriere)
   tab <- Arbres
-  psdrfPlaArbresClasseEss <- summaryBy(Vha + Gha + Nha ~
+  psdrfPlaArbresClasseEss <- summaryBy(Vha + VhaIFN + Gha + Nha ~
                                          NumDisp + NumPlac + Cycle + Classe + Cat + code + EssReg + EssRegPar,
                                data=tab, FUN=sum, keep.names=T)
   print("psdrfPlaArbresClasseEss")
-  psdrfPlaArbresEss       <- summaryBy(Vha + Gha + Nha ~ NumDisp + NumPlac + Cycle + code,
+  psdrfPlaArbresEss       <- summaryBy(Vha + VhaIFN + Gha + Nha ~ NumDisp + NumPlac + Cycle + code,
                                      data=psdrfPlaArbresClasseEss, FUN=sum, keep.names=T)
-  psdrfPlaArbresEssReg   <- summaryBy(Vha + Gha + Nha ~ NumDisp + NumPlac + Cycle + EssReg,
+  psdrfPlaArbresEssReg   <- summaryBy(Vha + VhaIFN + Gha + Nha ~ NumDisp + NumPlac + Cycle + EssReg,
                                        data=psdrfPlaArbresClasseEss, FUN=sum, na.rm=T, keep.names=T)
-  psdrfPlaArbresEssRegPar <- summaryBy(Vha + Gha + Nha ~ NumDisp + NumPlac + Cycle + EssRegPar,
+  psdrfPlaArbresEssRegPar <- summaryBy(Vha + VhaIFN + Gha + Nha ~ NumDisp + NumPlac + Cycle + EssRegPar,
                                        data=psdrfPlaArbresClasseEss, FUN=sum, na.rm=T, keep.names=T)
   print("tables arbres par essence")
-  psdrfPlaArbresClasse <- summaryBy(Vha + Gha + Nha ~ NumDisp + NumPlac + Cycle + Classe,
+  psdrfPlaArbresClasse <- summaryBy(Vha + VhaIFN + Gha + Nha ~ NumDisp + NumPlac + Cycle + Classe,
                                      data=psdrfPlaArbresClasseEss, FUN=sum, keep.names=T)
-  psdrfPlaArbresClasseEssReg <- summaryBy(Vha + Gha + Nha ~ NumDisp + NumPlac + Cycle + EssReg + Classe,
+  psdrfPlaArbresClasseEssReg <- summaryBy(Vha + VhaIFN + Gha + Nha ~ NumDisp + NumPlac + Cycle + EssReg + Classe,
                                      data=psdrfPlaArbresClasseEss, FUN=sum, keep.names=T)
-  psdrfPlaArbresClasseEssRegPar <- summaryBy(Vha + Gha + Nha ~ NumDisp + NumPlac + Cycle + EssRegPar + Classe,
+  psdrfPlaArbresClasseEssRegPar <- summaryBy(Vha + VhaIFN + Gha + Nha ~ NumDisp + NumPlac + Cycle + EssRegPar + Classe,
                                      data=psdrfPlaArbresClasseEss, FUN=sum, keep.names=T)
-  psdrfPlaArbresCat    <- summaryBy(Vha + Gha + Nha ~ NumDisp + NumPlac + Cycle + Cat,
+  psdrfPlaArbresCat    <- summaryBy(Vha + VhaIFN + Gha + Nha ~ NumDisp + NumPlac + Cycle + Cat,
                                      data=psdrfPlaArbresClasseEss, FUN=sum, keep.names=T)
-  psdrfPlaArbresCatEssReg    <- summaryBy(Vha + Gha + Nha ~ NumDisp + NumPlac + Cycle + Cat + EssReg,
+  psdrfPlaArbresCatEssReg    <- summaryBy(Vha + VhaIFN + Gha + Nha ~ NumDisp + NumPlac + Cycle + Cat + EssReg,
                                      data=psdrfPlaArbresClasseEss, FUN=sum, keep.names=T)
-  psdrfPlaArbresCatEssRegPar <- summaryBy(Vha + Gha + Nha ~ NumDisp + NumPlac + Cycle + Cat + EssRegPar,
+  psdrfPlaArbresCatEssRegPar <- summaryBy(Vha + VhaIFN + Gha + Nha ~ NumDisp + NumPlac + Cycle + Cat + EssRegPar,
                                      data=psdrfPlaArbresClasseEss, FUN=sum, keep.names=T)
   print("tables arbres par dimension")
-  psdrfPlaNGV        <- summaryBy(Vha + Gha + Nha ~ NumDisp + NumPlac + Cycle,
+  psdrfPlaNGV        <- summaryBy(Vha + VhaIFN + Gha + Nha ~ NumDisp + NumPlac + Cycle,
                                data=psdrfPlaArbresCat, FUN=sum, keep.names=T)
   psdrfPlaRes <- merge(psdrfPlaNGV, psdrfPlaBM, by=c("NumDisp","NumPlac","Cycle"), all.x=T)
   print("Fin des tables arbres")
