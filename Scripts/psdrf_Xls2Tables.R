@@ -20,7 +20,7 @@ psdrf_Codes()            # Reconstruction des tables de codification
 ########################## Premières sorties ###############
 load("Tables/psdrfDonneesBrutes.Rdata")
 load("Tables/psdrfCodes.Rdata")
-psdrf_Verif(repdata, modif=F)           # Vérification classeur(s) avec psdrf_Verif.Rmd
+psdrf_Verif(repdata, modif=T)           # Vérification classeur(s) avec psdrf_Verif.Rmd
 psdrf_ClasseurRem()      # Edition d'un classeur Excel facilitant la remesure
 # fiches de remesure : PsdrfFicheRem.Rnw
 # plan de localisation des arbres : psdrf_PlanArbres.Rnw()

@@ -28,20 +28,28 @@ psdrf_Verif <- function(repdata, modif=F){
   if (modif) {
     ListeFormat <- c("html","docx","pdf")
     format <- tk_select.list(as.character(ListeFormat), multiple=F, title = "Choix du format de fichier")
-    formatout = paste0(format,"_document")
     extent = format
   } else{
-    formatout = "docx_document"
     extent = "docx"
   }
   for (disp in ListDisp){
-    tryCatch(render(input = template,
-                    output_format = output_format(knitr = knitr_options(),
-                                                  pandoc = pandoc_options(to = extent)),
-                    output_dir = outputdir,
-                    output_file = paste0(file_path_sans_ext(disp),".",extent),
-                    encoding="UTF-8"),
-             finally= print(paste("Edition du rapport de vérification du dispositif :", file_path_sans_ext(disp))))
+    if (extent != "pdf") {
+      tryCatch(render(input = template,
+                      output_format = output_format(knitr = knitr_options(),
+                                                    pandoc = pandoc_options(to = extent)),
+                      output_dir = outputdir,
+                      output_file = paste0(file_path_sans_ext(disp),".",extent),
+                      encoding="UTF-8"),
+               finally= print(paste("Edition du rapport de vérification du dispositif :", file_path_sans_ext(disp))))
+    } else {
+      tryCatch(render(input = template,
+                      output_format = "pdf_document",
+                      output_dir = outputdir,
+                      output_file = paste0(file_path_sans_ext(disp),".",extent),
+                      encoding="UTF-8"),
+               finally= print(paste("Edition du rapport de vérification du dispositif :", file_path_sans_ext(disp))))
+
+    }
   }
 }
 

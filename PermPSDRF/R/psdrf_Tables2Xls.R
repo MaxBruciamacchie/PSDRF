@@ -12,22 +12,24 @@ psdrf_Tables2Xls <- function() {
   dir.create("out", showWarnings = F)
   dir.create("Out/Resultats", showWarnings = F)
   Tabs <- list(psdrfNGVdisp,psdrfNGVstrate,psdrfNGVcc,
-       psdrfNGVdispEss,psdrfNGVdispEssReg,psdrfNGVdispEssRegPar,
-       psdrfNGVstrateEssReg,psdrfNGVstrateEssRegPar,
-       psdrfNGVdispCat,psdrfNGVdispCatEssReg,psdrfNGVdispCatEssRegPar,
-       psdrfHistDisp,psdrfHistStrate,psdrfHistDispEssReg,
-       psdrfBMdisp,psdrfBMdispStadeD,psdrfBMdispStadeE,
-       psdrfBMPdispClasse,psdrfBMSdispClasse,psdrfBMPdispTypo,
-       psdrfRegeDisp,psdrfRegeDispEssReg,psdrfRegeDispEssRegPar)
+               psdrfNGVGroupe1,psdrfNGVGroupe2,psdrfNGVHabitat,
+               psdrfNGVdispEss,psdrfNGVdispEssReg,psdrfNGVdispEssRegPar,
+               psdrfNGVstrateEssReg,psdrfNGVstrateEssRegPar,
+               psdrfNGVdispCat,psdrfNGVdispCatEssReg,psdrfNGVdispCatEssRegPar,
+               psdrfHistDisp,psdrfHistStrate,psdrfHistDispEssReg,
+               psdrfBMdisp,psdrfBMdispStadeD,psdrfBMdispStadeE,
+               psdrfBMPdispClasse,psdrfBMSdispClasse,psdrfBMPdispTypo,
+               psdrfRegeDisp,psdrfRegeDispEssReg,psdrfRegeDispEssRegPar)
 
   Noms <- c("psdrfNGVdisp","psdrfNGVstrate","psdrfNGVcc",
-       "psdrfNGVdispEss","psdrfNGVdispEssReg","psdrfNGVdispEssRegPar",
-       "psdrfNGVstrateEssReg","psdrfNGVstrateEssRegPar",
-       "psdrfNGVdispCat","psdrfNGVdispCatEssReg","psdrfNGVdispCatEssRegPar",
-       "psdrfHistDisp","psdrfHistStrate","psdrfHistDispEssReg",
-       "psdrfBMdisp","psdrfBMdispStadeD","psdrfBMdispStadeE",
-       "psdrfBMPdispClasse","psdrfBMSdispClasse","psdrfBMPdispTypo",
-       "psdrfRegeDisp","psdrfRegeDispEssReg","psdrfRegeDispEssRegPar")
+            "psdrfNGVGroupe1","psdrfNGVGroupe2","psdrfNGVHabitat",
+            "psdrfNGVdispEss","psdrfNGVdispEssReg","psdrfNGVdispEssRegPar",
+            "psdrfNGVstrateEssReg","psdrfNGVstrateEssRegPar",
+            "psdrfNGVdispCat","psdrfNGVdispCatEssReg","psdrfNGVdispCatEssRegPar",
+            "psdrfHistDisp","psdrfHistStrate","psdrfHistDispEssReg",
+            "psdrfBMdisp","psdrfBMdispStadeD","psdrfBMdispStadeE",
+            "psdrfBMPdispClasse","psdrfBMSdispClasse","psdrfBMPdispTypo",
+            "psdrfRegeDisp","psdrfRegeDispEssReg","psdrfRegeDispEssRegPar")
   wb <- createWorkbook()
   for (i in 1:length(Tabs)) {
     addWorksheet(wb, Noms[i])
