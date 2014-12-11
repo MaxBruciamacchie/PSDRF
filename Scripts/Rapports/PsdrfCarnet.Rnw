@@ -72,7 +72,7 @@ load("Tables/psdrfTablesElaboreesPlac.RData")
 rep="SIG/Vecteurs"
 data(ser)
 placettes <- readOGR(dsn=rep, layer="PsdrfPlacettes")
-limite <- readOGR(dsn=rep, layer="Perimetre")
+limite <- readOGR(dsn=rep, layer="PerimAut")
 @
 
 <<Formats, echo=F, warning=F, error=F, comment=NA, message=F, results='hide'>>=
@@ -285,7 +285,7 @@ Le tableau \ref{Dendro} fournit les principales caractéristiques dendrométriqu
 
 <<Dendro, echo=F, results='asis', fig.pos="h", comment=F>>=
 tab <- subset(psdrfNGVdisp, NumDisp==Choix, select=-c(1,2))
-Dec <- c(rep(0,3),1,0,rep(1,6),0)
+Dec <- c(0,rep(0,4),1,0,rep(1,8),0)
 
 print(xtable(tab, caption = "Principales caratéristiques dendrométriques, ainsi que leur précision.",
       digits=Dec,label = "Dendro", caption.placement = "top"), include.rownames=T,
@@ -294,18 +294,20 @@ print(xtable(tab, caption = "Principales caratéristiques dendrométriques, ains
 
 La figure \ref{fig:GraphDendro} complète le tableau \ref{Dendro} en illustrant la variabilité des données. \\
 <<GraphDendro, echo=FALSE, fig.pos='H', size='footnotesize', include=TRUE, fig.width=1.1, fig.height=2.5, fig.cap="Variabilité des principales caractéristiques dendrométriques", error=F, comment=F, warning=F, message=F>>=
-tab <- subset(psdrfPlaNGV, NumDisp==Choix, select=4:6)
+tab <- subset(psdrfPlaNGV, NumDisp==Choix, select=4:7)
 ggplot(tab, aes(x=factor(0), y=Nha)) + geom_violin(fill = "grey90") + labs(x="Nha", y="") + MyTheme3
 ggplot(tab, aes(x=factor(0), y=Gha)) + geom_violin(fill = "grey90") + labs(x="Gha", y="") + MyTheme3
 ggplot(tab, aes(x=factor(0), y=Vha)) + geom_violin(fill = "grey90") + labs(x="Vha", y="") + MyTheme3
+ggplot(tab, aes(x=factor(0), y=VhaIFN)) + geom_violin(fill = "grey90") + labs(x="VhaIFN", y="") + MyTheme3
 @
 
 
 Le tableau \ref{Structure} fournit la répartition des principales caractéristiques dendrométriques (volume, surface terrière et nombre de tiges à l'hectare) des arbres vivants par catégories de diamètre, accompagnée de leur coefficient de variation et précision.
 
+Surveiller si la précision des chiffres ci-dessous correspond bien (issue : "if argument 'digits' is a vector of length more than one, it must have length equal to 16 ( ncol(x) + 1 )")
 <<Structure, echo=FALSE, results='asis', fig.pos="h", comment=F>>=
-tab <- subset(psdrfNGVdispCat, NumDisp==Choix, select=3:13)
-Dec <- c(rep(0,4),1,0,rep(1,6))
+tab <- subset(psdrfNGVdispCat, NumDisp==Choix, select=3:17)
+Dec <- c(0,rep(0,5),1,0,rep(1,8))
 
 print(xtable(tab, caption = "Analyse de la structure des peuplements. Valeurs moyennes et précisions associées à l'échelle de la réserve.",
       digits=Dec ,label = "Structure", caption.placement = "top"), include.rownames=FALSE,
@@ -357,7 +359,7 @@ plot(placettes, pch=19, cex=placettes@data$Vha/ech, add=T, col=rgb(0,1,0, 0.5))
 La figure \ref{fig:CarteVolBMS} permet de visualiser la répartition du bois mort au sol. La figure \ref{fig:CarteVolBMP} permet de visualiser la répartition du bois mort sur pied.
 
 <<CarteVolBMS, echo=F, fig.pos='H', fig.cap="Cartographie du volume de bois mort au sol.", fig.subcap=c("inf à 30 cm", "sup à 30 cm"), out.width='.49\\linewidth', out.extra='scale=1'>>=
-ech=25
+ech=25  #ICI copier les chunks de PsdrfCarnet.Rmd lignes 250-267 ?
 plot(limiteTour)
 plot(placettes, pch=19, cex=placettes@data$VSinf/ech, add=T)
 plot(limiteTour)
@@ -445,16 +447,24 @@ grid.arrange(p1, p2, ncol=2)
 \subsection{Composition et structure}
 La figure \ref{fig:Compo} illustre
 <<CompoNG, echo=F, fig.pos='h', fig.width=9, fig.height=6, fig.cap="Composition en essence en nombre de tige et en surface terrière, de manière absolue ou relative.">>=
-tab <- subset(psdrfNGVdispCatEssRegPar, NumDisp==Choix)
-names(tab)[6:8] <- c("Vha","Gha","Nha")
+tab <- subset(psdrfNGVdispCatEssRegPar, NumDisp==Choix) #RESULTAT A SURVEILLER !
+names(tab)[7:10] <- c("Vha","VhaIFN","Gha","Nha")
 p1 <- ggplot(tab, aes(Cat, Nha, fill=EssRegPar)) + geom_bar(stat="identity", position="stack") +
   labs(x = NULL) + guides(fill=FALSE) + theme_bw()
 p2 <- ggplot(tab, aes(Cat, Nha, fill=EssRegPar)) + geom_bar(stat="identity", position="fill") +
 	labs(x = NULL) + theme(legend.position = "none") + theme_bw()
 
-p3 <- ggplot(tab, aes(Cat, Vha, fill=EssRegPar)) + geom_bar(stat="identity", position="stack")+ guides(fill=FALSE) + theme_bw()
-p4 <- ggplot(tab, aes(Cat, Vha, fill=EssRegPar)) + geom_bar(stat="identity", position="fill") + theme_bw()
-grid.arrange(p1, p2, p3, p4, ncol=2)
+p3 <- ggplot(tab, aes(Cat, Gha, fill=EssRegPar)) + geom_bar(stat="identity", position="stack") +
+  labs(x = NULL) + guides(fill=FALSE) + theme_bw()
+p4 <- ggplot(tab, aes(Cat, Gha, fill=EssRegPar)) + geom_bar(stat="identity", position="fill") +
+  labs(x = NULL) + theme(legend.position = "none") + theme_bw()
+
+p5 <- ggplot(tab, aes(Cat, Vha, fill=EssRegPar)) + geom_bar(stat="identity", position="stack")+ guides(fill=FALSE) + theme_bw()
+p6 <- ggplot(tab, aes(Cat, Vha, fill=EssRegPar)) + geom_bar(stat="identity", position="fill") + theme_bw()
+
+p7 <- ggplot(tab, aes(Cat, VhaIFN, fill=EssRegPar)) + geom_bar(stat="identity", position="stack")+ guides(fill=FALSE) + theme_bw()
+p8 <- ggplot(tab, aes(Cat, VhaIFN, fill=EssRegPar)) + geom_bar(stat="identity", position="fill") + theme_bw()
+grid.arrange(p1, p2, p3, p4, p5, p6, ncol=2)
 @
 
 
@@ -488,14 +498,14 @@ ggplot(tab, aes(x=Classe, y=MoyVha, fill=libelle)) + geom_bar(stat = "identity",
 
 \subsection{Par classe de diamètre}
 <<Ratio, echo=F, size='footnotesize', fig.pos='H', fig.height=3, fig.cap= "Importance relative du bois mort par classes de diamètre.">>=
-t1 <- subset(psdrfBMPdispClasse, NumDisp==Choix, select=c(1,3,4,5))
+t1 <- subset(psdrfBMPdispClasse, NumDisp==Choix, select=c(1,3,4,5,6))#Garder le cycle ?
 t1$Type <- "BMP"
-t2 <- subset(psdrfBMSdispClasse, NumDisp==Choix, select=c(1,3,4,5))
+t2 <- subset(psdrfBMSdispClasse, NumDisp==Choix, select=c(1,3,4,5,6))
 t2$Type <- "BMS"
-t3 <- subset(psdrfHistDisp, NumDisp==Choix, select=c(1,3,4,5))
+t3 <- subset(psdrfHistDisp, NumDisp==Choix, select=c(1,3,4,5,6))
 t3$Type <- "Vivant"
 tab <- rbind(t1,t2,t3)
-names(tab)[4] <- "Vha"
+names(tab)[5] <- "Vha"
 
 r <- round((sum(t1$MoyVha)+sum(t2$MoyVha))/sum(t3$MoyVha)*100,1)
 X <- max(tab$Classe)-10
@@ -508,11 +518,12 @@ ggplot(tab, aes(x=Classe, y=Vha, fill=Type)) + geom_bar(stat = "identity", posit
 
 \subsubsection{Total}
 <<RepVol, echo=F, fig.height=3, fig.pos='h', fig.cap="Répartition du volume">>=
-t1 <- subset(psdrfBMdisp, NumDisp==Choix, select=c(1,3:7))
-names(t1)[3:6] <- c("VSinf","VSsup","VPinf","VPsup")
-t2 <- subset(psdrfNGVdisp, NumDisp==Choix, select=c(1,3:4))
-tab <- merge(t1,t2, by=c("NumDisp","Cycle"))
-tab <- melt(tab, id=c("NumDisp","Cycle"))
+t1 <- subset(psdrfBMdisp, NumDisp==Choix, select=c(1,3:8))
+names(t1)[4:7] <- c("VSinf","VSsup","VPinf","VPsup")
+# t2 <- subset(psdrfNGVdisp, NumDisp==Choix, select=c(1,3:4))
+# tab <- merge(t1,t2, by=c("Nom","Cycle","Regroup")) Ne sert à rien (?)
+tab <- t1
+tab <- melt(tab, id=c("Nom","Cycle"))
 ggplot(tab, aes(x = "", y = value, fill = variable)) +
   geom_bar(width = 1, stat = "identity") +
    coord_polar(theta="y") +
@@ -542,7 +553,7 @@ Tableau essences autochtones / allochtones
 
 \subsection{Par stade de développement}
 <<Rege1, echo=F, size='footnotesize', include=T, fig.pos='h', fig.height=2.5, fig.cap= "Régénération par stade de développement.">>=
-tab <- subset(psdrfRegeDispEssRegPar, NumDisp==Choix, select=3:8)
+tab <- subset(psdrfRegeDispEssRegPar, NumDisp==Choix, select=4:9)
 names(tab)[3:6] <- c("Recouv","Classe1","Classe2","Classe3")
 tab$Recouv <- tab$Recouv*50 # On suppose que 5000 semis classe1 = recouv complet
 tab.m <- melt(tab, id=c("Cycle", "EssRegPar"))
@@ -614,9 +625,14 @@ Le tableau \ref{TarifsOp} liste les tarifs de cubage par essence retenus par le 
 <<Tarifs, echo=FALSE, results='asis', fig.pos="h", comment=F>>=
 tab <- subset(Tarifs, NumDisp==Choix, select=-1)
 tab <- merge(tab, CodeEssence[,2:3], by="code", all.x=T)
-tab <- subset(tab, select=c("libelle", "name", "number"))
-names(tab) <- c("Essence", "Type de tarif", "Numéro")
-print(xtable(tab, caption = "Tarifs de cubage retenus par le gestionnaire.",
+tab1 <- subset(tab, select=c("libelle", "TypeTarif", "NumTarif"))
+names(tab1) <- c("Essence", "Type de tarif", "Numéro")
+print(xtable(tab1, caption = "Tarifs de cubage retenus par le gestionnaire.",
+      digits=rep(0,4),label = "TarifsOp", caption.placement = "top"), include.rownames=F,
+      size="\\footnotesize")
+tab2 <- subset(tab, select=c("libelle", "TypeTarifIFN", "NumTarifIFN"))
+names(tab1) <- c("Essence", "Type de tarif IFN", "Numéro")
+print(xtable(tab1, caption = "Tarifs de cubage retenus par l'IFN.",
       digits=rep(0,4),label = "TarifsOp", caption.placement = "top"), include.rownames=F,
       size="\\footnotesize")
 @

@@ -25,6 +25,33 @@ library(mapplots)
 library(ggmap)
 ```
 
+```{r fonction dialogSIG, echo=FALSE}
+dialogSIG <- function(){
+  tt <- tktoplevel() #création du cadre tcl
+  tkwm.title(tt,"SIG")
+  done <- tclVar(0)
+  yes.but <- tkbutton(tt, text="OUI", command=function()tclvalue(done)<-1)
+  no.but <- tkbutton(tt, text="NON", command=function()tclvalue(done)<-2)
+  tkgrid(tklabel(tt,text="Disposez-vous de toutes les données SIG suivantes?"),columnspan=2)
+  tkgrid(tklabel(tt,
+                 #                    font="Times New Roman",
+                 wraplength="4i",
+                 justify="left",
+                 text="le fichier vecteur délimitant le périmètre
+le fichier vecteurs (points) localisant les placettes
+le fichier vecteur contenant le parcellaire forestier
+le fichier vecteur délimitant les différents peuplements"
+  ))
+  tkgrid(yes.but, no.but)
+  tkwait.variable(done)
+  tkdestroy(tt)
+  return(done)
+}
+```
+
+
+
+
 ```{r Imports, echo=F, warning=F, comment=NA, results='hide'}
 rep <- tclvalue(tkchooseDirectory(title="Choix du répertoire de travail")) ; setwd(rep)
 load("Tables/psdrfCodes.Rdata")
@@ -33,8 +60,12 @@ load("Tables/psdrfTablesBrutes.RData")
 load("Tables/psdrfTablesElaborees.RData")
 load("Tables/psdrfTablesElaboreesPlac.RData")
 data(ser)
-placettes <- readOGR(dsn="SIG/Vecteurs", layer="PsdrfPlacettes")
-limite <- readOGR(dsn="SIG/Vecteurs", layer="PerimAut") #Perimètre à remplacer par données SIG valides
+SIGdata <- tclvalue(dialogSIG())
+if (SIGdata==1) {
+  placettes <- readOGR(dsn="SIG/Vecteurs", layer="PsdrfPlacettes")
+  limite <- readOGR(dsn="SIG/Vecteurs", layer="Perimetre") #Perimètre à remplacer par données SIG valides
+  }
+
 ```
 
 ```{r Formats, echo=F}
@@ -67,7 +98,7 @@ NomDisp <- tk_select.list(as.character(Liste), multiple = FALSE, title = "Choisi
 Choix <- Reserves[which(Reserves$Nom==NomDisp), 1]
 PlacEnTour       <- subset(Placettes, NumDisp==Choix)
 ArbresEnTour     <- subset(Arbres, NumDisp==Choix)
-limiteTour       <- subset(limite, NumDisp==Choix)
+
 CyclesTour       <- subset(Cycles, NumDisp==Choix)
 BMPEnTour        <- subset(BMP, NumDisp==Choix)
 BMSsup30EnTour   <- subset(BMSsup30, NumDisp==Choix)
@@ -75,10 +106,13 @@ BMSlineEnTour    <- subset(BMSline, NumDisp==Choix)
 RegeEnTour       <- subset(Rege, NumDisp==Choix)
 psdrfBMdispEnTour  <- subset(psdrfBMdisp, NumDisp==Choix, select=c(3:8,14:18))
 
-List1 <- gIntersects(limiteTour, ser, byid = T)
-ser <- ser[List1[,1],]
-List2 <- gIntersects(limiteTour, placettes, byid = T)
-placettes <- placettes[List2[,1],]
+if (SIGdata==1) {
+  limiteTour       <- subset(limite, NumDisp==Choix)
+  List1 <- gIntersects(limiteTour, ser, byid = T)
+  ser <- ser[List1[,1],]
+  List2 <- gIntersects(limiteTour, placettes, byid = T)
+  placettes <- placettes[List2[,1],]
+  } else ser <- data.frame(NomSER=NA)
 
 NbPlac <- dim(PlacEnTour)[1]
 NbArb <- dim(ArbresEnTour)[1]
@@ -125,22 +159,26 @@ Email :
 #### Carte de localisation
 La carte située en figure \ref{fig:PlanLoc} présente la réserve sur un fond Google.  
 ```{r PlanLoc, echo=F}
-l_wgs84 <- spTransform(limiteTour, CRS("+init=epsg:4326"))
-shp <- SpatialPolygons2PolySet(l_wgs84)
-bb <- qbbox(lat = shp[,"Y"], lon = shp[,"X"])
-MyMap <- GetMap.bbox(bb$lonR, bb$latR, destfile = "DC.png",zoom=12, maptype= "terrain")
-PlotPolysOnStaticMap(MyMap, shp, lwd=.5, col = 'red', add = F)
+if (SIGdata==1) {
+  l_wgs84 <- spTransform(limiteTour, CRS("+init=epsg:4326"))
+  shp <- SpatialPolygons2PolySet(l_wgs84)
+  bb <- qbbox(lat = shp[,"Y"], lon = shp[,"X"])
+  MyMap <- GetMap.bbox(bb$lonR, bb$latR, destfile = "DC.png",zoom=12, maptype= "terrain")
+  PlotPolysOnStaticMap(MyMap, shp, lwd=.5, col = 'red', add = F)
+  } else {print("Donnée cartographique indisponible : données SIG manquantes")}
 ```
 
 #### Milieux
 La figure \ref{fig:CarteSER} fournit la localisation de la réserve en France et dans sa sylvoécorégion.  
 ```{r CarteSER, echo=F, fig.height=4,  fig.pos='h', fig.cap="Localisation de la réserve dans sa sylvoécorégion."}
-par(mfrow=c(1,2))
-plot(France)
-plot(ser, col="lightgrey", add=T)
-plot(ser, col="lightgrey")
-plot(placettes, col='red', add=T)
-par(mfrow=c(1,1))
+if (SIGdata==1) {
+  par(mfrow=c(1,2))
+  plot(France)
+  plot(ser, col="lightgrey", add=T)
+  plot(ser, col="lightgrey")
+  plot(placettes, col='red', add=T)
+  par(mfrow=c(1,1))
+  } else {print("Donnée cartographique indisponible : données SIG manquantes")}
 ```
 
 Habitats :  
@@ -238,9 +276,11 @@ ggplot(tab, aes(x=factor(0), y=VhaBMT)) + geom_violin(fill = "grey90") + labs(x=
 #### Bois vivant
 La figure \ref{fig:CartePlacettes} permet de localiser les placettes au sein du périmètre de la réserve. Elle fournit également la répartition du volume à l'hectare.  
 ```{r CartePlacettes, echo=F, fig.height=6,  fig.pos='H', fig.cap="Périmètre et localisation des placettes. Répartition du volume à l'hectare."}
-ech=100
-plot(limiteTour)
-plot(placettes, pch=19, cex=placettes@data$Vha/ech, add=T, col=rgb(0,1,0, 0.5))
+if (SIGdata==1) {
+  ech=100
+  plot(limiteTour)
+  plot(placettes, pch=19, cex=placettes@data$Vha/ech, add=T, col=rgb(0,1,0, 0.5))
+  } else {print("Donnée cartographique indisponible : données SIG manquantes")}
 ```
 
 #### Bois mort
@@ -248,23 +288,28 @@ plot(placettes, pch=19, cex=placettes@data$Vha/ech, add=T, col=rgb(0,1,0, 0.5))
 La figure \ref{fig:CarteVolBMP} permet de visualiser la répartition totale du bois mort. 
 
 ```{r CarteVolBMT, echo=F, fig.pos='H', fig.cap="Cartographie du volume total de bois mort au sol.", message=F}
-tab <- data.frame(X=placettes$coords.x1, Y=placettes$coords.x2)
-tab <- cbind(tab, placettes@data[,23:27]) #Faut-il supprimer la colonne NA dans psdrfPlaBM?
-tab.m <- melt(tab, id=c("X","Y"))
-perim <- fortify(limiteTour)
-ggplot(tab, aes(x=X, y=Y, size=VhaBMT/50)) + geom_point() + coord_equal() + theme_bw() + 
-  geom_polygon(aes(x = long, y = lat, group = group), data = perim, 
-               color='black', fill = 'lightblue', alpha = .1, size = .3) + theme_nothing()
-#   theme(axis.text = element_blank(), axis.title=element_blank()) 
+if (SIGdata==1) {
+  tab <- data.frame(X=placettes$coords.x1, Y=placettes$coords.x2)
+  tab <- cbind(tab, placettes@data[,23:27]) #Faut-il supprimer la colonne NA dans psdrfPlaBM?
+  tab.m <- melt(tab, id=c("X","Y"))
+  perim <- fortify(limiteTour)
+  ggplot(tab, aes(x=X, y=Y, size=VhaBMT/50)) + geom_point() + coord_equal() + theme_bw() + 
+    geom_polygon(aes(x = long, y = lat, group = group), data = perim, 
+                 color='black', fill = 'lightblue', alpha = .1, size = .3) + theme_nothing()
+  #   theme(axis.text = element_blank(), axis.title=element_blank()) 
+  } else {print("Donnée cartographique indisponible : données SIG manquantes")}
 ```
 
 
 ```{r CarteVolBM, echo=F, fig.pos='H', fig.height=8, fig.cap="Répartition spatiale des types de bois mort."}
-plot(limiteTour)
-col <- c('lightblue','darkblue','orange','red')
-draw.pie(z=as.matrix(placettes@data[,22:25]), x=placettes@coords[,1], y=placettes@coords[,2], radius=50, col=col)
-legend.pie("topleft",labels=c("Sinf","Ssup","Pinf","Psup"), radius=50, bty="n", 
-           col=col,cex=0.8, label.dist=1.3, inset=0.1)
+if (SIGdata==1) {
+  plot(limiteTour)
+  col <- c('lightblue','darkblue','orange','red')
+  draw.pie(z=as.matrix(placettes@data[,22:25]), x=placettes@coords[,1], y=placettes@coords[,2], radius=50, col=col)
+  legend.pie("topleft",labels=c("Sinf","Ssup","Pinf","Psup"), radius=50, bty="n", 
+             col=col,cex=0.8, label.dist=1.3, inset=0.1)
+  } else {print("Donnée cartographique indisponible : données SIG manquantes")
+          }
 ```
 
 
@@ -313,7 +358,7 @@ if (sum(ListEss$class1, na.rm=T)==0) {ListEss$class1 <- NULL}
 ListEss.m <- melt(ListEss, id="libelle")
 ListEss.m <- ddply(ListEss.m, .(variable), transform, rescale = rescale(value))
 ggplot(ListEss.m, aes(variable, libelle)) + geom_tile(aes(fill = rescale),
-    	colour = "white") + scale_fill_gradient(low = "white", high = "black") + theme_bw() + labs(x = NULL, y=NULL) +
+      colour = "white") + scale_fill_gradient(low = "white", high = "black") + theme_bw() + labs(x = NULL, y=NULL) +
       theme(axis.text.x  = element_text(size=9), axis.text.y  = element_text(size=9))
 ```
 
@@ -503,4 +548,3 @@ for (ind in 1:NB){
 ggplot(t2, aes(x=Taille, y=NbEss)) + geom_jitter(alpha=0.5, position = position_jitter(height = 0)) +
   geom_smooth(method='loess') + MyTheme
 ```
-

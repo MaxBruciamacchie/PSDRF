@@ -57,6 +57,8 @@ psdrf_AgregPlacettes <- function() {
   names(psdrfNGVGroupe1)[5:16] <- Titre
   psdrfNGVGroupe2 <- psdrf_AgregMoySdEr(psdrfPlaNGV,"Groupe2")
   names(psdrfNGVGroupe2)[5:16] <- Titre
+  psdrfNGVHabitat <- psdrf_AgregMoySdEr(psdrfPlaNGV,"Habitat")
+  names(psdrfNGVHabitat)[5:16] <- Titre
   # --------- Donnees par essences -------------
   psdrfNGVdispEssReg      <- psdrf_AgregMoySdEr(psdrfPlaArbresEssReg, Regroup="RB", var.sup="EssReg")
   psdrfNGVstrateEssReg    <- psdrf_AgregMoySdEr(psdrfPlaArbresEssReg, Regroup="Strate", var.sup="EssReg")
@@ -84,7 +86,7 @@ psdrf_AgregPlacettes <- function() {
   psdrfRegeDispEssRegPar <- psdrf_AgregMoySdEr(psdrfPlaRegeEssRegPar, Regroup="RB", ncol=4, var.sup="EssRegPar")
   # --------- Sauvegarde -------
   save(psdrfNGVdisp,psdrfNGVstrate,psdrfNGVcc,
-       psdrfNGVGroupe1,psdrfNGVGroupe2,
+       psdrfNGVGroupe1,psdrfNGVGroupe2,psdrfNGVHabitat,
        psdrfNGVdispEss,psdrfNGVdispEssReg,psdrfNGVdispEssRegPar,
        psdrfNGVstrateEssReg,psdrfNGVstrateEssRegPar,
        psdrfNGVdispCat,psdrfNGVdispCatEssReg,psdrfNGVdispCatEssRegPar,

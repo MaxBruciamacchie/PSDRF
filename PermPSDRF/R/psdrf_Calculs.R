@@ -78,7 +78,7 @@ Arbres$Vha <- Arbres$V*Arbres$Poids
 Arbres$typo <- NULL
 Arbres$Nha    <- Arbres$Poids; Arbres$Poids  <- NULL
 
-################### Calcul du volume gestionnaire ###################################
+################### Calcul du volume IFN ###################################
 print("Calcul du volume géométrique bois fort tige")
 Arbres$VIFN <- NA
 pos <- which(Arbres$TypeTarifIFN=="SchR")
